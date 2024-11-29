@@ -1,6 +1,8 @@
-﻿*.ctex
+# Godot 4+ specific ignores
+.godot/
+/android/
+*.ctex
 *.cfg
-.godot/editor/filesystem_cache8
 *.md5
 *.txt
 *.cache
