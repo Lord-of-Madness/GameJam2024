@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-IconCharacter="*res://Characters/icon_character.tscn"
+BaseCharacter="*res://Characters/Base_character.tscn"
 
 [display]
 
