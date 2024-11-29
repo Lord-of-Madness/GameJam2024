@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bwbscfbgtifl4"]
 
 [ext_resource type="Script" path="res://Scripts/character_movement.gd" id="1_7lcwf"]
-[ext_resource type="Texture2D" uid="uid://cuv5uol8elak2" path="res://Art/Hana Caraka - Base Character [sample]/idle.png" id="1_insey"]
+[ext_resource type="Texture2D" uid="uid://ffncun46b54a" path="res://Art/Hana Caraka - Base Character [sample]/idle.png" id="1_insey"]
 [ext_resource type="Script" path="res://Characters/ConversionRing.gd" id="3_1pu7u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdjqp"]

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var move_speed : float = 100
 
-func _physics_process(_delta: float):
+func _physics_process(_delta):
 	# Get input direction
 	var horizontal = Input.get_axis("left","right")
 	var vertical = Input.get_axis("up", "down")
