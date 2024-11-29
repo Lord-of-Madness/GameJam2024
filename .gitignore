@@ -1,0 +1,9 @@
+﻿*.ctex
+*.cfg
+.godot/editor/filesystem_cache8
+*.md5
+*.txt
+*.cache
+*.gdignore
+*.bin
+*.import
