@@ -1,7 +1,7 @@
 [gd_scene load_steps=44 format=3 uid="uid://bwbscfbgtifl4"]
 
 [ext_resource type="Script" path="res://Scripts/character_movement.gd" id="1_7lcwf"]
-[ext_resource type="Texture2D" uid="uid://ffncun46b54a" path="res://Art/Hana Caraka - Base Character [sample]/idle.png" id="1_insey"]
+[ext_resource type="Texture2D" uid="uid://cuv5uol8elak2" path="res://Art/Hana Caraka - Base Character [sample]/idle.png" id="1_insey"]
 [ext_resource type="Script" path="res://Characters/ConversionRing.gd" id="3_1pu7u"]
 [ext_resource type="Texture2D" uid="uid://ccoo560sqlie1" path="res://Art/Hana Caraka - Base Character [sample]/walk.png" id="3_63v58"]
 
@@ -297,6 +297,7 @@ size = Vector2(11, 5)
 radius = 50.0
 
 [node name="BaseCharacter" type="CharacterBody2D"]
+position = Vector2(30, 30)
 script = ExtResource("1_7lcwf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -312,3 +313,7 @@ script = ExtResource("3_1pu7u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ConversionRing"]
 shape = SubResource("CircleShape2D_m7q2e")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="body_entered" from="ConversionRing" to="ConversionRing" method="_on_body_entered"]
