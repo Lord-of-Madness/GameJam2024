@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dc0yu32iay8ld"]
+[gd_scene load_steps=8 format=3 uid="uid://dc0yu32iay8ld"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_qqwst"]
 [ext_resource type="Texture2D" uid="uid://36nu0822lmjp" path="res://Art/Basic Undead Animations/Bound Cadaver/BoundCadaver.png" id="2_c8abk"]
+[ext_resource type="PackedScene" uid="uid://dnsm1l8nqx6b5" path="res://Scenes/AttackAnim.tscn" id="3_wg0sm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i1lgf"]
 radius = 7.0
-height = 14.0
+height = 18.0
 
 [sub_resource type="Animation" id="Animation_xxi8w"]
 resource_name = "Idle"
@@ -49,7 +50,6 @@ _data = {
 script = ExtResource("1_qqwst")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 3)
 shape = SubResource("CapsuleShape2D_i1lgf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -62,3 +62,6 @@ region_rect = Rect2(0, 0, 64, 16)
 libraries = {
 "": SubResource("AnimationLibrary_1yqnd")
 }
+
+[node name="Attack" parent="." instance=ExtResource("3_wg0sm")]
+position = Vector2(0, 6)
