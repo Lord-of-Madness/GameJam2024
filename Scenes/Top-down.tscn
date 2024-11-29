@@ -1,3 +1,14 @@
+<<<<<<< HEAD
 [gd_scene format=3 uid="uid://ljlga578ljie"]
 
 [node name="Top-down" type="Node2D"]
+=======
+[gd_scene load_steps=2 format=3 uid="uid://ljlga578ljie"]
+
+[ext_resource type="PackedScene" uid="uid://bwbscfbgtifl4" path="res://Characters/Base_character.tscn" id="1_umwlu"]
+
+[node name="Top-down" type="Node2D"]
+
+[node name="BaseCharacter" parent="." instance=ExtResource("1_umwlu")]
+position = Vector2(245, 133)
+>>>>>>> f4015f7ee3d73fa78fd1a7090c367a7e1c9cd194
