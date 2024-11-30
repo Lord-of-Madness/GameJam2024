@@ -12,6 +12,7 @@ var facing_left:bool
 var facing_up:bool
 
 signal health_change
+signal death_signal
 
 var rng = RandomNumberGenerator.new()
 
@@ -110,4 +111,4 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	dead = false
 	Health = MaxHP
 	health_change.emit()
-	get_tree().reload_current_scene()
+	death_signal.emit()
