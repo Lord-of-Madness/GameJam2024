@@ -23,6 +23,7 @@ var AvailableTiles:Array[Vector2i]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	PlayerData.reset()
 	GrassMap.material.shader = grassShader
 	AvailableTiles = GrassMap.get_used_cells()
 	var spawnTimer = Timer.new()
