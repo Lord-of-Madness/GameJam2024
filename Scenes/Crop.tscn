@@ -11,15 +11,16 @@ radius = 10.0499
 script = ExtResource("1_i140b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
 texture = ExtResource("1_nh3c5")
 hframes = 5
-frame = 3
+frame = 2
 
 [node name="InteractionArea" type="Area2D" parent="."]
 script = ExtResource("3_it6gr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(0, 7)
+position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_eepjk")
 
 [connection signal="body_entered" from="InteractionArea" to="InteractionArea" method="_on_body_entered"]

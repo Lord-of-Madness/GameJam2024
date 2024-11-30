@@ -47,25 +47,24 @@ stream = ExtResource("11_gexmh")
 [node name="Dark" parent="." instance=ExtResource("9_ryj1b")]
 
 [node name="Crops" type="Node2D" parent="."]
-y_sort_enabled = true
 
 [node name="Crop4" parent="Crops" groups=["Crops"] instance=ExtResource("14_1rs3x")]
-position = Vector2(117, 38)
+position = Vector2(160, 61)
 
 [node name="Crop" parent="Crops" groups=["Crops"] instance=ExtResource("14_1rs3x")]
-position = Vector2(101, 70)
+position = Vector2(141, 62)
 
 [node name="Crop2" parent="Crops" groups=["Crops"] instance=ExtResource("14_1rs3x")]
-position = Vector2(101, 54)
+position = Vector2(140, 28)
 
 [node name="Crop3" parent="Crops" groups=["Crops"] instance=ExtResource("14_1rs3x")]
-position = Vector2(101, 38)
+position = Vector2(159, 43)
 
 [node name="Crop5" parent="Crops" groups=["Crops"] instance=ExtResource("14_1rs3x")]
-position = Vector2(117, 54)
+position = Vector2(141, 44)
 
 [node name="Crop6" parent="Crops" groups=["Crops"] instance=ExtResource("14_1rs3x")]
-position = Vector2(117, 70)
+position = Vector2(159, 28)
 
 [node name="ChickenArea" parent="." instance=ExtResource("10_pp1n8")]
 position = Vector2(-50, 117)
