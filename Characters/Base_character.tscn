@@ -1,13 +1,13 @@
-[gd_scene load_steps=87 format=3 uid="uid://bwbscfbgtifl4"]
+[gd_scene load_steps=99 format=3 uid="uid://bwbscfbgtifl4"]
 
 [ext_resource type="Script" path="res://Scripts/character_movement.gd" id="1_7lcwf"]
-[ext_resource type="Texture2D" uid="uid://dcty7lhb8hty2" path="res://Art/Hana Caraka - Base Character [sample]/idle.png" id="1_insey"]
-[ext_resource type="Texture2D" uid="uid://3g33ayobpxvr" path="res://Art/Hana Caraka - Base Character [sample]/death.png" id="2_1fmrf"]
+[ext_resource type="Texture2D" uid="uid://3qc3tnhmxqpc" path="res://Art/Hana Caraka - Base Character [sample]/idle.png" id="1_insey"]
+[ext_resource type="Texture2D" uid="uid://bgst70k4q54ce" path="res://Art/Hana Caraka - Base Character [sample]/death.png" id="2_1fmrf"]
 [ext_resource type="Script" path="res://Characters/ConversionRing.gd" id="3_1pu7u"]
-[ext_resource type="Texture2D" uid="uid://dnjqehvh4jp5g" path="res://Art/Hana Caraka - Base Character [sample]/walk.png" id="3_63v58"]
-[ext_resource type="Texture2D" uid="uid://cbrdww1doo6t" path="res://Art/simple_symbols_2.png" id="6_2uogp"]
-[ext_resource type="Texture2D" uid="uid://do0yla7bf03fo" path="res://Art/Guns - Sprite sheets/Glock - P80 [64x48]/[SHOOT WITH CASING AND MUZZLE FLASH] Glock - P80.png" id="7_2d8c5"]
-[ext_resource type="Texture2D" uid="uid://b405gfwca2lb8" path="res://Art/Guns - Sprite sheets/Bazooka - M20 [192x32]/[SHOOT WITH MUZZLE FLASH] Bazooka - M20.png" id="7_s23h1"]
+[ext_resource type="Texture2D" uid="uid://cpkq1svxe2h1y" path="res://Art/Hana Caraka - Base Character [sample]/walk.png" id="3_63v58"]
+[ext_resource type="Texture2D" uid="uid://c4yo3goipl5lk" path="res://Art/simple_symbols_2.png" id="6_2uogp"]
+[ext_resource type="Texture2D" uid="uid://nlko0mhnwyvu" path="res://Art/Guns - Sprite sheets/Glock - P80 [64x48]/[SHOOT WITH CASING AND MUZZLE FLASH] Glock - P80.png" id="7_2d8c5"]
+[ext_resource type="Texture2D" uid="uid://t6ianmgjeyc0" path="res://Art/Guns - Sprite sheets/Bazooka - M20 [192x32]/[SHOOT WITH MUZZLE FLASH] Bazooka - M20.png" id="7_s23h1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1sl8i"]
 atlas = ExtResource("2_1fmrf")
@@ -128,6 +128,54 @@ region = Rect2(160, 160, 80, 80)
 [sub_resource type="AtlasTexture" id="AtlasTexture_aig3g"]
 atlas = ExtResource("1_insey")
 region = Rect2(240, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aa028"]
+atlas = ExtResource("2_1fmrf")
+region = Rect2(0, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ofgb"]
+atlas = ExtResource("2_1fmrf")
+region = Rect2(80, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2rm7"]
+atlas = ExtResource("2_1fmrf")
+region = Rect2(160, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b88te"]
+atlas = ExtResource("2_1fmrf")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yootg"]
+atlas = ExtResource("2_1fmrf")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijjvm"]
+atlas = ExtResource("2_1fmrf")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apl3p"]
+atlas = ExtResource("2_1fmrf")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aue6p"]
+atlas = ExtResource("2_1fmrf")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts0ri"]
+atlas = ExtResource("2_1fmrf")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnu0q"]
+atlas = ExtResource("2_1fmrf")
+region = Rect2(80, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrpig"]
+atlas = ExtResource("2_1fmrf")
+region = Rect2(160, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0onq5"]
+atlas = ExtResource("2_1fmrf")
+region = Rect2(0, 160, 80, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_11ycr"]
 atlas = ExtResource("3_63v58")
@@ -346,6 +394,74 @@ animations = [{
 "loop": true,
 "name": &"Idle_up",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aa028")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ofgb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2rm7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ofgb")
+}],
+"loop": true,
+"name": &"Interact_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b88te")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yootg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijjvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yootg")
+}],
+"loop": true,
+"name": &"Interact_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apl3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aue6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts0ri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aue6p")
+}],
+"loop": true,
+"name": &"Interact_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnu0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrpig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnu0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0onq5")
+}],
+"loop": true,
+"name": &"Interact_up",
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -601,7 +717,7 @@ script = ExtResource("1_7lcwf")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_3ysjt")
-animation = &"Idle"
+animation = &"Interact_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -1)
@@ -619,6 +735,7 @@ shape = SubResource("CircleShape2D_m7q2e")
 one_shot = true
 
 [node name="ArrowBase" type="Node2D" parent="."]
+visible = false
 position = Vector2(0, -6)
 
 [node name="Sprite2D" type="Sprite2D" parent="ArrowBase"]
