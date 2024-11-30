@@ -46,6 +46,7 @@ func _ready() -> void:
 	time.wait_time = daylenght
 	time.timeout.connect(swapCycle)
 	time.start()
+	day = true
 	day_begins()
 
 func revive_player():
@@ -68,7 +69,7 @@ func night_begins():
 	$Dark.get_node("AnimationPlayer").play("fade")
 	get_node("Map/TileMaps/GrassLayer").material.shader = bloodgrassShader
 	
-	
+
 func day_begins():
 	EvilMap.visible = false
 	PlayerData.is_night = false
