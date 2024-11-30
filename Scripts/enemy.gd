@@ -20,10 +20,12 @@ var Cooldown:float = 0
 var animPlayer:AnimationPlayer
 const SPEED = 70.0
 var Active = false
+var BaseCharacter:Player
 func _ready() -> void:
+	BaseCharacter = get_node("../BaseCharacter")
 	animPlayer = get_node("Sprite2D/AnimationPlayer")
 	animPlayer.play("Idle")
-	%BaseCharacter.death_signal.connect(func():Active = false)
+	BaseCharacter.death_signal.connect(func():Active = false)
 	get_parent().connect("daybegins",day_begins)
 	get_parent().connect("nightbegins",night_begins)
 
@@ -34,18 +36,18 @@ func _process(delta: float) -> void:
 			canAttack = true
 			
 	elif Active:
-		if(%BaseCharacter.position.distance_to(position)<AttackRange*16):
+		if(BaseCharacter.position.distance_to(position)<AttackRange*16):
 			attack()
-			%BaseCharacter.take_damage(damage)
+			BaseCharacter.take_damage(damage)
 
 func _physics_process(delta: float) -> void:
 	if not Active: return
-	var target = %BaseCharacter.position
+	var target = BaseCharacter.position
 	velocity = position.direction_to(target)*SPEED
 	move_and_slide()
 
 func get_direction():
-	var dir = %BaseCharacter.position.direction_to(position)
+	var dir = BaseCharacter.position.direction_to(position)
 	if dir.x>0:
 		if dir.x>abs(dir.y):
 			return Vector2.RIGHT
@@ -70,7 +72,7 @@ func flash_modulate(color:Color):
 	tween.tween_property(self,"modulate",Color.WHITE,0.3)
 func attack():
 	var tween = create_tween()
-	tween.tween_property(self,"position",position + %BaseCharacter.position.direction_to(position)*10,0.2)
+	tween.tween_property(self,"position",position + BaseCharacter.position.direction_to(position)*10,0.2)
 	$Attack.attack_anim(get_direction())
 	canAttack = false
 	Cooldown = 1/AttackSpeed
@@ -84,5 +86,11 @@ func night_begins():
 	day = false
 	$DaySprite.visible = false
 	$Sprite2D.visible = true
-	if(position.distance_to(%BaseCharacter.position)<=%BaseCharacter.get_node("ConversionRing/CollisionShape2D").shape.radius):
+	if(position.distance_to(BaseCharacter.position)<=BaseCharacter.get_node("ConversionRing/CollisionShape2D").shape.radius):
 		Active = true
+
+func activate():
+	Active = true
+	day = false
+	$DaySprite.visible = false
+	$Sprite2D.visible = true
