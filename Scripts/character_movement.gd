@@ -89,7 +89,17 @@ func _physics_process(delta: float) -> void:
 				input_handling()
 		
 			velocity = Vector2(cos(angle), sin(angle))* actual_speed
-			
+			if velocity==Vector2.ZERO:
+				$WalkingWet.stop()
+				$WalkingDry.stop()
+			elif get_parent().day:
+				$WalkingWet.stop()
+				if not $WalkingDry.playing:
+					$WalkingDry.play()
+			else:
+				$WalkingDry.stop()
+				if not $WalkingWet.playing:
+					$WalkingWet.play()
 			# Move and Slide function uses velocity of character body to move character on map
 			if move_and_slide():
 				for index in get_slide_collision_count():
