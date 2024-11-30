@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://bwbscfbgtifl4"]
+[gd_scene load_steps=99 format=3 uid="uid://bwbscfbgtifl4"]
 
 [ext_resource type="Script" path="res://Scripts/character_movement.gd" id="1_7lcwf"]
 [ext_resource type="Texture2D" uid="uid://dcty7lhb8hty2" path="res://Art/Hana Caraka - Base Character [sample]/idle.png" id="1_insey"]
@@ -128,6 +128,54 @@ region = Rect2(160, 160, 80, 80)
 [sub_resource type="AtlasTexture" id="AtlasTexture_aig3g"]
 atlas = ExtResource("1_insey")
 region = Rect2(240, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aa028"]
+atlas = ExtResource("2_1fmrf")
+region = Rect2(0, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ofgb"]
+atlas = ExtResource("2_1fmrf")
+region = Rect2(80, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2rm7"]
+atlas = ExtResource("2_1fmrf")
+region = Rect2(160, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b88te"]
+atlas = ExtResource("2_1fmrf")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yootg"]
+atlas = ExtResource("2_1fmrf")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijjvm"]
+atlas = ExtResource("2_1fmrf")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apl3p"]
+atlas = ExtResource("2_1fmrf")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aue6p"]
+atlas = ExtResource("2_1fmrf")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts0ri"]
+atlas = ExtResource("2_1fmrf")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnu0q"]
+atlas = ExtResource("2_1fmrf")
+region = Rect2(80, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrpig"]
+atlas = ExtResource("2_1fmrf")
+region = Rect2(160, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0onq5"]
+atlas = ExtResource("2_1fmrf")
+region = Rect2(0, 160, 80, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_11ycr"]
 atlas = ExtResource("3_63v58")
@@ -346,6 +394,74 @@ animations = [{
 "loop": true,
 "name": &"Idle_up",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aa028")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ofgb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2rm7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ofgb")
+}],
+"loop": true,
+"name": &"Interact_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b88te")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yootg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijjvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yootg")
+}],
+"loop": true,
+"name": &"Interact_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apl3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aue6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts0ri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aue6p")
+}],
+"loop": true,
+"name": &"Interact_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnu0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrpig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnu0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0onq5")
+}],
+"loop": true,
+"name": &"Interact_up",
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -601,7 +717,7 @@ script = ExtResource("1_7lcwf")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_3ysjt")
-animation = &"Idle"
+animation = &"Interact_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -1)
@@ -621,6 +737,7 @@ position_smoothing_speed = 4.0
 one_shot = true
 
 [node name="ArrowBase" type="Node2D" parent="."]
+visible = false
 position = Vector2(0, -6)
 
 [node name="Sprite2D" type="Sprite2D" parent="ArrowBase"]

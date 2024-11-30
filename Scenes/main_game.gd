@@ -19,6 +19,7 @@ var day = true
 
 var AvailableTiles:Array[Vector2i]
 @onready var GrassMap:TileMapLayer = $Map/TileMaps/GrassLayer
+@onready var EvilMap:TileMapLayer = $Map/TileMaps/EvilLayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	AvailableTiles = GrassMap.get_used_cells()
@@ -47,10 +48,12 @@ func revive_player():
 	%BaseCharacter.position = $SpawnPoint.position
 
 func night_begins():
+	EvilMap.visible = true
 	PlayerData.is_night = true
-	
+	%BaseCharacter.collision_mask = %BaseCharacter.collision_mask|0b00001000
 	nightbegins.emit()
 	var twenn = create_tween()
+	
 	twenn.tween_property(Progress,"offset_top",7,1.5)
 	twenn.parallel()
 	twenn.tween_property(Progress,"offset_bottom",7,1.5)
@@ -61,8 +64,9 @@ func night_begins():
 	
 	
 func day_begins():
+	EvilMap.visible = false
 	PlayerData.is_night = false
-	
+	%BaseCharacter.collision_mask = %BaseCharacter.collision_mask^0b00001000
 	daybegins.emit()
 	var twenn = create_tween()
 	twenn.tween_property(Progress,"offset_top",-37,1.5)

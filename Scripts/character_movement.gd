@@ -29,6 +29,8 @@ signal death_signal
 
 var rng = RandomNumberGenerator.new()
 
+var is_doing_mechanic := false
+
 func _ready() -> void:
 	Health = MaxHP
 	arrowbase.visible = false
@@ -77,22 +79,23 @@ func _physics_process(delta: float) -> void:
 		var angle = atan2(vertical, horizontal)
 		var actual_speed =  move_speed
 		
-		# Animation and idle state speed 0
-		if ((angle >= PI*2 ) or (abs(horizontal) + abs(vertical)) == 0):
-			player_sprite.play("Idle")
-			face = facing.NONE
-			actual_speed = 0
-		else:
-			input_handling()
+		if !is_doing_mechanic:
+			# Animation and idle state speed 0
+			if ((angle >= PI*2 ) or (abs(horizontal) + abs(vertical)) == 0):
+				player_sprite.play("Idle")
+				face = facing.NONE
+				actual_speed = 0
+			else:
+				input_handling()
 		
-		velocity = Vector2(cos(angle), sin(angle))* actual_speed
-		
-		# Move and Slide function uses velocity of character body to move character on map
-		if move_and_slide():
-			for index in get_slide_collision_count():
-				var col = get_slide_collision(index)
-				if col.get_collider().is_in_group("Crops"):
-					print("collided")
+			velocity = Vector2(cos(angle), sin(angle))* actual_speed
+			
+			# Move and Slide function uses velocity of character body to move character on map
+			if move_and_slide():
+				for index in get_slide_collision_count():
+					var col = get_slide_collision(index)
+					if col.get_collider().is_in_group("Crops"):
+						print("collided")
 		
 func input_handling():
 	if Input.get_action_strength("right"):
