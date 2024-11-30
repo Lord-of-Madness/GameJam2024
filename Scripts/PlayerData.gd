@@ -2,8 +2,10 @@ extends Node
 
 var _egg_count := 0
 var _ore_count := 0
+var _turnip_count := 0
 
 var egg_counter_label: Label
+var turnip_counter_label: Label
 
 func increment_egg_count():
 	_egg_count += 1
@@ -26,3 +28,15 @@ func reset_ore_count():
 	
 func on_ore_count_changed():
 	pass
+	
+func increment_turnip_count():
+	_turnip_count += 1
+	on_turnip_count_changed()
+
+func on_turnip_count_changed():
+	turnip_counter_label.text = str(_turnip_count)
+
+func reset_turnip_count():
+	_turnip_count = 0
+	on_turnip_count_changed()
+	

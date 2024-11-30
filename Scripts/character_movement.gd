@@ -1,9 +1,10 @@
 extends CharacterBody2D
-
+class_name Player
 enum facing {UP,DOWN,LEFT,RIGHT,NONE}
 
 var guns = ["Shoot","Bazooka"]
-@export_range(0,1) var current_gun = 0
+var gun_dmg = {"Shoot":1,"Bazooka":5}
+@export_range(0,1) var current_gun:int = 0
 
 
 @export var move_speed : float = 100
@@ -14,6 +15,8 @@ var Health:int
 var is_alive:bool = true
 var face:facing = facing.NONE
 var collision:KinematicCollision2D
+
+@onready var bulletScene:PackedScene = preload("res://Scenes/bullet.tscn")
 
 var mouse_mode = true
 
@@ -30,10 +33,7 @@ func _ready() -> void:
 	Health = MaxHP
 	arrowbase.visible = false
 	$ArrowBase/AnimatedSprite2D.animation = guns[current_gun]
-	
-func _on_interact():
-	print("do something")
-	
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton or event is InputEventKey:
@@ -42,22 +42,24 @@ func _unhandled_input(event: InputEvent) -> void:
 		mouse_mode = true
 	elif event is InputEventJoypadButton:
 		mouse_mode = false
-		arrowbase.visible = true
-	if mouse_mode:
-		if (event is InputEventMouseMotion):
-			arrowbase.rotation = get_global_mouse_position().angle_to_point(position)
-		if(event.is_action_pressed("Aim")):
+		if not get_parent().day:
 			arrowbase.visible = true
-		elif(event.is_action_released("Aim")):
-			arrowbase.visible = false
+	if mouse_mode:
+		if not get_parent().day:
+			if (event is InputEventMouseMotion):
+				arrowbase.rotation = get_global_mouse_position().angle_to_point(position)
+			if(event.is_action_pressed("Aim")):
+				arrowbase.visible = true
+			elif(event.is_action_released("Aim")):
+				arrowbase.visible = false
 	else:
-		if event is InputEventJoypadMotion:
+		if event is InputEventJoypadMotion and not get_parent().day:
 			var vec = Input.get_vector("AimJoy RIGHT","AimJoy LEFT","AimJoy DOWN","AimJoy UP")
 			if vec != Vector2.ZERO:
 				last_joy_aim = vec
 			arrowbase.rotation =last_joy_aim.angle()
-	if event.is_action("Shoot"):
-		shoot()
+	if not get_parent().day and event.is_action("Shoot"):
+		shoot(arrowbase.rotation)
 		
 	if abs(arrowbase.rotation)>=PI/2:
 		$ArrowBase/AnimatedSprite2D.flip_v = true
@@ -65,6 +67,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		$ArrowBase/AnimatedSprite2D.flip_v = false
 		
 func _physics_process(delta: float) -> void:
+	if get_parent().day:
+		arrowbase.visible = false
 	if is_alive:
 		# Get input direction
 		var horizontal = Input.get_axis("left","right")
@@ -136,11 +140,13 @@ func camera_shake(startpos):
 func flash_modulate(color:Color):
 	var tween = create_tween()
 	tween.tween_property(self,"modulate",color,0.3)
-	tween.tween_property(self,"modulate",Color.WHITE,0.3)	
+	tween.tween_property(self,"modulate",Color.WHITE,0.3)
 
-func shoot():
+func shoot(rot:float):
 	$ArrowBase/AnimatedSprite2D.play()#guns[current_gun] #Should be already set for aiming
-	
+	var bullet:RigidBody2D = bulletScene.instantiate()
+	get_parent().add_child(bullet)
+	bullet.launch(position,rot,gun_dmg[guns[current_gun]])
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:

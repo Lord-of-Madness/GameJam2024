@@ -21,6 +21,7 @@ grow_vertical = 2
 color = Color(0.111197, 0.111197, 0.111197, 1)
 
 [node name="Target" type="ColorRect" parent="Background"]
+layout_mode = 0
 offset_left = 126.0
 offset_top = 2.0
 offset_right = 130.0
