@@ -445,7 +445,7 @@ script = ExtResource("1_7lcwf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3ysjt")
-animation = &"Death_right"
+animation = &"Death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 4.5)
@@ -466,7 +466,8 @@ one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ArrowBase"]
 modulate = Color(0.301961, 0.301961, 0.301961, 0.278431)
-position = Vector2(-1, 21)
+position = Vector2(-22, -1.63425e-13)
+rotation = 1.5708
 scale = Vector2(0.3125, 1.75)
 texture = ExtResource("6_2uogp")
 region_enabled = true

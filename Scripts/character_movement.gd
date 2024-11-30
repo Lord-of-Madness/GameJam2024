@@ -21,10 +21,16 @@ var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	Health = MaxHP
+	arrowbase.visible = false
 
 
-#func _unhandled_input(event: InputEvent) -> void:
-	#if(event.is_action_pressed())
+func _unhandled_input(event: InputEvent) -> void:
+	if (event is InputEventMouseMotion):
+		arrowbase.rotation = get_global_mouse_position().angle_to_point(position)
+	if(event.is_action_pressed("Aim")):
+		arrowbase.visible = true
+	if(event.is_action_released("Aim")):
+		arrowbase.visible = false
 		
 func _physics_process(delta: float) -> void:
 	if is_alive:
