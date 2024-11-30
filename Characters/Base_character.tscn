@@ -1,13 +1,13 @@
 [gd_scene load_steps=99 format=3 uid="uid://bwbscfbgtifl4"]
 
 [ext_resource type="Script" path="res://Scripts/character_movement.gd" id="1_7lcwf"]
-[ext_resource type="Texture2D" uid="uid://3qc3tnhmxqpc" path="res://Art/Hana Caraka - Base Character [sample]/idle.png" id="1_insey"]
-[ext_resource type="Texture2D" uid="uid://bgst70k4q54ce" path="res://Art/Hana Caraka - Base Character [sample]/death.png" id="2_1fmrf"]
+[ext_resource type="Texture2D" uid="uid://cuv5uol8elak2" path="res://Art/Hana Caraka - Base Character [sample]/idle.png" id="1_insey"]
+[ext_resource type="Texture2D" uid="uid://dpubh0ty6cewp" path="res://Art/Hana Caraka - Base Character [sample]/death.png" id="2_1fmrf"]
 [ext_resource type="Script" path="res://Characters/ConversionRing.gd" id="3_1pu7u"]
-[ext_resource type="Texture2D" uid="uid://cpkq1svxe2h1y" path="res://Art/Hana Caraka - Base Character [sample]/walk.png" id="3_63v58"]
-[ext_resource type="Texture2D" uid="uid://c4yo3goipl5lk" path="res://Art/simple_symbols_2.png" id="6_2uogp"]
-[ext_resource type="Texture2D" uid="uid://nlko0mhnwyvu" path="res://Art/Guns - Sprite sheets/Glock - P80 [64x48]/[SHOOT WITH CASING AND MUZZLE FLASH] Glock - P80.png" id="7_2d8c5"]
-[ext_resource type="Texture2D" uid="uid://t6ianmgjeyc0" path="res://Art/Guns - Sprite sheets/Bazooka - M20 [192x32]/[SHOOT WITH MUZZLE FLASH] Bazooka - M20.png" id="7_s23h1"]
+[ext_resource type="Texture2D" uid="uid://ddhse5ipp4xcx" path="res://Art/Hana Caraka - Base Character [sample]/walk.png" id="3_63v58"]
+[ext_resource type="Texture2D" uid="uid://hbhboooj7ujp" path="res://Art/simple_symbols_2.png" id="6_2uogp"]
+[ext_resource type="Texture2D" uid="uid://y5tphtn26mid" path="res://Art/Guns - Sprite sheets/Glock - P80 [64x48]/[SHOOT WITH CASING AND MUZZLE FLASH] Glock - P80.png" id="7_2d8c5"]
+[ext_resource type="Texture2D" uid="uid://dedtmapmocd4p" path="res://Art/Guns - Sprite sheets/Bazooka - M20 [192x32]/[SHOOT WITH MUZZLE FLASH] Bazooka - M20.png" id="7_s23h1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1sl8i"]
 atlas = ExtResource("2_1fmrf")
@@ -730,6 +730,8 @@ script = ExtResource("3_1pu7u")
 shape = SubResource("CircleShape2D_m7q2e")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
