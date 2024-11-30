@@ -150,6 +150,7 @@ func shoot(rot:float):
 	var bullet:RigidBody2D = bulletScene.instantiate()
 	get_parent().add_child(bullet)
 	bullet.launch(position,rot,gun_dmg[guns[current_gun]])
+	$Gunshot.play()
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:

@@ -1,5 +1,18 @@
 extends Control
 
+var in_focus:Button
+
+func _ready() -> void:
+	$VBoxContainer/Button.grab_focus()
+	in_focus = $VBoxContainer/Button
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventJoypadButton:
+		if in_focus.has_focus():
+			pass
+		else: in_focus = $VBoxContainer/Button
+		if event.is_action_pressed("interact"):
+			in_focus.button_pressed
 
 func _on_start_pressed() -> void:
 	if get_tree().paused:

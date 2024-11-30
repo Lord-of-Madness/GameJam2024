@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://cq63i5swnbhmh"]
+[gd_scene load_steps=12 format=3 uid="uid://b8id3b7fhaly"]
 
-[ext_resource type="Texture2D" uid="uid://ciwjaxcwbc8sb" path="res://Art/menu_background1.png" id="1_3p160"]
+[ext_resource type="Texture2D" uid="uid://016a6jsty1i2" path="res://Art/menu_background1.png" id="1_3p160"]
 [ext_resource type="Script" path="res://Scenes/options_menu.gd" id="1_jt3io"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i7qqk"]
@@ -105,7 +105,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 10
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ounrd")
@@ -130,7 +130,7 @@ grow_vertical = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 10
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2txnr")
