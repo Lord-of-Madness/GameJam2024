@@ -65,11 +65,11 @@ func update_facing_direction(movement_direction: Vector2):
 	if directionAngle <= PI / 4.0 or directionAngle >= 7.0 * PI / 4.0:
 		$AnimatedSprite2D.play("walk_right")
 	elif directionAngle >= PI / 4.0 and directionAngle <= 3.0 * PI / 4.0:
-		$AnimatedSprite2D.play("walk_up")
+		$AnimatedSprite2D.play("walk_down")
 	elif directionAngle >= 3.0 * PI / 4.0 and directionAngle <= 5.0 * PI / 4.0:
 		$AnimatedSprite2D.play("walk_left")
 	else:
-		$AnimatedSprite2D.play("walk_down")
+		$AnimatedSprite2D.play("walk_up")
 	
 func try_lay_egg():
 	if egg != null:
