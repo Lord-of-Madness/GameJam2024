@@ -5,7 +5,13 @@ const MAX_IDLE_TIME := 10.0
 const MOVEMENT_SPEED := 16.0
 # Maximum number of eggs (of all chickens) in the chicken area.
 const MAX_EGGS_GLOBAL := 2
+# Minimal amount of time during no chicken play another chicken noise after last chicken noise has been played.
+const MIN_CHICKEN_NOISE_TIMEOUT := 3.0
 
+static var first_chicken_created := false
+static var chicken_noise_timer := MIN_CHICKEN_NOISE_TIMEOUT
+
+var first_chicken := false
 var rng := RandomNumberGenerator.new()
 var area
 var shape: CollisionShape2D
@@ -17,8 +23,17 @@ var egg_scene
 
 func _ready() -> void:
 	egg_scene = preload("res://Scenes/Egg.tscn")
+	
+	if !first_chicken_created:
+		first_chicken = true
+		first_chicken_created = true
+		
+	MusicManager.other_sounds.append($ChickenNoise)
 
 func _process(delta: float) -> void:
+	if first_chicken:
+		chicken_noise_timer += delta
+	
 	if area == null:
 		area = get_parent() as Area2D
 		shape = area.get_child(0) as CollisionShape2D
@@ -72,6 +87,10 @@ func update_facing_direction(movement_direction: Vector2):
 		$AnimatedSprite2D.play("walk_up")
 	
 func try_lay_egg():
+	if chicken_noise_timer >= MIN_CHICKEN_NOISE_TIMEOUT:
+		chicken_noise_timer = 0.0
+		$ChickenNoise.play()
+	
 	if egg != null:
 		return
 	
