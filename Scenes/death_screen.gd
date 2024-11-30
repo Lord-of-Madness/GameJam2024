@@ -1,9 +1,8 @@
 extends Control
 
-@onready var grassShader:Shader = preload("res://Scenes/Grass.gdshader")
 
 func restart():
-	MusicManager.daytheme.play()
+	MusicManager.reset_music()
 	self.hide()
 
 func _on_play_again_pressed() -> void:
