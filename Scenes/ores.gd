@@ -55,6 +55,8 @@ func on_player_interact_start():
 	interaction_target_original_pos = interaction_target.position
 	interaction_target.get_node("CPUParticles2D").emitting = true
 	
+	MusicManager.mining.play()
+	
 func on_player_interact_end():
 	if h_flip:
 		PlayerData.player.scale.x *= -1.0
@@ -64,6 +66,8 @@ func on_player_interact_end():
 		interaction_target.position = interaction_target_original_pos
 		interaction_target.get_node("CPUParticles2D").emitting = false
 		interaction_target = null
+		
+		MusicManager.mining.stop()
 
 func get_nearest_ore():
 	var nearest_distance_squared := INF
