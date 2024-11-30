@@ -67,6 +67,7 @@ func taken_hit(dmg:int):
 	flash_modulate(Color.RED)
 	Health-=dmg
 	if Health<=0:
+		PlayerData._enemy_kill_count += 1
 		queue_free()
 func flash_modulate(color:Color):
 	var tween = create_tween()
