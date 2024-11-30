@@ -11,8 +11,8 @@
 [ext_resource type="LabelSettings" uid="uid://bv2est1hx2aj2" path="res://Scenes/LabelData/Bloody_Label.tres" id="8_x2o6i"]
 [ext_resource type="PackedScene" uid="uid://dllvdr44qyxyh" path="res://Scenes/Dark.tscn" id="9_60ru0"]
 [ext_resource type="PackedScene" uid="uid://bwbscfbgtifl4" path="res://Characters/Base_character.tscn" id="9_kdaui"]
-[ext_resource type="AudioStream" uid="uid://sorb7g8ybcy6" path="res://Art/Music/Night-theme.mp3" id="10_4m1tr"]
-[ext_resource type="AudioStream" uid="uid://da7x66qerfu3a" path="res://Art/Music/Day-theme.mp3" id="11_gexmh"]
+[ext_resource type="AudioStream" uid="uid://psmjlcpbtwnf" path="res://Art/Music/Night-theme.mp3" id="10_4m1tr"]
+[ext_resource type="AudioStream" uid="uid://c5ckwrifro2bx" path="res://Art/Music/Day-theme.mp3" id="11_gexmh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvggy"]
 bg_color = Color(1, 0, 0, 1)
@@ -133,6 +133,7 @@ position = Vector2(-86.979, 28.4822)
 [node name="Timer" type="Timer" parent="."]
 
 [node name="BaseCharacter" parent="." instance=ExtResource("9_kdaui")]
+unique_name_in_owner = true
 position = Vector2(-122, 94)
 
 [node name="NightStreamPlayer" type="AudioStreamPlayer" parent="."]
