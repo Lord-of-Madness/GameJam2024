@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://rwuknlr3kl4u"]
+[gd_scene load_steps=12 format=3 uid="uid://rwuknlr3kl4u"]
 
 [ext_resource type="PackedScene" uid="uid://e5x1aso3uw0c" path="res://Scenes/Map.tscn" id="1_a3im0"]
 [ext_resource type="Script" path="res://Scenes/main_game.gd" id="1_nbuhc"]
 [ext_resource type="PackedScene" uid="uid://dc0yu32iay8ld" path="res://Scenes/enemy.tscn" id="2_yenkv"]
 [ext_resource type="Script" path="res://Scenes/Health_bar.gd" id="4_jfh7b"]
+[ext_resource type="Script" path="res://Scenes/cycle_announcement.gd" id="5_8yxll"]
+[ext_resource type="Shader" path="res://Scenes/Glitch.gdshader" id="5_wt5iu"]
+[ext_resource type="LabelSettings" uid="uid://bbm407nhinbqg" path="res://Scenes/LabelData/Pretty_Label.tres" id="6_wvree"]
+[ext_resource type="LabelSettings" uid="uid://bv2est1hx2aj2" path="res://Scenes/LabelData/Bloody_Label.tres" id="8_x2o6i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvggy"]
 bg_color = Color(1, 0, 0, 1)
@@ -11,8 +15,18 @@ bg_color = Color(1, 0, 0, 1)
 [sub_resource type="Theme" id="Theme_ilxjc"]
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_dvggy")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gnyru"]
+shader = ExtResource("5_wt5iu")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.2
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+
 [node name="Main game" type="Node2D"]
 script = ExtResource("1_nbuhc")
+daylenght = 5
+nigthlenght = 5
 
 [node name="Map" parent="." instance=ExtResource("1_a3im0")]
 z_index = -1
@@ -51,5 +65,57 @@ theme = SubResource("Theme_ilxjc")
 show_percentage = false
 script = ExtResource("4_jfh7b")
 
+[node name="CycleAnnouncement" type="Control" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_8yxll")
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/CycleAnnouncement"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -352.5
+offset_top = -154.5
+offset_right = 352.5
+offset_bottom = 154.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "With the rising sun
+Everything Changes
+Day begins!"
+label_settings = ExtResource("6_wvree")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/CycleAnnouncement"]
+material = SubResource("ShaderMaterial_gnyru")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.5
+offset_top = -154.5
+offset_right = 239.5
+offset_bottom = 154.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "With the setting sun
+EVERYTHING CHANGES
+Night begins!"
+label_settings = ExtResource("8_x2o6i")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2(-86.979, 28.4822)
+
+[node name="Timer" type="Timer" parent="."]
