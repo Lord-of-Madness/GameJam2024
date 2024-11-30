@@ -1,35 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://rwuknlr3kl4u"]
-[gd_scene load_steps=19 format=3 uid="uid://rwuknlr3kl4u"]
+[gd_scene load_steps=11 format=3 uid="uid://rwuknlr3kl4u"]
 
 [ext_resource type="Script" path="res://Scenes/main_game.gd" id="1_4f8sh"]
 [ext_resource type="PackedScene" uid="uid://e5x1aso3uw0c" path="res://Scenes/Map.tscn" id="1_a3im0"]
 [ext_resource type="PackedScene" uid="uid://dc0yu32iay8ld" path="res://Scenes/enemy.tscn" id="2_yenkv"]
 [ext_resource type="PackedScene" uid="uid://dq6udp3vcaey" path="res://Scenes/UI/UI.tscn" id="7_sy8uy"]
-[ext_resource type="PackedScene" uid="uid://b7dgd2bpeqmdx" path="res://Scenes/chicken_area.tscn" id="8_ccvws"]
 [ext_resource type="PackedScene" uid="uid://bwbscfbgtifl4" path="res://Characters/Base_character.tscn" id="9_kdaui"]
-[ext_resource type="PackedScene" path="res://Scenes/Dark.tscn" id="9_ryj1b"]
+[ext_resource type="PackedScene" uid="uid://dllvdr44qyxyh" path="res://Scenes/Dark.tscn" id="9_ryj1b"]
 [ext_resource type="AudioStream" uid="uid://bkokx2tgeumq8" path="res://Art/Music/Night-theme.mp3" id="10_4m1tr"]
+[ext_resource type="PackedScene" uid="uid://b7dgd2bpeqmdx" path="res://Scenes/chicken_area.tscn" id="10_pp1n8"]
 [ext_resource type="AudioStream" uid="uid://d15gueecn504r" path="res://Art/Music/Day-theme.mp3" id="11_gexmh"]
-[ext_resource type="AudioStream" uid="uid://sorb7g8ybcy6" path="res://Art/Music/Night-theme.mp3" id="10_4m1tr"]
-[ext_resource type="AudioStream" uid="uid://da7x66qerfu3a" path="res://Art/Music/Day-theme.mp3" id="11_gexmh"]
 [ext_resource type="PackedScene" uid="uid://dbhjsvqgn4mg2" path="res://Scenes/Crop.tscn" id="14_1rs3x"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvggy"]
-bg_color = Color(1, 0, 0, 1)
-
-[sub_resource type="Theme" id="Theme_ilxjc"]
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_dvggy")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gnyru"]
-shader = ExtResource("5_wt5iu")
-shader_parameter/shake_power = 0.03
-shader_parameter/shake_rate = 0.2
-shader_parameter/shake_speed = 5.0
-shader_parameter/shake_block_size = 30.5
-shader_parameter/shake_color_rate = 0.01
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsj1l"]
-size = Vector2(87, 41)
 
 [node name="Main game" type="Node2D"]
 y_sort_enabled = true
@@ -54,9 +34,7 @@ position = Vector2(-86.979, 28.4822)
 [node name="Timer" type="Timer" parent="."]
 
 [node name="BaseCharacter" parent="." instance=ExtResource("9_kdaui")]
-[node name="BaseCharacter" parent="." groups=["Player"] instance=ExtResource("9_kdaui")]
 unique_name_in_owner = true
-position = Vector2(-122, 94)
 
 [node name="NightStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_4m1tr")
@@ -66,20 +44,7 @@ stream = ExtResource("11_gexmh")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("7_sy8uy")]
 
-[node name="ChickenArea" parent="." instance=ExtResource("8_ccvws")]
-
 [node name="Dark" parent="." instance=ExtResource("9_ryj1b")]
-[node name="Chicken" parent="ChickenArea" instance=ExtResource("3_cl2rf")]
-position = Vector2(-38, -14)
-
-[node name="Chicken2" parent="ChickenArea" instance=ExtResource("3_cl2rf")]
-position = Vector2(38, -13)
-
-[node name="Chicken3" parent="ChickenArea" instance=ExtResource("3_cl2rf")]
-position = Vector2(-38, 17)
-
-[node name="Chicken4" parent="ChickenArea" instance=ExtResource("3_cl2rf")]
-position = Vector2(39, 17)
 
 [node name="Crops" type="Node2D" parent="."]
 
@@ -100,3 +65,6 @@ position = Vector2(141, 44)
 
 [node name="Crop6" parent="Crops" groups=["Crops"] instance=ExtResource("14_1rs3x")]
 position = Vector2(159, 28)
+
+[node name="ChickenArea" parent="." instance=ExtResource("10_pp1n8")]
+position = Vector2(-50, 117)
