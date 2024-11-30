@@ -1,10 +1,11 @@
-[gd_scene load_steps=47 format=3 uid="uid://cqya1qgay0lur"]
+[gd_scene load_steps=48 format=3 uid="uid://cqya1qgay0lur"]
 
 [ext_resource type="Script" path="res://Scenes/chicken.gd" id="1_qggu5"]
 [ext_resource type="Texture2D" uid="uid://c57tdjitaunfn" path="res://Art/Hana Caraka Animals - Free/Chicken/Chicken down.png" id="1_xxvvf"]
 [ext_resource type="Texture2D" uid="uid://dl66dwb7p7lgg" path="res://Art/Hana Caraka Animals - Free/Chicken/Chicken left.png" id="2_u7hl3"]
 [ext_resource type="Texture2D" uid="uid://ccb36pb4735p3" path="res://Art/Hana Caraka Animals - Free/Chicken/Chicken right.png" id="3_rtttl"]
 [ext_resource type="Texture2D" uid="uid://b7ppie8omoq4l" path="res://Art/Hana Caraka Animals - Free/Chicken/Chicken up.png" id="4_p1sk1"]
+[ext_resource type="AudioStream" uid="uid://tcd71vpdli6" path="res://Art/Sounds/Chicken Sound Effect.mp3" id="6_3ycff"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7sar2"]
 atlas = ExtResource("1_xxvvf")
@@ -363,5 +364,10 @@ animation = &"idle_down"
 speed_scale = 0.5
 
 [node name="IdleTimer" type="Timer" parent="."]
+
+[node name="ChickenNoise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_3ycff")
+volume_db = -10.0
+max_distance = 500.0
 
 [connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]

@@ -10,6 +10,8 @@ extends Node
 
 @export var shutupIamDebugging = false
 
+var other_sounds = []
+
 var is_day: bool = true
 
 func _ready() -> void:
