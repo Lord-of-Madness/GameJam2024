@@ -53,6 +53,7 @@ func on_player_interact_start():
 	
 	interaction_target = get_nearest_ore()
 	interaction_target_original_pos = interaction_target.position
+	interaction_target.get_node("CPUParticles2D").emitting = true
 	
 func on_player_interact_end():
 	if h_flip:
@@ -61,6 +62,7 @@ func on_player_interact_end():
 	
 	if interaction_target != null:
 		interaction_target.position = interaction_target_original_pos
+		interaction_target.get_node("CPUParticles2D").emitting = false
 		interaction_target = null
 
 func get_nearest_ore():

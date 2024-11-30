@@ -1,11 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://c28yfqakwggci"]
+[gd_scene load_steps=11 format=3 uid="uid://c28yfqakwggci"]
 
 [ext_resource type="Script" path="res://Scenes/main_game.gd" id="1_4f8sh"]
 [ext_resource type="PackedScene" uid="uid://e5x1aso3uw0c" path="res://Scenes/Map.tscn" id="1_a3im0"]
 [ext_resource type="PackedScene" uid="uid://dc0yu32iay8ld" path="res://Scenes/enemy.tscn" id="2_yenkv"]
 [ext_resource type="PackedScene" uid="uid://dq6udp3vcaey" path="res://Scenes/UI/UI.tscn" id="7_sy8uy"]
 [ext_resource type="PackedScene" uid="uid://bwbscfbgtifl4" path="res://Characters/Base_character.tscn" id="9_kdaui"]
-[ext_resource type="PackedScene" uid="uid://dhuak8jd5cu38" path="res://Scenes/pause_menu.tscn" id="9_rgu5t"]
+[ext_resource type="PackedScene" path="res://Scenes/pause_menu.tscn" id="9_rgu5t"]
 [ext_resource type="PackedScene" uid="uid://dllvdr44qyxyh" path="res://Scenes/Dark.tscn" id="9_ryj1b"]
 [ext_resource type="PackedScene" uid="uid://dxgi03e2xappr" path="res://Scenes/chicken_area.tscn" id="10_pp1n8"]
 [ext_resource type="PackedScene" uid="uid://b8cu6nb3ytnl7" path="res://Scenes/Ores.tscn" id="11_47hfd"]
@@ -71,16 +71,3 @@ position = Vector2(-50, 117)
 
 [node name="Ores" parent="." instance=ExtResource("11_47hfd")]
 position = Vector2(-28, 24)
-
-[node name="Crop" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-position = Vector2(-859, -305)
-script = null
