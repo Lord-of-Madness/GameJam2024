@@ -12,13 +12,8 @@ var destination: Vector2
 var idle := true
 
 func _process(delta: float) -> void:
-	print($IdleTimer.time_left)
-	
 	if area == null:
-		area = get_parent()
-		print(area)
-		area = area as Area2D
-		print(area)
+		area = get_parent() as Area2D
 		shape = area.get_child(0) as CollisionShape2D
 		start_idle()
 	
