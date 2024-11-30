@@ -34,6 +34,7 @@ position = Vector2(-86.979, 28.4822)
 
 [node name="BaseCharacter" parent="." groups=["Player"] instance=ExtResource("9_kdaui")]
 unique_name_in_owner = true
+current_gun = 1
 
 [node name="CanvasLayer" parent="." instance=ExtResource("7_sy8uy")]
 
