@@ -2,6 +2,10 @@ extends CharacterBody2D
 
 enum facing {UP,DOWN,LEFT,RIGHT,NONE}
 
+var guns = ["Shoot","Bazooka"]
+@export_range(0,1) var current_gun = 0
+
+
 @export var move_speed : float = 100
 
 @onready var player_sprite:AnimatedSprite2D = $AnimatedSprite2D
@@ -46,6 +50,13 @@ func _unhandled_input(event: InputEvent) -> void:
 			if vec != Vector2.ZERO:
 				last_joy_aim = vec
 			arrowbase.rotation =last_joy_aim.angle()
+	if event.is_action("Shoot"):
+		$ArrowBase/AnimatedSprite2D.play(guns[current_gun])
+		
+	if abs(arrowbase.rotation)>=PI/2:
+		$ArrowBase/AnimatedSprite2D.flip_v = true
+	else:
+		$ArrowBase/AnimatedSprite2D.flip_v = false
 		
 func _physics_process(delta: float) -> void:
 	if is_alive:

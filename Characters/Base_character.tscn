@@ -1,11 +1,13 @@
-[gd_scene load_steps=64 format=3 uid="uid://bwbscfbgtifl4"]
+[gd_scene load_steps=87 format=3 uid="uid://bwbscfbgtifl4"]
 
 [ext_resource type="Script" path="res://Scripts/character_movement.gd" id="1_7lcwf"]
-[ext_resource type="Texture2D" uid="uid://dcty7lhb8hty2" path="res://Art/Hana Caraka - Base Character [sample]/idle.png" id="1_insey"]
-[ext_resource type="Texture2D" uid="uid://3g33ayobpxvr" path="res://Art/Hana Caraka - Base Character [sample]/death.png" id="2_1fmrf"]
+[ext_resource type="Texture2D" uid="uid://cuv5uol8elak2" path="res://Art/Hana Caraka - Base Character [sample]/idle.png" id="1_insey"]
+[ext_resource type="Texture2D" uid="uid://dpubh0ty6cewp" path="res://Art/Hana Caraka - Base Character [sample]/death.png" id="2_1fmrf"]
 [ext_resource type="Script" path="res://Characters/ConversionRing.gd" id="3_1pu7u"]
-[ext_resource type="Texture2D" uid="uid://dnjqehvh4jp5g" path="res://Art/Hana Caraka - Base Character [sample]/walk.png" id="3_63v58"]
-[ext_resource type="Texture2D" uid="uid://cbrdww1doo6t" path="res://Art/simple_symbols_2.png" id="6_2uogp"]
+[ext_resource type="Texture2D" uid="uid://ddhse5ipp4xcx" path="res://Art/Hana Caraka - Base Character [sample]/walk.png" id="3_63v58"]
+[ext_resource type="Texture2D" uid="uid://hbhboooj7ujp" path="res://Art/simple_symbols_2.png" id="6_2uogp"]
+[ext_resource type="Texture2D" uid="uid://y5tphtn26mid" path="res://Art/Guns - Sprite sheets/Glock - P80 [64x48]/[SHOOT WITH CASING AND MUZZLE FLASH] Glock - P80.png" id="7_2d8c5"]
+[ext_resource type="Texture2D" uid="uid://dedtmapmocd4p" path="res://Art/Guns - Sprite sheets/Bazooka - M20 [192x32]/[SHOOT WITH MUZZLE FLASH] Bazooka - M20.png" id="7_s23h1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1sl8i"]
 atlas = ExtResource("2_1fmrf")
@@ -439,6 +441,159 @@ size = Vector2(7, 2)
 [sub_resource type="CircleShape2D" id="CircleShape2D_m7q2e"]
 radius = 50.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gw2dg"]
+atlas = ExtResource("7_s23h1")
+region = Rect2(0, 0, 192, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_us0ka"]
+atlas = ExtResource("7_s23h1")
+region = Rect2(192, 0, 192, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr85o"]
+atlas = ExtResource("7_s23h1")
+region = Rect2(384, 0, 192, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhljm"]
+atlas = ExtResource("7_s23h1")
+region = Rect2(576, 0, 192, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jluuh"]
+atlas = ExtResource("7_s23h1")
+region = Rect2(768, 0, 192, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dx6k6"]
+atlas = ExtResource("7_s23h1")
+region = Rect2(960, 0, 192, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yma4k"]
+atlas = ExtResource("7_s23h1")
+region = Rect2(1152, 0, 192, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2i51"]
+atlas = ExtResource("7_s23h1")
+region = Rect2(1344, 0, 192, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pw1l"]
+atlas = ExtResource("7_2d8c5")
+region = Rect2(0, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmmhk"]
+atlas = ExtResource("7_2d8c5")
+region = Rect2(64, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7w43"]
+atlas = ExtResource("7_2d8c5")
+region = Rect2(128, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tettt"]
+atlas = ExtResource("7_2d8c5")
+region = Rect2(192, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvop7"]
+atlas = ExtResource("7_2d8c5")
+region = Rect2(256, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1roc"]
+atlas = ExtResource("7_2d8c5")
+region = Rect2(320, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oadfi"]
+atlas = ExtResource("7_2d8c5")
+region = Rect2(384, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajuo5"]
+atlas = ExtResource("7_2d8c5")
+region = Rect2(448, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bncic"]
+atlas = ExtResource("7_2d8c5")
+region = Rect2(512, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idcmh"]
+atlas = ExtResource("7_2d8c5")
+region = Rect2(576, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4l0j"]
+atlas = ExtResource("7_2d8c5")
+region = Rect2(640, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3mwi"]
+atlas = ExtResource("7_2d8c5")
+region = Rect2(704, 0, 64, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hxwkl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gw2dg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_us0ka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cr85o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhljm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jluuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dx6k6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yma4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2i51")
+}],
+"loop": false,
+"name": &"Bazooka",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pw1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmmhk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7w43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tettt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvop7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1roc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oadfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajuo5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bncic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idcmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4l0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3mwi")
+}],
+"loop": false,
+"name": &"Shoot",
+"speed": 22.0
+}]
+
 [node name="BaseCharacter" type="CharacterBody2D"]
 script = ExtResource("1_7lcwf")
 
@@ -463,6 +618,7 @@ shape = SubResource("CircleShape2D_m7q2e")
 one_shot = true
 
 [node name="ArrowBase" type="Node2D" parent="."]
+position = Vector2(0, -6)
 
 [node name="Sprite2D" type="Sprite2D" parent="ArrowBase"]
 modulate = Color(0.301961, 0.301961, 0.301961, 0.278431)
@@ -472,6 +628,13 @@ scale = Vector2(0.3125, 1.75)
 texture = ExtResource("6_2uogp")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ArrowBase"]
+position = Vector2(-11, 0)
+scale = Vector2(0.323542, 0.323542)
+sprite_frames = SubResource("SpriteFrames_hxwkl")
+animation = &"Bazooka"
+flip_h = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="ConversionRing" to="ConversionRing" method="_on_body_entered"]
