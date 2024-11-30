@@ -87,7 +87,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_i7qqk")
 
-[node name="Button" type="Button" parent="."]
+[node name="TurnOff" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -135,5 +135,5 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_4cnhb")
 theme_override_styles/normal = SubResource("StyleBoxFlat_c71y6")
 text = "EXIT"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TurnOff" to="." method="_on_turn_off_pressed"]
 [connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
