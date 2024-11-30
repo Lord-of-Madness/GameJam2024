@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bygln5deer6mr"]
+[gd_scene load_steps=12 format=3 uid="uid://dhuak8jd5cu38"]
 
 [ext_resource type="Script" path="res://Scenes/pause_menu.gd" id="1_10do8"]
 [ext_resource type="Shader" path="res://Shaders/pause_menu.gdshader" id="2_lonxe"]

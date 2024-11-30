@@ -3,8 +3,10 @@ extends Control
 var in_focus:Button
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$VBoxContainer/Button.grab_focus()
 	in_focus = $VBoxContainer/Button
+	MusicManager.reset_music()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventJoypadButton:
