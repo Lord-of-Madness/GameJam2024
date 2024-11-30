@@ -20,6 +20,8 @@ func _ready() -> void:
 	Health = MaxHP
 
 func _process(delta: float) -> void:
+	print(z_index)
+	
 	if Health <= 0 and not dead:
 		die()
 		if facing_right or facing_left:

@@ -47,6 +47,7 @@ _data = {
 }
 
 [node name="Enemy" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_qqwst")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
