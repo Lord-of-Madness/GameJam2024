@@ -1,28 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://rwuknlr3kl4u"]
+[gd_scene load_steps=10 format=3 uid="uid://c28yfqakwggci"]
 
 [ext_resource type="Script" path="res://Scenes/main_game.gd" id="1_4f8sh"]
 [ext_resource type="PackedScene" uid="uid://e5x1aso3uw0c" path="res://Scenes/Map.tscn" id="1_a3im0"]
 [ext_resource type="PackedScene" uid="uid://dc0yu32iay8ld" path="res://Scenes/enemy.tscn" id="2_yenkv"]
-<<<<<<< .mine
 [ext_resource type="PackedScene" uid="uid://dq6udp3vcaey" path="res://Scenes/UI/UI.tscn" id="4_gsdy7"]
 [ext_resource type="PackedScene" uid="uid://dllvdr44qyxyh" path="res://Scenes/Dark.tscn" id="9_60ru0"]
-=======
-[ext_resource type="PackedScene" uid="uid://dq6udp3vcaey" path="res://Scenes/UI/UI.tscn" id="7_sy8uy"]
-
->>>>>>> .theirs
 [ext_resource type="PackedScene" uid="uid://bwbscfbgtifl4" path="res://Characters/Base_character.tscn" id="9_kdaui"]
-<<<<<<< .mine
 [ext_resource type="AudioStream" uid="uid://psmjlcpbtwnf" path="res://Art/Music/Night-theme.mp3" id="10_4m1tr"]
 [ext_resource type="AudioStream" uid="uid://c5ckwrifro2bx" path="res://Art/Music/Day-theme.mp3" id="11_gexmh"]
-[ext_resource type="PackedScene" uid="uid://jp81v1psn0cc" path="res://Scenes/chicken_area.tscn" id="13_jit34"]
-
-=======
-[ext_resource type="PackedScene" uid="uid://dllvdr44qyxyh" path="res://Scenes/Dark.tscn" id="9_ryj1b"]
-[ext_resource type="AudioStream" uid="uid://bkokx2tgeumq8" path="res://Art/Music/Night-theme.mp3" id="10_4m1tr"]
-[ext_resource type="PackedScene" uid="uid://b7dgd2bpeqmdx" path="res://Scenes/chicken_area.tscn" id="10_pp1n8"]
-[ext_resource type="AudioStream" uid="uid://d15gueecn504r" path="res://Art/Music/Day-theme.mp3" id="11_gexmh"]
->>>>>>> .theirs
-[ext_resource type="PackedScene" uid="uid://dbhjsvqgn4mg2" path="res://Scenes/Crop.tscn" id="14_1rs3x"]
+[ext_resource type="PackedScene" uid="uid://b7dgd2bpeqmdx" path="res://Scenes/chicken_area.tscn" id="13_jit34"]
 
 [node name="Main game" type="Node2D"]
 y_sort_enabled = true
@@ -60,58 +46,4 @@ stream = ExtResource("10_4m1tr")
 [node name="DayStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_gexmh")
 
-<<<<<<< .mine
 [node name="ChickenArea" parent="." instance=ExtResource("13_jit34")]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
-[node name="CanvasLayer" parent="." instance=ExtResource("7_sy8uy")]
-
-[node name="Dark" parent="." instance=ExtResource("9_ryj1b")]
-
-[node name="Crops" type="Node2D" parent="."]
-
-[node name="Crop4" parent="Crops" groups=["Crops"] instance=ExtResource("14_1rs3x")]
-position = Vector2(160, 61)
-
-[node name="Crop" parent="Crops" groups=["Crops"] instance=ExtResource("14_1rs3x")]
-position = Vector2(141, 62)
-
-[node name="Crop2" parent="Crops" groups=["Crops"] instance=ExtResource("14_1rs3x")]
-position = Vector2(140, 28)
-
-[node name="Crop3" parent="Crops" groups=["Crops"] instance=ExtResource("14_1rs3x")]
-position = Vector2(159, 43)
-
-[node name="Crop5" parent="Crops" groups=["Crops"] instance=ExtResource("14_1rs3x")]
-position = Vector2(141, 44)
-
-[node name="Crop6" parent="Crops" groups=["Crops"] instance=ExtResource("14_1rs3x")]
-position = Vector2(159, 28)
-
-[node name="ChickenArea" parent="." instance=ExtResource("10_pp1n8")]
-position = Vector2(-50, 117)
->>>>>>> .theirs
