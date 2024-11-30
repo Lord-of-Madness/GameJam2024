@@ -1,13 +1,13 @@
 [gd_scene load_steps=87 format=3 uid="uid://bwbscfbgtifl4"]
 
 [ext_resource type="Script" path="res://Scripts/character_movement.gd" id="1_7lcwf"]
-[ext_resource type="Texture2D" uid="uid://dcty7lhb8hty2" path="res://Art/Hana Caraka - Base Character [sample]/idle.png" id="1_insey"]
-[ext_resource type="Texture2D" uid="uid://3g33ayobpxvr" path="res://Art/Hana Caraka - Base Character [sample]/death.png" id="2_1fmrf"]
+[ext_resource type="Texture2D" uid="uid://cuv5uol8elak2" path="res://Art/Hana Caraka - Base Character [sample]/idle.png" id="1_insey"]
+[ext_resource type="Texture2D" uid="uid://dpubh0ty6cewp" path="res://Art/Hana Caraka - Base Character [sample]/death.png" id="2_1fmrf"]
 [ext_resource type="Script" path="res://Characters/ConversionRing.gd" id="3_1pu7u"]
-[ext_resource type="Texture2D" uid="uid://dnjqehvh4jp5g" path="res://Art/Hana Caraka - Base Character [sample]/walk.png" id="3_63v58"]
-[ext_resource type="Texture2D" uid="uid://cbrdww1doo6t" path="res://Art/simple_symbols_2.png" id="6_2uogp"]
-[ext_resource type="Texture2D" uid="uid://do0yla7bf03fo" path="res://Art/Guns - Sprite sheets/Glock - P80 [64x48]/[SHOOT WITH CASING AND MUZZLE FLASH] Glock - P80.png" id="7_2d8c5"]
-[ext_resource type="Texture2D" uid="uid://b405gfwca2lb8" path="res://Art/Guns - Sprite sheets/Bazooka - M20 [192x32]/[SHOOT WITH MUZZLE FLASH] Bazooka - M20.png" id="7_s23h1"]
+[ext_resource type="Texture2D" uid="uid://ddhse5ipp4xcx" path="res://Art/Hana Caraka - Base Character [sample]/walk.png" id="3_63v58"]
+[ext_resource type="Texture2D" uid="uid://hbhboooj7ujp" path="res://Art/simple_symbols_2.png" id="6_2uogp"]
+[ext_resource type="Texture2D" uid="uid://y5tphtn26mid" path="res://Art/Guns - Sprite sheets/Glock - P80 [64x48]/[SHOOT WITH CASING AND MUZZLE FLASH] Glock - P80.png" id="7_2d8c5"]
+[ext_resource type="Texture2D" uid="uid://dedtmapmocd4p" path="res://Art/Guns - Sprite sheets/Bazooka - M20 [192x32]/[SHOOT WITH MUZZLE FLASH] Bazooka - M20.png" id="7_s23h1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1sl8i"]
 atlas = ExtResource("2_1fmrf")
