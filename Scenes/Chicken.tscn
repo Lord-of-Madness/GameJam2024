@@ -368,6 +368,6 @@ speed_scale = 0.5
 [node name="ChickenNoise" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_3ycff")
 volume_db = -10.0
-max_distance = 300.0
+max_distance = 500.0
 
 [connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
