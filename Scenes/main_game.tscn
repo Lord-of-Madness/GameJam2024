@@ -25,10 +25,11 @@ shader_parameter/shake_block_size = 30.5
 shader_parameter/shake_color_rate = 0.01
 
 [node name="Main game" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_4f8sh")
 
 [node name="Map" parent="." instance=ExtResource("1_a3im0")]
-z_index = -1
+position = Vector2(109, 44)
 
 [node name="Enemy" parent="." instance=ExtResource("2_yenkv")]
 position = Vector2(369, 30)
@@ -48,6 +49,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control"]
 layout_mode = 1
@@ -71,6 +73,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("5_8yxll")
 
 [node name="Label2" type="Label" parent="CanvasLayer/Control/CycleAnnouncement"]

@@ -23,7 +23,6 @@ func _ready() -> void:
 	Health = MaxHP
 	arrowbase.visible = false
 
-
 func _unhandled_input(event: InputEvent) -> void:
 	if (event is InputEventMouseMotion):
 		arrowbase.rotation = get_global_mouse_position().angle_to_point(position)
