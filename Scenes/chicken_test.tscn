@@ -1,17 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://rwuknlr3kl4u"]
+[gd_scene load_steps=15 format=3 uid="uid://cwdt3de3pwtln"]
 
-[ext_resource type="Script" path="res://Scenes/main_game.gd" id="1_4f8sh"]
-[ext_resource type="PackedScene" uid="uid://e5x1aso3uw0c" path="res://Scenes/Map.tscn" id="1_a3im0"]
-[ext_resource type="PackedScene" uid="uid://dc0yu32iay8ld" path="res://Scenes/enemy.tscn" id="2_yenkv"]
-[ext_resource type="PackedScene" uid="uid://cqya1qgay0lur" path="res://Scenes/Chicken.tscn" id="3_cl2rf"]
-[ext_resource type="Script" path="res://Scenes/Health_bar.gd" id="4_dmxu2"]
-[ext_resource type="Script" path="res://Scenes/cycle_announcement.gd" id="5_8yxll"]
-[ext_resource type="Shader" path="res://Scenes/Glitch.gdshader" id="5_wt5iu"]
-[ext_resource type="LabelSettings" uid="uid://bbm407nhinbqg" path="res://Scenes/LabelData/Pretty_Label.tres" id="6_wvree"]
-[ext_resource type="LabelSettings" uid="uid://bv2est1hx2aj2" path="res://Scenes/LabelData/Bloody_Label.tres" id="8_x2o6i"]
-[ext_resource type="PackedScene" uid="uid://bwbscfbgtifl4" path="res://Characters/Base_character.tscn" id="9_kdaui"]
+[ext_resource type="Script" path="res://Scenes/main_game.gd" id="1_rlnl7"]
+[ext_resource type="PackedScene" uid="uid://e5x1aso3uw0c" path="res://Scenes/Map.tscn" id="2_eevlv"]
+[ext_resource type="PackedScene" uid="uid://dc0yu32iay8ld" path="res://Scenes/enemy.tscn" id="3_o006m"]
+[ext_resource type="PackedScene" uid="uid://cqya1qgay0lur" path="res://Scenes/Chicken.tscn" id="4_uc5v0"]
+[ext_resource type="Script" path="res://Scenes/Health_bar.gd" id="4_wlvwr"]
+[ext_resource type="Script" path="res://Scenes/cycle_announcement.gd" id="5_w6r8h"]
+[ext_resource type="LabelSettings" uid="uid://bbm407nhinbqg" path="res://Scenes/LabelData/Pretty_Label.tres" id="6_bsppp"]
+[ext_resource type="Shader" path="res://Scenes/Glitch.gdshader" id="7_7700c"]
+[ext_resource type="LabelSettings" uid="uid://bv2est1hx2aj2" path="res://Scenes/LabelData/Bloody_Label.tres" id="8_no12r"]
+[ext_resource type="PackedScene" uid="uid://bwbscfbgtifl4" path="res://Characters/Base_character.tscn" id="9_veard"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsj1l"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ccmx"]
 size = Vector2(87, 41)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvggy"]
@@ -21,7 +21,7 @@ bg_color = Color(1, 0, 0, 1)
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_dvggy")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gnyru"]
-shader = ExtResource("5_wt5iu")
+shader = ExtResource("7_7700c")
 shader_parameter/shake_power = 0.03
 shader_parameter/shake_rate = 0.2
 shader_parameter/shake_speed = 5.0
@@ -30,9 +30,9 @@ shader_parameter/shake_color_rate = 0.01
 
 [node name="Main game" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_4f8sh")
+script = ExtResource("1_rlnl7")
 
-[node name="Map" parent="." instance=ExtResource("1_a3im0")]
+[node name="Map" parent="." instance=ExtResource("2_eevlv")]
 position = Vector2(109, 44)
 
 [node name="ChickenArea" type="Area2D" parent="Map"]
@@ -40,27 +40,27 @@ position = Vector2(-160, 72)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/ChickenArea"]
 position = Vector2(0.5, 1.5)
-shape = SubResource("RectangleShape2D_jsj1l")
+shape = SubResource("RectangleShape2D_6ccmx")
 
-[node name="Chicken" parent="Map/ChickenArea" instance=ExtResource("3_cl2rf")]
+[node name="Chicken" parent="Map/ChickenArea" instance=ExtResource("4_uc5v0")]
 position = Vector2(-38, -14)
 
-[node name="Chicken2" parent="Map/ChickenArea" instance=ExtResource("3_cl2rf")]
+[node name="Chicken2" parent="Map/ChickenArea" instance=ExtResource("4_uc5v0")]
 position = Vector2(38, -13)
 
-[node name="Chicken3" parent="Map/ChickenArea" instance=ExtResource("3_cl2rf")]
+[node name="Chicken3" parent="Map/ChickenArea" instance=ExtResource("4_uc5v0")]
 position = Vector2(-38, 17)
 
-[node name="Chicken4" parent="Map/ChickenArea" instance=ExtResource("3_cl2rf")]
+[node name="Chicken4" parent="Map/ChickenArea" instance=ExtResource("4_uc5v0")]
 position = Vector2(39, 17)
 
-[node name="Enemy" parent="." instance=ExtResource("2_yenkv")]
+[node name="Enemy" parent="." instance=ExtResource("3_o006m")]
 position = Vector2(369, 30)
 
-[node name="Enemy2" parent="." instance=ExtResource("2_yenkv")]
+[node name="Enemy2" parent="." instance=ExtResource("3_o006m")]
 position = Vector2(348, 119)
 
-[node name="Enemy3" parent="." instance=ExtResource("2_yenkv")]
+[node name="Enemy3" parent="." instance=ExtResource("3_o006m")]
 position = Vector2(292, 192)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -86,7 +86,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_ilxjc")
 show_percentage = false
-script = ExtResource("4_dmxu2")
+script = ExtResource("4_wlvwr")
 
 [node name="CycleAnnouncement" type="Control" parent="CanvasLayer/Control"]
 layout_mode = 1
@@ -95,7 +95,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("5_8yxll")
+script = ExtResource("5_w6r8h")
 
 [node name="Label2" type="Label" parent="CanvasLayer/Control/CycleAnnouncement"]
 layout_mode = 1
@@ -113,7 +113,7 @@ grow_vertical = 2
 text = "With the rising sun
 Everything Changes
 Day begins!"
-label_settings = ExtResource("6_wvree")
+label_settings = ExtResource("6_bsppp")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -134,7 +134,7 @@ grow_vertical = 2
 text = "With the setting sun
 EVERYTHING CHANGES
 Night begins!"
-label_settings = ExtResource("8_x2o6i")
+label_settings = ExtResource("8_no12r")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -143,6 +143,6 @@ position = Vector2(-86.979, 28.4822)
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="BaseCharacter" parent="." instance=ExtResource("9_kdaui")]
+[node name="BaseCharacter" parent="." instance=ExtResource("9_veard")]
 unique_name_in_owner = true
 position = Vector2(-322, 99)
