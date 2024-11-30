@@ -3,6 +3,7 @@ extends Node2D
 
 const SPEED := 448.0
 
+var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var direction := 1.0
 var max_x: float
 var middle_x: float
@@ -11,6 +12,9 @@ func _ready() -> void:
 	max_x = $Background.size.x - $Background/HitBox.size.x
 	middle_x = $Background.size.x / 2.0
 	PlayerData.in_mechanic = true
+	
+	$Background/HitBox.position.x = rng.randf_range(0.0, max_x)
+	direction = 1.0 if rng.randf() <= 0.5 else -1.0
 
 func _process(delta: float) -> void:
 	$Background/HitBox.position.x += SPEED * delta * direction

@@ -1,10 +1,10 @@
 extends Node2D
 
 const MIN_IDLE_TIME := 3.0
-const MAX_IDLE_TIME := 10.0
-const MOVEMENT_SPEED := 16.0
+const MAX_IDLE_TIME := 7.0
+const MOVEMENT_SPEED := 24.0
 # Maximum number of eggs (of all chickens) in the chicken area.
-const MAX_EGGS_GLOBAL := 2
+const MAX_EGGS_GLOBAL := 4
 # Minimal amount of time during no chicken play another chicken noise after last chicken noise has been played.
 const MIN_CHICKEN_NOISE_TIMEOUT := 3.0
 
@@ -29,7 +29,7 @@ func _ready() -> void:
 		first_chicken_created = true
 		
 	MusicManager.other_sounds.append($ChickenNoise)
-
+	
 func _process(delta: float) -> void:
 	if first_chicken:
 		chicken_noise_timer += delta
@@ -38,6 +38,7 @@ func _process(delta: float) -> void:
 		area = get_parent() as Area2D
 		shape = area.get_child(0) as CollisionShape2D
 		eggs_node = area.get_node("Eggs")
+		position = get_random_pos()
 		start_idle()
 	
 	if idle:
@@ -61,14 +62,11 @@ func start_idle():
 	$AnimatedSprite2D.play("idle_down")
 	$IdleTimer.start(rng.randf_range(MIN_IDLE_TIME, MAX_IDLE_TIME))
 	
-func start_walk():
-	try_lay_egg()
+func start_walk(try_lag_egg=true):
+	if try_lag_egg:
+		try_lay_egg()
 	
-	var rect := shape.shape.get_rect()
-	var x := rng.randf_range(rect.position.x, rect.position.x + rect.size.x)
-	var y := rng.randf_range(rect.position.y, rect.position.y + rect.size.y)
-	
-	destination = Vector2(x, y)
+	destination = get_random_pos()
 	idle = false
 	
 func update_facing_direction(movement_direction: Vector2):
@@ -100,3 +98,11 @@ func try_lay_egg():
 	egg = egg_scene.instantiate()
 	egg.position = position
 	eggs_node.add_child(egg)
+
+# Get random position inside parent's shape rectangle.
+func get_random_pos() -> Vector2:
+	var rect := shape.shape.get_rect()
+	var x := rng.randf_range(rect.position.x, rect.position.x + rect.size.x)
+	var y := rng.randf_range(rect.position.y, rect.position.y + rect.size.y)
+	
+	return Vector2(x, y)
