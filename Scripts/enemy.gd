@@ -3,7 +3,7 @@ class_name Enemy
 
 
 @export_group("GameProperties")
-@export_range(0,100,5,"or_greater") var Health:int = 10
+@export_range(0,100,5,"or_greater") var Health := 15.0
 @export_subgroup("Combat Properties")
 ##Attacks per Second
 @export var AttackSpeed : float= 1.0
@@ -22,6 +22,7 @@ const SPEED = 70.0
 var Active = false
 var BaseCharacter:Player
 func _ready() -> void:
+	Health += PlayerData.enemy_max_hp_bonus
 	BaseCharacter = get_node("../BaseCharacter")
 	animPlayer = get_node("Sprite2D/AnimationPlayer")
 	animPlayer.play("Idle")
