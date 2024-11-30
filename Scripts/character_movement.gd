@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player
 enum facing {UP,DOWN,LEFT,RIGHT,NONE}
 
 var guns = ["Shoot","Bazooka"]
@@ -148,9 +148,7 @@ func shoot(rot:float):
 	$ArrowBase/AnimatedSprite2D.play()#guns[current_gun] #Should be already set for aiming
 	var bullet:RigidBody2D = bulletScene.instantiate()
 	get_parent().add_child(bullet)
-	bullet.position = position - Vector2.from_angle(rot)*16
-	bullet.rotation = rot
-	bullet.linear_velocity = Vector2.from_angle(rot)*-30
+	bullet.launch(position,rot)
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:

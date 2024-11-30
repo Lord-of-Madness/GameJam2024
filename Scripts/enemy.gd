@@ -54,6 +54,8 @@ func get_direction():
 	else:
 		return Vector2.DOWN
 
+func taken_hit():
+	queue_free()
 
 func attack():
 	var tween = create_tween()
