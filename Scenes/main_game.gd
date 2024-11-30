@@ -9,8 +9,8 @@ var day = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Progress = get_node("CanvasLayer/Control/ProgressBar")
-	BaseCharacter.position = $SpawnPoint.position
-	BaseCharacter.death_signal.connect(revive_player)
+	%BaseCharacter.position = $SpawnPoint.position
+	%BaseCharacter.death_signal.connect(revive_player)
 	Progress.offset_top = -37
 	Progress.offset_bottom = -37
 	time.wait_time = daylenght
@@ -19,7 +19,7 @@ func _ready() -> void:
 	
 
 func revive_player():
-	BaseCharacter.position = $SpawnPoint.position
+	%BaseCharacter.position = $SpawnPoint.position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

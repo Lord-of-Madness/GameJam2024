@@ -10,6 +10,10 @@ var Health:int
 var is_alive:bool = true
 var face:facing = facing.NONE
 
+var mouse_mode = true
+
+@onready var arrowbase:Node2D = $ArrowBase
+
 signal health_change
 signal death_signal
 
@@ -18,6 +22,9 @@ var rng = RandomNumberGenerator.new()
 func _ready() -> void:
 	Health = MaxHP
 
+
+#func _unhandled_input(event: InputEvent) -> void:
+	#if(event.is_action_pressed())
 		
 func _physics_process(delta: float) -> void:
 	if is_alive:
@@ -35,16 +42,11 @@ func _physics_process(delta: float) -> void:
 			actual_speed = 0
 		else:
 			input_handling()
-			
-		# Update velocity
-		var xVelocity = cos(angle) * actual_speed
-		var yVelocity = sin(angle) * actual_speed
 		
-		velocity = Vector2(xVelocity, yVelocity)
+		velocity = Vector2(cos(angle), sin(angle))* actual_speed
 		
 		# Move and Slide function uses velocity of character body to move character on map
 		move_and_slide()		
-
 func input_handling():
 	if Input.get_action_strength("right"):
 		player_sprite.play("Walk")

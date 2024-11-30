@@ -22,7 +22,7 @@ var Active = false
 func _ready() -> void:
 	animPlayer = get_node("Sprite2D/AnimationPlayer")
 	animPlayer.play("Idle")
-	BaseCharacter.death_signal.connect(func():Active = false)
+	%BaseCharacter.death_signal.connect(func():Active = false)
 	
 
 
@@ -34,19 +34,19 @@ func _process(delta: float) -> void:
 			canAttack = true
 			
 	else:
-		if(BaseCharacter.position.distance_to(position)<AttackRange*16):
+		if(%BaseCharacter.position.distance_to(position)<AttackRange*16):
 			attack()
-			BaseCharacter.take_damage(damage)
+			%BaseCharacter.take_damage(damage)
 	
 
 func _physics_process(delta: float) -> void:
 	if not Active: return
-	var target = BaseCharacter.position
+	var target = %BaseCharacter.position
 	velocity = position.direction_to(target)*SPEED
 	move_and_slide()
 
 func get_direction():
-	var dir = BaseCharacter.position.direction_to(position)
+	var dir = %BaseCharacter.position.direction_to(position)
 	if dir.x>0:
 		if dir.x>abs(dir.y):
 			return Vector2.RIGHT
@@ -61,7 +61,7 @@ func get_direction():
 
 func attack():
 	var tween = create_tween()
-	tween.tween_property(self,"position",position + BaseCharacter.position.direction_to(position)*10,0.2)
+	tween.tween_property(self,"position",position + %BaseCharacter.position.direction_to(position)*10,0.2)
 	$Attack.attack_anim(get_direction())
 	canAttack = false
 	Cooldown = 1/AttackSpeed

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cslk2v4lq3wwj"]
 
 [ext_resource type="Script" path="res://Scenes/Attack.gd" id="1_mg63e"]
-[ext_resource type="Texture2D" uid="uid://g1ww4mkxndfp" path="res://Art/sword_01e.png" id="1_obkuo"]
+[ext_resource type="Texture2D" uid="uid://0esbhqnt8pfn" path="res://Art/sword_01e.png" id="1_obkuo"]
 
 [sub_resource type="Animation" id="Animation_pnhtc"]
 resource_name = "Attack"
