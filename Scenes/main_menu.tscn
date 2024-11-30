@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bnet0ia2tmbxm"]
+[gd_scene load_steps=9 format=3 uid="uid://cpfctuk83mnv1"]
 
 [ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_1ivny"]
-[ext_resource type="Texture2D" uid="uid://hdjcv0ko5dy5" path="res://Art/menu_background1.png" id="1_ya4ks"]
-[ext_resource type="FontFile" uid="uid://cnvp00t0fmwqt" path="res://Art/Fonts/GrapeSoda.ttf" id="2_i71uw"]
+[ext_resource type="Texture2D" uid="uid://016a6jsty1i2" path="res://Art/menu_background1.png" id="1_ya4ks"]
+[ext_resource type="FontFile" uid="uid://41unicm4l3x" path="res://Art/Fonts/GrapeSoda.ttf" id="2_i71uw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pdj8m"]
 texture = ExtResource("1_ya4ks")
@@ -77,9 +77,10 @@ theme_override_constants/separation = 10
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_bottom = NodePath("../Button2")
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 10
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yio37")
@@ -91,9 +92,11 @@ text = "START GAME"
 [node name="Button2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../Button")
+focus_neighbor_bottom = NodePath("../Button3")
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 10
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yio37")
@@ -105,9 +108,10 @@ text = "OPTIONS"
 [node name="Button3" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../Button2")
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 10
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yio37")

@@ -1,5 +1,7 @@
 extends Control
 
+func _ready() -> void:
+	$CheckButton.grab_focus()
 
 func _on_check_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:

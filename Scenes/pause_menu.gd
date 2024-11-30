@@ -1,5 +1,5 @@
 extends Control
-
+	
 
 func resume():
 	get_tree().paused = false
@@ -8,6 +8,7 @@ func resume():
 func pause():
 	get_tree().paused = true
 	self.show()
+	$VBoxContainer/Resume.grab_focus()
 	
 func inputs():
 	if Input.is_action_just_pressed("pause") and !get_tree().paused:
