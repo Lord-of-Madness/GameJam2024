@@ -6,7 +6,7 @@ func _process(delta: float) -> void:
 	if !is_player_in_range:
 		return
 		
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") and !PlayerData.is_night:
 		PlayerData.increment_egg_count()
 		queue_free()
 

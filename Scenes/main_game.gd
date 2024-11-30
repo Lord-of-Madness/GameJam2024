@@ -38,6 +38,8 @@ func revive_player():
 	%BaseCharacter.position = $SpawnPoint.position
 
 func night_begins():
+	PlayerData.is_night = true
+	
 	nightbegins.emit()
 	if not shutupIamDebugging:
 		var tween = create_tween()
@@ -58,6 +60,8 @@ func night_begins():
 	
 	
 func day_begins():
+	PlayerData.is_night = false
+	
 	daybegins.emit()
 	if not shutupIamDebugging:
 		var tween = create_tween()

@@ -10,6 +10,9 @@ func _ready() -> void:
 	
 
 func _on_interact():
+	if PlayerData.is_night:
+		return
+	
 	if $Sprite2D.frame < 4:
 		$Sprite2D.frame += 1
 	else:

@@ -6,9 +6,9 @@ extends Node2D
 const base_text_mouse = "[E] to "
 const base_text_contr = "(X) to "
 
-
 var active_areas = []
 var can_interact = true
+var current_node: Node2D
 
 func register_area(area: InteractionArea):
 	active_areas.push_back(area)
@@ -21,6 +21,10 @@ func unregister_area(area: InteractionArea):
 
 
 func _process(delta):
+	if PlayerData.is_night or PlayerData.in_mechanic:
+		label.hide()
+		return
+	
 	if active_areas.size() > 0 && can_interact:
 		active_areas.sort_custom(_sort_by_distance_to_player)
 		if get_tree().current_scene.get_node("BaseCharacter").mouse_mode:
