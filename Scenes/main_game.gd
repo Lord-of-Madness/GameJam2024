@@ -1,6 +1,7 @@
 extends Node2D
 
 var Progress:ProgressBar
+var Darkness:CanvasLayer
 @onready var time:Timer = $Timer
 @export var daylenght = 10
 @export var nigthlenght = 10
@@ -8,11 +9,14 @@ var Progress:ProgressBar
 @onready var daytheme = $DayStreamPlayer
 @export var shutupIamDebugging = false
 
+@onready var grassShader:Shader = preload("res://Scenes/Grass.gdshader")
+@onready var bloodgrassShader:Shader = preload("res://Shaders/BloodGrass.gdshader")
+
 var day = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Progress = $CanvasLayer.get_node("Control/ProgressBar")
-	Progress.base_character = %BaseCharacter
+	Progress = get_node("CanvasLayer/Control/ProgressBar")
+	Darkness = get_node("Dark")
 	%BaseCharacter.position = $SpawnPoint.position
 	%BaseCharacter.death_signal.connect(revive_player)
 	Progress.offset_top = -37
@@ -38,7 +42,10 @@ func night_begins():
 	twenn.tween_property(Progress,"offset_top",7,1.5)
 	twenn.parallel()
 	twenn.tween_property(Progress,"offset_bottom",7,1.5)
-	twenn.parallel()
+	
+	# Night fades in
+	$Dark.get_node("AnimationPlayer").play("fade")
+	get_node("Map/TileMaps/GrassLayer").material.shader = bloodgrassShader
 	
 	
 	
@@ -55,6 +62,10 @@ func day_begins():
 	twenn.tween_property(Progress,"offset_top",-37,1.5)
 	twenn.parallel()
 	twenn.tween_property(Progress,"offset_bottom",-37,1.5)
+	get_node("Map/TileMaps/GrassLayer").material.shader = grassShader
+	
+	# Night fades away
+	$Dark.get_node("AnimationPlayer").play_backwards("fade")
 	
 func swapCycle():
 	get_node("CanvasLayer/Control/CycleAnnouncement").change_text(!day)
