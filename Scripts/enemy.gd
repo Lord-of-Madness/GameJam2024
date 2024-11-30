@@ -23,9 +23,6 @@ func _ready() -> void:
 	animPlayer = get_node("Sprite2D/AnimationPlayer")
 	animPlayer.play("Idle")
 	%BaseCharacter.death_signal.connect(func():Active = false)
-	
-
-
 
 func _process(delta: float) -> void:
 	if not canAttack:
@@ -37,7 +34,6 @@ func _process(delta: float) -> void:
 		if(%BaseCharacter.position.distance_to(position)<AttackRange*16):
 			attack()
 			%BaseCharacter.take_damage(damage)
-	
 
 func _physics_process(delta: float) -> void:
 	if not Active: return
