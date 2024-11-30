@@ -8,7 +8,7 @@ var Darkness:CanvasLayer
 
 @onready var grassShader:Shader = preload("res://Scenes/Grass.gdshader")
 @onready var bloodgrassShader:Shader = preload("res://Shaders/BloodGrass.gdshader")
-@onready var CadaverScene = preload("res://Scenes/enemy.tscn")
+@onready var EnemyScenes:Array[PackedScene] = [preload("res://Scenes/enemy.tscn"),preload("res://Scenes/Enemies/enemy2.tscn")]
 
 signal daybegins
 signal nightbegins
@@ -131,7 +131,7 @@ func spawn():
 		
 		if(tiledata):
 			#print(GrassMap.local_to_map(newPos)-GrassMap.local_to_map(PlPos))
-			var enemy:Enemy = CadaverScene.instantiate()
+			var enemy:Enemy = EnemyScenes[rng.randi_range(0,1)].instantiate()
 			enemy.position = newPos- newPos.direction_to(PlPos)
 			add_child(enemy)
 			enemy.activate()

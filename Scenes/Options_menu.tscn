@@ -1,13 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://cq63i5swnbhmh"]
+[gd_scene load_steps=11 format=3 uid="uid://b8id3b7fhaly"]
 
-[ext_resource type="Texture2D" uid="uid://ciwjaxcwbc8sb" path="res://Art/menu_background1.png" id="1_3p160"]
+[ext_resource type="Texture2D" uid="uid://016a6jsty1i2" path="res://Art/menu_background1.png" id="1_3p160"]
 [ext_resource type="Script" path="res://Scenes/options_menu.gd" id="1_jt3io"]
+[ext_resource type="Theme" uid="uid://n55nu4mrrfvt" path="res://Art/Themes/MenuTheme.tres" id="3_4vc75"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i7qqk"]
 texture = ExtResource("1_3p160")
 modulate_color = Color(0.290196, 0.290196, 0.290196, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uik8e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1wfh5"]
 bg_color = Color(0.721569, 0.721569, 0.721569, 1)
@@ -35,8 +34,6 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2txnr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uoyqj"]
 bg_color = Color(0.720467, 0.720468, 0.720467, 1)
@@ -95,16 +92,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -101.5
-offset_top = -36.5
+offset_top = 5.0
 offset_right = 101.5
-offset_bottom = 36.5
+offset_bottom = 78.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/focus = SubResource("StyleBoxEmpty_uik8e")
+theme = ExtResource("3_4vc75")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1wfh5")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_c7a0g")
 theme_override_styles/normal = SubResource("StyleBoxFlat_pnt5g")
@@ -124,12 +117,7 @@ offset_bottom = 93.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 10
-theme_override_styles/focus = SubResource("StyleBoxEmpty_2txnr")
+theme = ExtResource("3_4vc75")
 theme_override_styles/hover = SubResource("StyleBoxFlat_uoyqj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4cnhb")
 theme_override_styles/normal = SubResource("StyleBoxFlat_c71y6")

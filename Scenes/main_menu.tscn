@@ -1,14 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://bnet0ia2tmbxm"]
 
 [ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_1ivny"]
-[ext_resource type="Texture2D" uid="uid://ciwjaxcwbc8sb" path="res://Art/menu_background1.png" id="2_57rdm"]
-[ext_resource type="FontFile" uid="uid://byiekv3l2w3lw" path="res://Art/Fonts/GrapeSoda.ttf" id="3_03mqi"]
+[ext_resource type="Texture2D" uid="uid://016a6jsty1i2" path="res://Art/menu_background1.png" id="2_57rdm"]
+[ext_resource type="FontFile" uid="uid://41unicm4l3x" path="res://Art/Fonts/GrapeSoda.ttf" id="3_03mqi"]
+[ext_resource type="Theme" uid="uid://n55nu4mrrfvt" path="res://Art/Themes/MenuTheme.tres" id="3_fokky"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pdj8m"]
 texture = ExtResource("2_57rdm")
 modulate_color = Color(0.288518, 0.288518, 0.288518, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yio37"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ak1vb"]
 bg_color = Color(0.720467, 0.720468, 0.720467, 1)
@@ -78,12 +77,7 @@ theme_override_constants/separation = 10
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_bottom = NodePath("../Button2")
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 10
-theme_override_styles/focus = SubResource("StyleBoxEmpty_yio37")
+theme = ExtResource("3_fokky")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ak1vb")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_sqshh")
 theme_override_styles/normal = SubResource("StyleBoxFlat_xca8m")
@@ -94,12 +88,7 @@ layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_top = NodePath("../Button")
 focus_neighbor_bottom = NodePath("../Button3")
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 10
-theme_override_styles/focus = SubResource("StyleBoxEmpty_yio37")
+theme = ExtResource("3_fokky")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ak1vb")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_sqshh")
 theme_override_styles/normal = SubResource("StyleBoxFlat_xca8m")
@@ -109,12 +98,7 @@ text = "OPTIONS"
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_top = NodePath("../Button2")
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 10
-theme_override_styles/focus = SubResource("StyleBoxEmpty_yio37")
+theme = ExtResource("3_fokky")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ak1vb")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_sqshh")
 theme_override_styles/normal = SubResource("StyleBoxFlat_xca8m")
