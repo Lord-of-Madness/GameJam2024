@@ -8,7 +8,7 @@ var Darkness:CanvasLayer
 
 @onready var grassShader:Shader = preload("res://Scenes/Grass.gdshader")
 @onready var bloodgrassShader:Shader = preload("res://Shaders/BloodGrass.gdshader")
-
+@onready var pause_menu = $PauseMenu
 @onready var CadaverScene = preload("res://Scenes/enemy.tscn")
 
 signal daybegins
@@ -17,12 +17,12 @@ signal nightbegins
 var rng = RandomNumberGenerator.new()
 
 var day = true
+var pause = false
 
 var AvailableTiles:Array[Vector2i]
 @onready var GrassMap:TileMapLayer = $Map/TileMaps/GrassLayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
 	AvailableTiles = GrassMap.get_used_cells()
 	var spawnTimer = Timer.new()
 	add_child(spawnTimer)
@@ -44,6 +44,10 @@ func _ready() -> void:
 	time.wait_time = daylenght
 	time.timeout.connect(swapCycle)
 	time.start()
+	
+func _process(delta):
+	if Input.is_action_just_pressed("pause"):
+		pauseMenu()
 
 func revive_player():
 	%BaseCharacter.position = $SpawnPoint.position
@@ -60,7 +64,6 @@ func night_begins():
 	# Night fades in
 	$Dark.get_node("AnimationPlayer").play("fade")
 	get_node("Map/TileMaps/GrassLayer").material.shader = bloodgrassShader
-	
 	
 	
 func day_begins():
@@ -85,6 +88,19 @@ func swapCycle():
 	else:
 		day = true
 		day_begins()
+
+func pauseMenu():
+	if pause:
+		pause_menu.hide()
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		get_tree().paused = false
+	else:
+		pause_menu.show()
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().paused = true
+		
+	pause = !pause
+
 func spawn():
 	if day: return
 	var toSpawn = 5

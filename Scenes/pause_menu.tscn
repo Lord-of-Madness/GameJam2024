@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=3 uid="uid://dhuak8jd5cu38"]
+
+[ext_resource type="Script" path="res://Scenes/pause_menu.gd" id="1_10do8"]
+[ext_resource type="Shader" path="res://Shaders/pause_menu.gdshader" id="2_lonxe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lmwpv"]
+shader = ExtResource("2_lonxe")
+shader_parameter/amount = 3.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4wst"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_03dji"]
+bg_color = Color(0.720467, 0.720468, 0.720467, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58g2d"]
+bg_color = Color(0.450648, 0.450648, 0.450648, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qbfic"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_10do8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_lmwpv")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = 42.0
+offset_right = 44.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c4wst")
+theme_override_styles/hover = SubResource("StyleBoxFlat_03dji")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_58g2d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qbfic")
+text = "RESUME
+"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c4wst")
+theme_override_styles/hover = SubResource("StyleBoxFlat_03dji")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_58g2d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qbfic")
+text = "BACK TO MENU"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
