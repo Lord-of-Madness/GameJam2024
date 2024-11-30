@@ -13,9 +13,6 @@
 [ext_resource type="AudioStream" uid="uid://bkokx2tgeumq8" path="res://Art/Music/Night-theme.mp3" id="10_4m1tr"]
 [ext_resource type="AudioStream" uid="uid://d15gueecn504r" path="res://Art/Music/Day-theme.mp3" id="11_gexmh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsj1l"]
-size = Vector2(87, 41)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvggy"]
 bg_color = Color(1, 0, 0, 1)
 
@@ -30,6 +27,9 @@ shader_parameter/shake_speed = 5.0
 shader_parameter/shake_block_size = 30.5
 shader_parameter/shake_color_rate = 0.01
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsj1l"]
+size = Vector2(87, 41)
+
 [node name="Main game" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_4f8sh")
@@ -37,25 +37,6 @@ shutupIamDebugging = true
 
 [node name="Map" parent="." instance=ExtResource("1_a3im0")]
 position = Vector2(109, 44)
-
-[node name="ChickenArea" type="Area2D" parent="Map"]
-position = Vector2(-160, 72)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/ChickenArea"]
-position = Vector2(0.5, 1.5)
-shape = SubResource("RectangleShape2D_jsj1l")
-
-[node name="Chicken" parent="Map/ChickenArea" instance=ExtResource("3_cl2rf")]
-position = Vector2(-38, -14)
-
-[node name="Chicken2" parent="Map/ChickenArea" instance=ExtResource("3_cl2rf")]
-position = Vector2(38, -13)
-
-[node name="Chicken3" parent="Map/ChickenArea" instance=ExtResource("3_cl2rf")]
-position = Vector2(-38, 17)
-
-[node name="Chicken4" parent="Map/ChickenArea" instance=ExtResource("3_cl2rf")]
-position = Vector2(39, 17)
 
 [node name="Enemy" parent="." instance=ExtResource("2_yenkv")]
 position = Vector2(369, 30)
@@ -150,10 +131,30 @@ position = Vector2(-86.979, 28.4822)
 
 [node name="BaseCharacter" parent="." instance=ExtResource("9_kdaui")]
 unique_name_in_owner = true
-position = Vector2(-322, 99)
+position = Vector2(-122, 94)
 
 [node name="NightStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_4m1tr")
 
 [node name="DayStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_gexmh")
+
+[node name="ChickenArea" type="Area2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-51, 116)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChickenArea"]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_jsj1l")
+
+[node name="Chicken" parent="ChickenArea" instance=ExtResource("3_cl2rf")]
+position = Vector2(-38, -14)
+
+[node name="Chicken2" parent="ChickenArea" instance=ExtResource("3_cl2rf")]
+position = Vector2(38, -13)
+
+[node name="Chicken3" parent="ChickenArea" instance=ExtResource("3_cl2rf")]
+position = Vector2(-38, 17)
+
+[node name="Chicken4" parent="ChickenArea" instance=ExtResource("3_cl2rf")]
+position = Vector2(39, 17)
