@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://e5x1aso3uw0c"]
+[gd_scene load_steps=40 format=4 uid="uid://e5x1aso3uw0c"]
 
 [ext_resource type="Texture2D" uid="uid://djn0f36eas4f5" path="res://Art/Hana Caraka - Topdown Tileset [sample]/Tileset/Spring - simplified.png" id="1_nauw8"]
 [ext_resource type="Texture2D" uid="uid://b1md57y8lineb" path="res://Art/Hana Caraka - Topdown Tileset [sample]/Tileset/Dirt - simplified.png" id="2_drjlm"]
@@ -19,7 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://2ek6j18bsl2x" path="res://Art/Hana Caraka Crops - Free/Crops/Spring/Turnip.png" id="17_248fh"]
 [ext_resource type="Shader" path="res://Shaders/Water.gdshader" id="18_p6pj0"]
 [ext_resource type="Texture2D" uid="uid://c3at5tc102cei" path="res://icon.svg" id="19_dtvvk"]
-[ext_resource type="Shader" path="res://Shaders/Grass.gdshader" id="20_djx4p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l2cr3"]
 resource_local_to_scene = true
@@ -664,10 +663,6 @@ sources/14 = SubResource("TileSetAtlasSource_5fels")
 sources/15 = SubResource("TileSetAtlasSource_hj7yd")
 sources/16 = SubResource("TileSetAtlasSource_q2hm0")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dvb6f"]
-shader = ExtResource("20_djx4p")
-shader_parameter/scale = 0.00694444
-
 [node name="Map" type="Node2D"]
 
 [node name="Water" type="Node2D" parent="."]
@@ -701,10 +696,3 @@ tile_set = SubResource("TileSet_3k8td")
 [node name="ObjectsLayer" type="TileMapLayer" parent="TileMaps"]
 tile_map_data = PackedByteArray("AAAAAAAACQAEAAAAAAD//wAACQAEAAAAAAD//wEACQAEAAAAAAAAAAEACQAEAAAAAAAAAP//CQAEAAAAAAD/////CQAEAAAAAADz/wUADQAAAAAAAAD0/wMADQAAAAAAAAD3/wMADQAAAAAAAAD4/wUADQAAAAAAAAD2//7/DwAAAAAAAAD3//7/DwAAAAEAAAD4//7/DwAAAAIAAAD5//7/DwABAAAAAAADAAgAAgAAAAAAAAD//wYAAgABAAAAAAD8/wkAAgABAAEAAAABAAgAAgABAAEAAAABAAUAAgAAAAEAAAD9/wcAAgAAAAEAAADy////AwAAAAEAAAAEAP3/AwABAAEAAAD7/wMAAwABAAAAAAD5//v/AwAAAAAAAAD1/wgAAwAAAAAAAAADAAEAAwAAAAEAAADw/wIAAwABAAEAAAD3/wEAAwAAAAAAAAD9//3/AwABAAAAAADw/wgABAAAAAAAAAAGAAMABAAAAAAAAAAGAPz/BAAAAAAAAAAAAPr/BAAAAAAAAADy//v/BAAAAAAAAAAHAAcABAABAAAAAAD7/wEABAACAAAAAAAEAAoABAADAAAAAAD7/wwABAAEAAAAAAD6/wUABAAFAAAAAAD0/wAABAAAAAEAAAD4//j/BAABAAEAAAAAAAwAAwAAAAAAAAD1/woABQAAAAAAAAAGAAEABQABAAAAAAD5/wAABQADAAAAAAD3//v/BQAAAAEAAAABAPz/BQACAAEAAADy/wAABQADAAIAAAD///3/BgAAAAAAAAAAAP3/BgAAAAAAAADz/wcABgADAAAAAAD0/wcABgADAAAAAAD7//7/BgACAAAAAAD6//7/BgABAAIAAAD4/wYABgAAAAIAAAD//wIABgABAAIAAADz//3/BwABAAMAAAACAAMABwABAAUAAAD+//v/BwABAAUAAADz/woABwAAAAUAAAD4/wkABwAAAAMAAAAEAAAABwAAAAMAAAADAAcABwABAAcAAAD7/wgABwAAAAgAAAD//wgABwACAAcAAAD7//v/BwAHAAAAAAAEAAQABwAJAAAAAADw/wYABwAHAAAAAADx//3/BwAJAAAAAAD9////BwAFAAUAAAD1//v/BwAFAAUAAAD+/wMABwAFAAUAAAD0/wEABwAFAAUAAAD2/wgABwAFAAUAAAAFAP//BwAEAAUAAAACAP7/BwAEAAUAAAD3//r/BwAEAAUAAAD5/wEABwAEAAUAAAD4/woABwAEAAYAAAD7/wQABwAEAAYAAAAFAAUABwAEAAYAAAD9/wEABwAFAAYAAADv/wAABwAFAAYAAADu/wQABwAFAAYAAAADAP//BwAFAAYAAAA=")
 tile_set = SubResource("TileSet_3k8td")
-
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
-material = SubResource("ShaderMaterial_dvb6f")
-position = Vector2(90, -17)
-texture = ExtResource("19_dtvvk")
