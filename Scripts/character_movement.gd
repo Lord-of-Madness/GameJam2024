@@ -3,15 +3,20 @@ extends CharacterBody2D
 @export var move_speed : float = 100
 
 @onready var player_sprite:AnimatedSprite2D = $AnimatedSprite2D
-var Health:int = 20
+var Health:int
+@export var MaxHP = 20
 var is_alive:bool = true
 var dead:bool = false
 var facing_right:bool
 var facing_left:bool
 var facing_up:bool
 
+signal health_change
 
 var rng = RandomNumberGenerator.new()
+
+func _ready() -> void:
+	Health = MaxHP
 
 func _process(delta: float) -> void:
 	if Health <= 0 and not dead:
@@ -78,6 +83,7 @@ func input_handling():
 		
 func take_damage(damage:int):	
 	Health-=damage
+	health_change.emit()
 	camera_shake(Vector2.ZERO)
 	flash_modulate(Color.RED)
 	
@@ -89,7 +95,7 @@ func camera_shake(startpos):
 	var tween = create_tween()
 	var cam = get_viewport().get_camera_2d()
 	for i in range(0,9):
-		tween.tween_property(cam,"position",startpos+Vector2(rng.randfn()*5,rng.randfn()*5),dur/10)
+		tween.tween_property(cam,"position",startpos+Vector2(rng.randfn()*2,rng.randfn()*2),dur/10)
 	tween.tween_property(cam,"position",startpos,dur/10)
 	
 	
@@ -102,5 +108,6 @@ func flash_modulate(color:Color):
 func _on_animated_sprite_2d_animation_finished() -> void:
 	is_alive = true
 	dead = false
-	Health = 20
+	Health = MaxHP
+	health_change.emit()
 	get_tree().reload_current_scene()
