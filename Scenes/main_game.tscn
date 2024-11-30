@@ -4,12 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://e5x1aso3uw0c" path="res://Scenes/Map.tscn" id="1_a3im0"]
 [ext_resource type="PackedScene" uid="uid://dc0yu32iay8ld" path="res://Scenes/enemy.tscn" id="2_yenkv"]
 [ext_resource type="PackedScene" uid="uid://dq6udp3vcaey" path="res://Scenes/UI/UI.tscn" id="7_sy8uy"]
-[ext_resource type="PackedScene" uid="uid://cya3tqbmsd3we" path="res://Scenes/death_screen.tscn" id="8_hyo2y"]
+[ext_resource type="PackedScene" path="res://Scenes/death_screen.tscn" id="8_hyo2y"]
 [ext_resource type="PackedScene" uid="uid://bwbscfbgtifl4" path="res://Characters/Base_character.tscn" id="9_kdaui"]
-[ext_resource type="PackedScene" uid="uid://dhuak8jd5cu38" path="res://Scenes/pause_menu.tscn" id="9_rgu5t"]
+[ext_resource type="PackedScene" path="res://Scenes/pause_menu.tscn" id="9_rgu5t"]
 [ext_resource type="PackedScene" uid="uid://dllvdr44qyxyh" path="res://Scenes/Dark.tscn" id="9_ryj1b"]
 [ext_resource type="PackedScene" uid="uid://dxgi03e2xappr" path="res://Scenes/chicken_area.tscn" id="10_pp1n8"]
-[ext_resource type="PackedScene" path="res://Scenes/Ores.tscn" id="11_47hfd"]
+[ext_resource type="PackedScene" uid="uid://b8cu6nb3ytnl7" path="res://Scenes/Ores.tscn" id="11_47hfd"]
 [ext_resource type="PackedScene" uid="uid://dbhjsvqgn4mg2" path="res://Scenes/Crop.tscn" id="14_1rs3x"]
 
 [node name="Main game" type="Node2D"]
@@ -21,12 +21,15 @@ position = Vector2(109, 44)
 
 [node name="Enemy" parent="." instance=ExtResource("2_yenkv")]
 position = Vector2(369, 30)
+collision_mask = 1
 
 [node name="Enemy2" parent="." instance=ExtResource("2_yenkv")]
 position = Vector2(348, 119)
+collision_mask = 1
 
 [node name="Enemy3" parent="." instance=ExtResource("2_yenkv")]
 position = Vector2(292, 192)
+collision_mask = 1
 
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2(-86.979, 28.4822)
@@ -75,3 +78,5 @@ position = Vector2(-50, 117)
 
 [node name="Ores" parent="." instance=ExtResource("11_47hfd")]
 position = Vector2(-28, 24)
+
+[connection signal="nightbegins" from="." to="." method="_on_nightbegins"]

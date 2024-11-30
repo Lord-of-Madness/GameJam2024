@@ -3,6 +3,7 @@ extends Node2D
 
 const SPEED := 448.0
 
+var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var direction := 1.0
 var max_x: float
 var middle_x: float
@@ -11,6 +12,9 @@ func _ready() -> void:
 	max_x = $Background.size.x - $Background/HitBox.size.x
 	middle_x = $Background.size.x / 2.0
 	PlayerData.in_mechanic = true
+	
+	$Background/HitBox.position.x = rng.randf_range(0.0, max_x)
+	direction = 1.0 if rng.randf() <= 0.5 else -1.0
 
 func _process(delta: float) -> void:
 	$Background/HitBox.position.x += SPEED * delta * direction
@@ -18,8 +22,10 @@ func _process(delta: float) -> void:
 	if $Background/HitBox.position.x >= max_x or $Background/HitBox.position.x < 0.0:
 		direction *= -1.0
 		
-	var is_target_in_hitbox: bool = $Background/HitBox.position.x <= middle_x and middle_x <= $Background/HitBox.position.x + $Background/HitBox.size.x
-	if Input.is_action_just_pressed("interact") and is_target_in_hitbox:
+	if Input.is_action_just_pressed("interact"):
+		var is_target_in_hitbox: bool = $Background/HitBox.position.x <= middle_x and middle_x <= $Background/HitBox.position.x + $Background/HitBox.size.x
+		if is_target_in_hitbox:
+			PlayerData.increment_ore_count()
+			
 		PlayerData.in_mechanic = false
-		PlayerData.increment_ore_count()
 		queue_free()

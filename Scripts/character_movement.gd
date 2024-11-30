@@ -3,15 +3,15 @@ class_name Player
 enum facing {UP,DOWN,LEFT,RIGHT,NONE}
 
 var guns = ["Shoot","Bazooka"]
-var gun_dmg = {"Shoot":1,"Bazooka":5}
+var gun_dmg = {"Shoot":1.0,"Bazooka":5.0}
 @export_range(0,1) var current_gun:int = 0
 
-
-@export var move_speed : float = 100
+@export var move_speed := 100.0
 
 @onready var player_sprite:AnimatedSprite2D = $AnimatedSprite2D
-var Health:int
-@export var MaxHP = 20
+# Amount of player's HP. Its resets to MAX HP + HP bonus when day begin in main_game.gc.
+var Health:float
+@export var MaxHP := 20.0
 var is_alive:bool = true
 var face:facing = facing.NONE
 var collision:KinematicCollision2D
@@ -77,7 +77,7 @@ func _physics_process(delta: float) -> void:
 		var vertical = Input.get_axis("up", "down")
 		
 		var angle = atan2(vertical, horizontal)
-		var actual_speed =  move_speed
+		var actual_speed =  move_speed + PlayerData.movement_speed_bonus
 		
 		if !is_doing_mechanic:
 			# Animation and idle state speed 0
@@ -159,9 +159,9 @@ func shoot(rot:float):
 	$ArrowBase/AnimatedSprite2D.play()#guns[current_gun] #Should be already set for aiming
 	var bullet:RigidBody2D = bulletScene.instantiate()
 	get_parent().add_child(bullet)
-	bullet.launch(position,rot,gun_dmg[guns[current_gun]])
+	var damage: float = gun_dmg[guns[current_gun]] + PlayerData.bullet_damage_bonus
+	bullet.launch(position, rot, damage)
 	$Gunshot.play()
-
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	is_alive = true
