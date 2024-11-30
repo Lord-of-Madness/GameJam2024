@@ -1,15 +1,18 @@
 extends CharacterBody2D
 
+enum facing {UP,DOWN,LEFT,RIGHT,NONE}
+
 @export var move_speed : float = 100
 
 @onready var player_sprite:AnimatedSprite2D = $AnimatedSprite2D
 var Health:int
 @export var MaxHP = 20
 var is_alive:bool = true
-var dead:bool = false
-var facing_right:bool
-var facing_left:bool
-var facing_up:bool
+var face:facing = facing.NONE
+
+var mouse_mode = true
+
+@onready var arrowbase:Node2D = $ArrowBase
 
 signal health_change
 signal death_signal
@@ -19,18 +22,8 @@ var rng = RandomNumberGenerator.new()
 func _ready() -> void:
 	Health = MaxHP
 
-func _process(delta: float) -> void:
-	print(z_index)
-	
-	if Health <= 0 and not dead:
-		die()
-		if facing_right or facing_left:
-			player_sprite.play("Death_right")
-		elif facing_up:
-			player_sprite.play("Death_up")
-		else:
-			player_sprite.play("Death")
-		dead = true
+#func _unhandled_input(event: InputEvent) -> void:
+	#if(event.is_action_pressed())
 		
 func _physics_process(delta: float) -> void:
 	if is_alive:
@@ -44,53 +37,47 @@ func _physics_process(delta: float) -> void:
 		# Animation and idle state speed 0
 		if ((angle >= PI*2 ) or (abs(horizontal) + abs(vertical)) == 0):
 			player_sprite.play("Idle")
-			facing_up = false
-			facing_right = false
-			facing_left = false
+			face = facing.NONE
 			actual_speed = 0
 		else:
 			input_handling()
-			
-		# Update velocity
-		var xVelocity = cos(angle) * actual_speed
-		var yVelocity = sin(angle) * actual_speed
 		
-		velocity = Vector2(xVelocity, yVelocity)
+		velocity = Vector2(cos(angle), sin(angle))* actual_speed
 		
 		# Move and Slide function uses velocity of character body to move character on map
 		move_and_slide()		
-
 func input_handling():
 	if Input.get_action_strength("right"):
 		player_sprite.play("Walk")
-		facing_right = true
-		facing_left = false
-		facing_up = false
+		face = facing.RIGHT
 		player_sprite.flip_h = false
 	elif Input.get_action_strength("left"):
 		player_sprite.play("Walk")
-		facing_right = false
-		facing_left = true
-		facing_up = false
+		face = facing.LEFT
 		player_sprite.flip_h = true
 	elif Input.get_action_strength("down"):
 		player_sprite.play("Walk_down")
-		facing_up = false
-		facing_right = false
-		facing_left = false
+		face = facing.DOWN
 	else:
 		player_sprite.play("Walk_up")
-		facing_up = true
-		facing_right = false
-		facing_left = false
+		face = facing.UP
 		
 func take_damage(damage:int):	
 	Health-=damage
 	health_change.emit()
 	camera_shake(Vector2.ZERO)
 	flash_modulate(Color.RED)
+	if Health <= 0 and is_alive:
+		die()
 	
 func die():
+	match face:
+		facing.RIGHT,facing.LEFT :
+			player_sprite.play("Death_right")
+		facing.UP:
+			player_sprite.play("Death_up")
+		_:
+			player_sprite.play("Death")
 	is_alive = false
 
 func camera_shake(startpos):
@@ -110,7 +97,6 @@ func flash_modulate(color:Color):
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	is_alive = true
-	dead = false
 	Health = MaxHP
 	health_change.emit()
 	death_signal.emit()

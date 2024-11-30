@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://rwuknlr3kl4u"]
+[gd_scene load_steps=13 format=3 uid="uid://rwuknlr3kl4u"]
 
 [ext_resource type="Script" path="res://Scenes/main_game.gd" id="1_4f8sh"]
 [ext_resource type="PackedScene" uid="uid://e5x1aso3uw0c" path="res://Scenes/Map.tscn" id="1_a3im0"]
@@ -8,6 +8,7 @@
 [ext_resource type="Shader" path="res://Scenes/Glitch.gdshader" id="5_wt5iu"]
 [ext_resource type="LabelSettings" uid="uid://bbm407nhinbqg" path="res://Scenes/LabelData/Pretty_Label.tres" id="6_wvree"]
 [ext_resource type="LabelSettings" uid="uid://bv2est1hx2aj2" path="res://Scenes/LabelData/Bloody_Label.tres" id="8_x2o6i"]
+[ext_resource type="PackedScene" uid="uid://bwbscfbgtifl4" path="res://Characters/Base_character.tscn" id="9_kdaui"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvggy"]
 bg_color = Color(1, 0, 0, 1)
@@ -118,3 +119,7 @@ vertical_alignment = 1
 position = Vector2(-86.979, 28.4822)
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="BaseCharacter" parent="." instance=ExtResource("9_kdaui")]
+unique_name_in_owner = true
+position = Vector2(-322, 99)
