@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://rwuknlr3kl4u"]
+[gd_scene load_steps=5 format=3 uid="uid://rwuknlr3kl4u"]
 
 [ext_resource type="PackedScene" uid="uid://e5x1aso3uw0c" path="res://Scenes/Map.tscn" id="1_a3im0"]
 [ext_resource type="PackedScene" uid="uid://dc0yu32iay8ld" path="res://Scenes/enemy.tscn" id="2_yenkv"]
@@ -46,7 +46,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_ilxjc")
 show_percentage = false
-script = ExtResource("4_jfh7b")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2(-86.979, 28.4822)
