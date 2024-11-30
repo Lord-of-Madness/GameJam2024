@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dbhjsvqgn4mg2"]
 
 [ext_resource type="Script" path="res://Scripts/crop.gd" id="1_i140b"]
-[ext_resource type="Texture2D" uid="uid://cdd6e7hoo5dcc" path="res://Art/Hana Caraka Crops - Free/Crops/Spring/Turnip.png" id="1_nh3c5"]
+[ext_resource type="Texture2D" uid="uid://2ek6j18bsl2x" path="res://Art/Hana Caraka Crops - Free/Crops/Spring/Turnip.png" id="1_nh3c5"]
 [ext_resource type="Script" path="res://Scripts/interaction_area.gd" id="3_it6gr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eepjk"]
