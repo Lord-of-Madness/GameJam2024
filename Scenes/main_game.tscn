@@ -1,7 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://rwuknlr3kl4u"]
 
+[ext_resource type="Script" path="res://Scenes/main_game.gd" id="1_4f8sh"]
 [ext_resource type="PackedScene" uid="uid://e5x1aso3uw0c" path="res://Scenes/Map.tscn" id="1_a3im0"]
 [ext_resource type="PackedScene" uid="uid://dc0yu32iay8ld" path="res://Scenes/enemy.tscn" id="2_yenkv"]
+[ext_resource type="Script" path="res://Scenes/Health_bar.gd" id="4_dmxu2"]
 [ext_resource type="Script" path="res://Scenes/cycle_announcement.gd" id="5_8yxll"]
 [ext_resource type="Shader" path="res://Scenes/Glitch.gdshader" id="5_wt5iu"]
 [ext_resource type="LabelSettings" uid="uid://bbm407nhinbqg" path="res://Scenes/LabelData/Pretty_Label.tres" id="6_wvree"]
@@ -22,8 +24,7 @@ shader_parameter/shake_block_size = 30.5
 shader_parameter/shake_color_rate = 0.01
 
 [node name="Main game" type="Node2D"]
-daylenght = 5
-nigthlenght = 5
+script = ExtResource("1_4f8sh")
 
 [node name="Map" parent="." instance=ExtResource("1_a3im0")]
 z_index = -1
@@ -60,6 +61,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_ilxjc")
 show_percentage = false
+script = ExtResource("4_dmxu2")
 
 [node name="CycleAnnouncement" type="Control" parent="CanvasLayer/Control"]
 layout_mode = 1
