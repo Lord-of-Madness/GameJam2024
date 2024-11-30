@@ -31,8 +31,6 @@ shape = SubResource("RectangleShape2D_74557")
 
 [node name="InteractionArea" type="Area2D" parent="Sprite2D"]
 position = Vector2(0, 2)
-collision_layer = 0
-collision_mask = 2
 script = ExtResource("3_n26oi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/InteractionArea"]
@@ -53,8 +51,6 @@ shape = SubResource("RectangleShape2D_74557")
 
 [node name="InteractionArea" type="Area2D" parent="Sprite2D2"]
 position = Vector2(0, 2)
-collision_layer = 0
-collision_mask = 2
 script = ExtResource("3_n26oi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/InteractionArea"]
@@ -75,8 +71,6 @@ shape = SubResource("RectangleShape2D_74557")
 
 [node name="InteractionArea" type="Area2D" parent="Sprite2D3"]
 position = Vector2(0, 2)
-collision_layer = 0
-collision_mask = 2
 script = ExtResource("3_n26oi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D3/InteractionArea"]
@@ -97,8 +91,6 @@ shape = SubResource("RectangleShape2D_74557")
 
 [node name="InteractionArea" type="Area2D" parent="Sprite2D4"]
 position = Vector2(0, 2)
-collision_layer = 0
-collision_mask = 2
 script = ExtResource("3_n26oi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D4/InteractionArea"]
