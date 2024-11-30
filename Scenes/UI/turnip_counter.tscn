@@ -26,6 +26,7 @@ offset_right = 74.0
 offset_bottom = 33.0
 
 [node name="Label" type="Label" parent="Container"]
+layout_mode = 0
 offset_left = -16.0
 offset_top = -9.0
 offset_right = 24.0
@@ -35,6 +36,7 @@ label_settings = SubResource("LabelSettings_vdxq4")
 vertical_alignment = 1
 
 [node name="TurnipCountLabel" type="Label" parent="Container"]
+layout_mode = 0
 offset_left = -6.0
 offset_top = -7.0
 offset_right = 74.0
