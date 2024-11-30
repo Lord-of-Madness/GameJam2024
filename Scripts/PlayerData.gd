@@ -6,6 +6,7 @@ var _turnip_count := 0
 
 var egg_counter_label: Label
 var turnip_counter_label: Label
+var ore_counter_label: Label
 
 func increment_egg_count():
 	_egg_count += 1
@@ -27,7 +28,7 @@ func reset_ore_count():
 	on_ore_count_changed()
 	
 func on_ore_count_changed():
-	pass
+	ore_counter_label.text = str(_ore_count)
 	
 func increment_turnip_count():
 	_turnip_count += 1

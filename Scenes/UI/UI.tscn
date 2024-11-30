@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dq6udp3vcaey"]
+[gd_scene load_steps=12 format=3 uid="uid://dq6udp3vcaey"]
 
 [ext_resource type="Script" path="res://Scenes/Health_bar.gd" id="1_pqt8e"]
 [ext_resource type="Script" path="res://Scenes/cycle_announcement.gd" id="2_y38bf"]
@@ -6,7 +6,8 @@
 [ext_resource type="Shader" path="res://Scenes/Glitch.gdshader" id="4_v4yd8"]
 [ext_resource type="LabelSettings" uid="uid://bv2est1hx2aj2" path="res://Scenes/LabelData/Bloody_Label.tres" id="5_l6654"]
 [ext_resource type="PackedScene" uid="uid://2hha18fwb78" path="res://Scenes/UI/egg_counter.tscn" id="6_senu2"]
-[ext_resource type="PackedScene" uid="uid://d31s53acs7fq8" path="res://Scenes/UI/turnip_counter.tscn" id="7_olrfe"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/turnip_counter.tscn" id="7_olrfe"]
+[ext_resource type="PackedScene" uid="uid://b22n0s18ovdk" path="res://Scenes/UI/ore_counter.tscn" id="8_r3k50"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvggy"]
 bg_color = Color(1, 0, 0, 1)
@@ -120,5 +121,14 @@ offset_left = 2.0
 offset_top = -40.0
 offset_right = 2.0
 offset_bottom = -40.0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+
+[node name="OreCounter" parent="Control" instance=ExtResource("8_r3k50")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+offset_top = -59.0
+offset_bottom = -59.0
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
