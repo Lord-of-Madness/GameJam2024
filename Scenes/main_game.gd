@@ -1,6 +1,7 @@
 extends Node2D
 
 var Progress:ProgressBar
+var Darkness:CanvasLayer
 @onready var time:Timer = $Timer
 @export var daylenght = 10
 @export var nigthlenght = 10
@@ -12,6 +13,7 @@ var day = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Progress = get_node("CanvasLayer/Control/ProgressBar")
+	Darkness = get_node("Dark")
 	%BaseCharacter.position = $SpawnPoint.position
 	%BaseCharacter.death_signal.connect(revive_player)
 	Progress.offset_top = -37
@@ -42,7 +44,9 @@ func night_begins():
 	twenn.tween_property(Progress,"offset_top",7,1.5)
 	twenn.parallel()
 	twenn.tween_property(Progress,"offset_bottom",7,1.5)
-	twenn.parallel()
+	
+	# Night fades in
+	$Dark.get_node("AnimationPlayer").play("fade")
 	
 	
 	
@@ -59,6 +63,9 @@ func day_begins():
 	twenn.tween_property(Progress,"offset_top",-37,1.5)
 	twenn.parallel()
 	twenn.tween_property(Progress,"offset_bottom",-37,1.5)
+	
+	# Night fades away
+	$Dark.get_node("AnimationPlayer").play_backwards("fade")
 	
 func swapCycle():
 	get_node("CanvasLayer/Control/CycleAnnouncement").change_text(!day)
