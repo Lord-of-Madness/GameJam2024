@@ -11,7 +11,7 @@ class_name Enemy
 @export var AttackRange : int= 1
 ##Damage dealt
 @export var damage : int= 1
-
+var day = true
 var canAttack:bool  = true
 var Cooldown:float = 0
 
@@ -24,6 +24,8 @@ func _ready() -> void:
 	animPlayer = get_node("Sprite2D/AnimationPlayer")
 	animPlayer.play("Idle")
 	%BaseCharacter.death_signal.connect(func():Active = false)
+	get_parent().connect("daybegins",day_begins)
+	get_parent().connect("nightbegins",night_begins)
 
 func _process(delta: float) -> void:
 	if not canAttack:
@@ -31,7 +33,7 @@ func _process(delta: float) -> void:
 		if(Cooldown<=0):
 			canAttack = true
 			
-	else:
+	elif Active:
 		if(%BaseCharacter.position.distance_to(position)<AttackRange*16):
 			attack()
 			%BaseCharacter.take_damage(damage)
@@ -56,6 +58,8 @@ func get_direction():
 		return Vector2.DOWN
 
 func taken_hit(dmg:int):
+	if not day:
+		Active = true
 	flash_modulate(Color.RED)
 	Health-=dmg
 	if Health<=0:
@@ -70,3 +74,15 @@ func attack():
 	$Attack.attack_anim(get_direction())
 	canAttack = false
 	Cooldown = 1/AttackSpeed
+	
+func day_begins():
+	$DaySprite.visible = true
+	$Sprite2D.visible = false
+	Active = false
+	day = true
+func night_begins():
+	day = false
+	$DaySprite.visible = false
+	$Sprite2D.visible = true
+	if(position.distance_to(%BaseCharacter.position)<=%BaseCharacter.get_node("ConversionRing/CollisionShape2D").shape.radius):
+		Active = true

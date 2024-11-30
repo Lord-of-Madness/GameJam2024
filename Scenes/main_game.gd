@@ -9,11 +9,15 @@ var Darkness:CanvasLayer
 @onready var grassShader:Shader = preload("res://Scenes/Grass.gdshader")
 @onready var bloodgrassShader:Shader = preload("res://Shaders/BloodGrass.gdshader")
 
+signal daybegins
+signal nightbegins
+
 var day = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	PlayerData.egg_counter_label = get_node("CanvasLayer/Control/EggCounter/Container/EggCountLabel")
 	PlayerData.turnip_counter_label = get_node("CanvasLayer/Control/TurnipCounter/Container/TurnipCountLabel")
+	PlayerData.ore_counter_label = get_node("CanvasLayer/Control/OreCounter/Container/OreCountLabel")
 	Progress = get_node("CanvasLayer/Control/ProgressBar")
 	Progress.base_character = %BaseCharacter
 	Darkness = get_node("Dark")
@@ -29,6 +33,16 @@ func revive_player():
 	%BaseCharacter.position = $SpawnPoint.position
 
 func night_begins():
+	PlayerData.is_night = true
+	
+	nightbegins.emit()
+	if not shutupIamDebugging:
+		var tween = create_tween()
+		tween.tween_property(daytheme,"volume_db",-20,1)
+		tween.tween_callback(func(): 
+			daytheme.stop()
+			nighttheme.play())
+		tween.tween_property(nighttheme,"volume_db",0,1)
 	var twenn = create_tween()
 	twenn.tween_property(Progress,"offset_top",7,1.5)
 	twenn.parallel()
@@ -39,6 +53,18 @@ func night_begins():
 	get_node("Map/TileMaps/GrassLayer").material.shader = bloodgrassShader
 	
 	
+	
+func day_begins():
+	PlayerData.is_night = false
+	
+	daybegins.emit()
+	if not shutupIamDebugging:
+		var tween = create_tween()
+		tween.tween_property(nighttheme,"volume_db",-20,1)
+		tween.tween_callback(func(): 
+			nighttheme.stop()
+			daytheme.play())
+		tween.tween_property(daytheme,"volume_db",0,1)
 	
 func day_begins():	
 	var twenn = create_tween()

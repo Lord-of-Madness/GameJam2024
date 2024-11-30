@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://b22n0s18ovdk"]
+
+[ext_resource type="Texture2D" uid="uid://bmjqg87se7gte" path="res://Art/ore.png" id="1_5cdiu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1cjfj"]
+font_size = 24
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="OreCounter" type="Control"]
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+scale = Vector2(3, 3)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 1.33333
+offset_top = 5.0
+offset_right = 41.3333
+offset_bottom = 45.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_5cdiu")
+expand_mode = 4
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 42.0
+offset_right = 122.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Container"]
+layout_mode = 2
+offset_left = -8.0
+offset_top = 2.0
+offset_right = 32.0
+offset_bottom = 36.0
+text = ":"
+label_settings = SubResource("LabelSettings_1cjfj")
+vertical_alignment = 1
+
+[node name="OreCountLabel" type="Label" parent="Container"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 82.0
+offset_bottom = 38.0
+text = "0
+"
+label_settings = SubResource("LabelSettings_1cjfj")
+vertical_alignment = 1

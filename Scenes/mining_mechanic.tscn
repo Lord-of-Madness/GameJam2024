@@ -4,6 +4,8 @@
 
 [node name="MiningMechanic" type="Node2D"]
 modulate = Color(1, 1, 1, 0.831373)
+z_index = 99
+scale = Vector2(0.7, 0.7)
 script = ExtResource("1_1ipiu")
 
 [node name="Background" type="ColorRect" parent="."]
@@ -13,9 +15,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -128.0
-offset_top = -16.0
+offset_top = -58.0
 offset_right = 128.0
-offset_bottom = 16.0
+offset_bottom = -26.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.111197, 0.111197, 0.111197, 1)

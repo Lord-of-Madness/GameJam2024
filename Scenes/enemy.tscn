@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dc0yu32iay8ld"]
+[gd_scene load_steps=9 format=3 uid="uid://dc0yu32iay8ld"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_qqwst"]
 [ext_resource type="Texture2D" uid="uid://36nu0822lmjp" path="res://Art/Basic Undead Animations/Bound Cadaver/BoundCadaver.png" id="2_c8abk"]
 [ext_resource type="PackedScene" uid="uid://cslk2v4lq3wwj" path="res://Scenes/AttackAnim.tscn" id="3_wg0sm"]
+[ext_resource type="Texture2D" uid="uid://cy4jo38lv04nd" path="res://Art/Hana Caraka - Topdown Tileset [sample]/Props/Tree.png" id="4_k3inu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i1lgf"]
 radius = 7.0
@@ -55,6 +56,7 @@ script = ExtResource("1_qqwst")
 shape = SubResource("CapsuleShape2D_i1lgf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_c8abk")
 hframes = 4
 region_enabled = true
@@ -67,3 +69,10 @@ libraries = {
 
 [node name="Attack" parent="." instance=ExtResource("3_wg0sm")]
 position = Vector2(0, 6)
+
+[node name="DaySprite" type="Sprite2D" parent="."]
+position = Vector2(9.53674e-07, -3)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_k3inu")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 48)
