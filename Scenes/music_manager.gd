@@ -4,6 +4,9 @@ extends Node
 @onready var daytheme = $DayStreamPlayer
 @onready var sound = $SoundPlayer
 @onready var rooser = $Rooster
+@onready var mining = $Mining
+@onready var interact = $Interact
+@onready var obtain_resource = $ObtainResource
 
 @export var shutupIamDebugging = false
 

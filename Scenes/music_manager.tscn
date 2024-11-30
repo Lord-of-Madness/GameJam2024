@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvape01snusjs"]
+[gd_scene load_steps=9 format=3 uid="uid://bvape01snusjs"]
 
 [ext_resource type="Script" path="res://Scenes/music_manager.gd" id="1_do5kn"]
-[ext_resource type="AudioStream" uid="uid://sorb7g8ybcy6" path="res://Art/Music/Night-theme.mp3" id="1_uj56k"]
-[ext_resource type="AudioStream" uid="uid://da7x66qerfu3a" path="res://Art/Music/Day-theme.mp3" id="2_q66l1"]
-[ext_resource type="AudioStream" uid="uid://dp68uf6h407pr" path="res://Art/Sounds/Night_howl.wav" id="4_dl2xr"]
-[ext_resource type="AudioStream" uid="uid://bxuktaso4ij7m" path="res://Art/Sounds/day_caw.wav" id="5_4r4u6"]
+[ext_resource type="AudioStream" uid="uid://bkokx2tgeumq8" path="res://Art/Music/Night-theme.mp3" id="1_uj56k"]
+[ext_resource type="AudioStream" uid="uid://d15gueecn504r" path="res://Art/Music/Day-theme.mp3" id="2_q66l1"]
+[ext_resource type="AudioStream" uid="uid://cxcg3hcxk4f8k" path="res://Art/Sounds/Night_howl.wav" id="4_dl2xr"]
+[ext_resource type="AudioStream" uid="uid://briki70is5sxh" path="res://Art/Sounds/day_caw.wav" id="5_4r4u6"]
+[ext_resource type="AudioStream" uid="uid://dxh0rtmeot65k" path="res://Art/Sounds/Mining.wav" id="6_maotc"]
+[ext_resource type="AudioStream" uid="uid://bdqbqx4kvcslv" path="res://Art/Sounds/Interact.wav" id="7_f3jv6"]
+[ext_resource type="AudioStream" uid="uid://dnidyjuxmpke2" path="res://Art/Sounds/ObtainResource.wav" id="8_jbs5w"]
 
 [node name="MusicManager" type="Node"]
 script = ExtResource("1_do5kn")
@@ -20,3 +23,16 @@ stream = ExtResource("4_dl2xr")
 
 [node name="Rooster" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_4r4u6")
+
+[node name="Mining" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_maotc")
+volume_db = -10.0
+pitch_scale = 0.3
+
+[node name="Interact" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_f3jv6")
+volume_db = -10.0
+
+[node name="ObtainResource" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_jbs5w")
+volume_db = -5.0

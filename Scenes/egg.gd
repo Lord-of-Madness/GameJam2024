@@ -7,6 +7,7 @@ func _process(delta: float) -> void:
 		return
 		
 	if Input.is_action_just_pressed("interact") and !PlayerData.is_night:
+		MusicManager.interact.play()
 		PlayerData.increment_egg_count()
 		queue_free()
 

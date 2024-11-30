@@ -60,7 +60,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			if vec != Vector2.ZERO:
 				last_joy_aim = vec
 			arrowbase.rotation =last_joy_aim.angle()
-	if not get_parent().day and event.is_action("Shoot"):
+	if not get_parent().day and event.is_action("Shoot") and (Input.is_action_pressed("Aim") or not mouse_mode):
 		shoot(arrowbase.rotation)
 		
 	if abs(arrowbase.rotation)>=PI/2:
