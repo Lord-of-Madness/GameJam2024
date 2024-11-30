@@ -8,7 +8,6 @@ var Darkness:CanvasLayer
 
 @onready var grassShader:Shader = preload("res://Scenes/Grass.gdshader")
 @onready var bloodgrassShader:Shader = preload("res://Shaders/BloodGrass.gdshader")
-
 @onready var CadaverScene = preload("res://Scenes/enemy.tscn")
 
 signal daybegins
@@ -23,7 +22,6 @@ var AvailableTiles:Array[Vector2i]
 @onready var EvilMap:TileMapLayer = $Map/TileMaps/EvilLayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
 	AvailableTiles = GrassMap.get_used_cells()
 	var spawnTimer = Timer.new()
 	add_child(spawnTimer)
@@ -65,7 +63,6 @@ func night_begins():
 	get_node("Map/TileMaps/GrassLayer").material.shader = bloodgrassShader
 	
 	
-	
 func day_begins():
 	EvilMap.visible = false
 	PlayerData.is_night = false
@@ -89,6 +86,7 @@ func swapCycle():
 	else:
 		day = true
 		day_begins()
+
 func spawn():
 	if day: return
 	var toSpawn = 5
@@ -124,7 +122,7 @@ func spawn():
 		var tiledata:TileData = GrassMap.get_cell_tile_data(GrassMap.local_to_map(newPos))
 		
 		if(tiledata):
-			print(GrassMap.local_to_map(newPos)-GrassMap.local_to_map(PlPos))
+			#print(GrassMap.local_to_map(newPos)-GrassMap.local_to_map(PlPos))
 			var enemy:Enemy = CadaverScene.instantiate()
 			enemy.position = newPos- newPos.direction_to(PlPos)
 			add_child(enemy)
