@@ -22,6 +22,7 @@ var AvailableTiles:Array[Vector2i]
 @onready var EvilMap:TileMapLayer = $Map/TileMaps/EvilLayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	AvailableTiles = GrassMap.get_used_cells()
 	var spawnTimer = Timer.new()
 	add_child(spawnTimer)
