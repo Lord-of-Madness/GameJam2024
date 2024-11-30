@@ -1,11 +1,11 @@
 [gd_scene load_steps=64 format=3 uid="uid://bwbscfbgtifl4"]
 
 [ext_resource type="Script" path="res://Scripts/character_movement.gd" id="1_7lcwf"]
-[ext_resource type="Texture2D" uid="uid://cuv5uol8elak2" path="res://Art/Hana Caraka - Base Character [sample]/idle.png" id="1_insey"]
-[ext_resource type="Texture2D" uid="uid://dpubh0ty6cewp" path="res://Art/Hana Caraka - Base Character [sample]/death.png" id="2_1fmrf"]
+[ext_resource type="Texture2D" uid="uid://3qc3tnhmxqpc" path="res://Art/Hana Caraka - Base Character [sample]/idle.png" id="1_insey"]
+[ext_resource type="Texture2D" uid="uid://bgst70k4q54ce" path="res://Art/Hana Caraka - Base Character [sample]/death.png" id="2_1fmrf"]
 [ext_resource type="Script" path="res://Characters/ConversionRing.gd" id="3_1pu7u"]
-[ext_resource type="Texture2D" uid="uid://ddhse5ipp4xcx" path="res://Art/Hana Caraka - Base Character [sample]/walk.png" id="3_63v58"]
-[ext_resource type="Texture2D" uid="uid://hbhboooj7ujp" path="res://Art/simple_symbols_2.png" id="6_2uogp"]
+[ext_resource type="Texture2D" uid="uid://cpkq1svxe2h1y" path="res://Art/Hana Caraka - Base Character [sample]/walk.png" id="3_63v58"]
+[ext_resource type="Texture2D" uid="uid://c4yo3goipl5lk" path="res://Art/simple_symbols_2.png" id="6_2uogp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1sl8i"]
 atlas = ExtResource("2_1fmrf")
@@ -434,31 +434,28 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdjqp"]
-size = Vector2(11, 5)
+size = Vector2(7, 2)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m7q2e"]
 radius = 50.0
 
 [node name="BaseCharacter" type="CharacterBody2D"]
 y_sort_enabled = true
-position = Vector2(30, 30)
 script = ExtResource("1_7lcwf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-y_sort_enabled = true
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_3ysjt")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2)
+position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_bdjqp")
 
 [node name="ConversionRing" type="Area2D" parent="."]
 script = ExtResource("3_1pu7u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ConversionRing"]
-position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_m7q2e")
 
 [node name="Camera2D" type="Camera2D" parent="."]
