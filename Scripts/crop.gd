@@ -10,4 +10,9 @@ func _ready() -> void:
 	
 
 func _on_interact():
-	print("do something")
+	if $Sprite2D.frame < 4:
+		$Sprite2D.frame += 1
+	else:
+		PlayerData.increment_turnip_count()
+		$Sprite2D.frame = 2
+		

@@ -6,14 +6,15 @@
 script = ExtResource("1_bwow8")
 
 [node name="Label" type="Label" parent="."]
-z_index = 20
+z_index = 1000
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -52.5
-offset_right = 52.5
+offset_left = -52.0
+offset_right = 53.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme_override_font_sizes/font_size = 5
 text = "[E] to interact"
 horizontal_alignment = 1
 vertical_alignment = 1

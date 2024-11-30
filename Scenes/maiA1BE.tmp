@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://c28yfqakwggci"]
+[gd_scene load_steps=11 format=3 uid="uid://rwuknlr3kl4u"]
 
 [ext_resource type="Script" path="res://Scenes/main_game.gd" id="1_4f8sh"]
 [ext_resource type="PackedScene" uid="uid://e5x1aso3uw0c" path="res://Scenes/Map.tscn" id="1_a3im0"]
 [ext_resource type="PackedScene" uid="uid://dc0yu32iay8ld" path="res://Scenes/enemy.tscn" id="2_yenkv"]
-[ext_resource type="PackedScene" uid="uid://dq6udp3vcaey" path="res://Scenes/UI/UI.tscn" id="4_gsdy7"]
-[ext_resource type="PackedScene" uid="uid://dllvdr44qyxyh" path="res://Scenes/Dark.tscn" id="9_60ru0"]
+[ext_resource type="PackedScene" uid="uid://dq6udp3vcaey" path="res://Scenes/UI/UI.tscn" id="7_sy8uy"]
 [ext_resource type="PackedScene" uid="uid://bwbscfbgtifl4" path="res://Characters/Base_character.tscn" id="9_kdaui"]
 [ext_resource type="PackedScene" uid="uid://dllvdr44qyxyh" path="res://Scenes/Dark.tscn" id="9_ryj1b"]
 [ext_resource type="AudioStream" uid="uid://sorb7g8ybcy6" path="res://Art/Music/Night-theme.mp3" id="10_4m1tr"]
@@ -29,10 +28,6 @@ position = Vector2(348, 119)
 [node name="Enemy3" parent="." instance=ExtResource("2_yenkv")]
 position = Vector2(292, 192)
 
-[node name="CanvasLayer" parent="." instance=ExtResource("4_gsdy7")]
-
-[node name="Dark" parent="." instance=ExtResource("9_60ru0")]
-
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2(-86.979, 28.4822)
 
@@ -40,7 +35,6 @@ position = Vector2(-86.979, 28.4822)
 
 [node name="BaseCharacter" parent="." groups=["Player"] instance=ExtResource("9_kdaui")]
 unique_name_in_owner = true
-collision_layer = 1
 
 [node name="NightStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_4m1tr")
@@ -53,25 +47,24 @@ stream = ExtResource("11_gexmh")
 [node name="Dark" parent="." instance=ExtResource("9_ryj1b")]
 
 [node name="Crops" type="Node2D" parent="."]
-y_sort_enabled = true
 
 [node name="Crop4" parent="Crops" groups=["Crops"] instance=ExtResource("14_1rs3x")]
-position = Vector2(117, 38)
+position = Vector2(160, 61)
 
 [node name="Crop" parent="Crops" groups=["Crops"] instance=ExtResource("14_1rs3x")]
-position = Vector2(101, 70)
+position = Vector2(141, 62)
 
 [node name="Crop2" parent="Crops" groups=["Crops"] instance=ExtResource("14_1rs3x")]
-position = Vector2(101, 54)
+position = Vector2(140, 28)
 
 [node name="Crop3" parent="Crops" groups=["Crops"] instance=ExtResource("14_1rs3x")]
-position = Vector2(101, 38)
+position = Vector2(159, 43)
 
 [node name="Crop5" parent="Crops" groups=["Crops"] instance=ExtResource("14_1rs3x")]
-position = Vector2(117, 54)
+position = Vector2(141, 44)
 
 [node name="Crop6" parent="Crops" groups=["Crops"] instance=ExtResource("14_1rs3x")]
-position = Vector2(117, 70)
+position = Vector2(159, 28)
 
 [node name="ChickenArea" parent="." instance=ExtResource("10_pp1n8")]
 position = Vector2(-50, 117)
