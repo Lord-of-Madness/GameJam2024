@@ -12,6 +12,8 @@ var face:facing = facing.NONE
 
 var mouse_mode = true
 
+var last_joy_aim:Vector2
+
 @onready var arrowbase:Node2D = $ArrowBase
 
 signal health_change
@@ -21,9 +23,29 @@ var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	Health = MaxHP
+	arrowbase.visible = false
 
-#func _unhandled_input(event: InputEvent) -> void:
-	#if(event.is_action_pressed())
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton or event is InputEventKey:
+		if not mouse_mode:
+			arrowbase.visible = false
+		mouse_mode = true
+	elif event is InputEventJoypadButton:
+		mouse_mode = false
+		arrowbase.visible = true
+	if mouse_mode:
+		if (event is InputEventMouseMotion):
+			arrowbase.rotation = get_global_mouse_position().angle_to_point(position)
+		if(event.is_action_pressed("Aim")):
+			arrowbase.visible = true
+		if(event.is_action_released("Aim")):
+			arrowbase.visible = false
+	else:
+		if event is InputEventJoypadMotion:
+			var vec = Input.get_vector("AimJoy RIGHT","AimJoy LEFT","AimJoy DOWN","AimJoy UP")
+			if vec != Vector2.ZERO:
+				last_joy_aim = vec
+			arrowbase.rotation =last_joy_aim.angle()
 		
 func _physics_process(delta: float) -> void:
 	if is_alive:
