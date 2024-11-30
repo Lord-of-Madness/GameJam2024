@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4hgikqal8rr5"]
+
+[ext_resource type="Script" path="res://Scenes/egg.gd" id="1_jdb2l"]
+[ext_resource type="Texture2D" uid="uid://dqh6vecxx7c53" path="res://Art/Hana Caraka - Topdown Tileset [sample]/Props/Props-All.png" id="1_vkyny"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8cxor"]
+
+[node name="Egg" type="Node2D"]
+script = ExtResource("1_jdb2l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("1_vkyny")
+region_enabled = true
+region_rect = Rect2(0, 80, 16, 16)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_8cxor")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,11 +1,14 @@
 extends ProgressBar
 
+var base_character: Node2D
+var first_frame := true
 
-func _ready() -> void:
-	%BaseCharacter.health_change.connect(change_hp)
-	max_value = %BaseCharacter.MaxHP
-	value = %BaseCharacter.Health
-
+func _process(delta: float) -> void:
+	if first_frame:
+		first_frame = false
+		base_character.health_change.connect(change_hp)
+		max_value = base_character.MaxHP
+		value = base_character.Health
 
 func change_hp():
-	value = %BaseCharacter.Health
+	value = base_character.Health

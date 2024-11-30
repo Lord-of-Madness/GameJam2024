@@ -2,19 +2,27 @@ extends Node2D
 
 const MIN_IDLE_TIME := 3.0
 const MAX_IDLE_TIME := 10.0
-
 const MOVEMENT_SPEED := 16.0
+# Maximum number of eggs (of all chickens) in the chicken area.
+const MAX_EGGS_GLOBAL := 2
 
 var rng := RandomNumberGenerator.new()
 var area
 var shape: CollisionShape2D
 var destination: Vector2
 var idle := true
+var egg : Node2D = null
+var eggs_node: Node2D
+var egg_scene
+
+func _ready() -> void:
+	egg_scene = preload("res://Scenes/Egg.tscn")
 
 func _process(delta: float) -> void:
 	if area == null:
 		area = get_parent() as Area2D
 		shape = area.get_child(0) as CollisionShape2D
+		eggs_node = area.get_node("Eggs")
 		start_idle()
 	
 	if idle:
@@ -39,6 +47,8 @@ func start_idle():
 	$IdleTimer.start(rng.randf_range(MIN_IDLE_TIME, MAX_IDLE_TIME))
 	
 func start_walk():
+	try_lay_egg()
+	
 	var rect := shape.shape.get_rect()
 	var x := rng.randf_range(rect.position.x, rect.position.x + rect.size.x)
 	var y := rng.randf_range(rect.position.y, rect.position.y + rect.size.y)
@@ -61,3 +71,13 @@ func update_facing_direction(movement_direction: Vector2):
 	else:
 		$AnimatedSprite2D.play("walk_down")
 	
+func try_lay_egg():
+	if egg != null:
+		return
+	
+	if eggs_node.get_child_count() >= MAX_EGGS_GLOBAL:
+		return
+		
+	egg = egg_scene.instantiate()
+	egg.position = position
+	eggs_node.add_child(egg)
