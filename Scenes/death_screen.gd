@@ -1,5 +1,10 @@
 extends Control
 
+func _ready() -> void:
+	visibility_changed.connect(func():
+		if visible:
+			$VBoxContainer/PlayAgain.grab_focus()
+			)
 
 func restart():
 	MusicManager.reset_music()
