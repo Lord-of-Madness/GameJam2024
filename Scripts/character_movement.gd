@@ -8,7 +8,6 @@ enum facing {UP,DOWN,LEFT,RIGHT,NONE}
 var Health:int
 @export var MaxHP = 20
 var is_alive:bool = true
-var dead:bool = false
 var face:facing = facing.NONE
 
 signal health_change
@@ -19,17 +18,6 @@ var rng = RandomNumberGenerator.new()
 func _ready() -> void:
 	Health = MaxHP
 
-func _process(delta: float) -> void:
-	if Health <= 0 and not dead:
-		die()
-		match face:
-			facing.RIGHT,facing.LEFT :
-				player_sprite.play("Death_right")
-			facing.UP:
-				player_sprite.play("Death_up")
-			_:
-				player_sprite.play("Death")
-		dead = true
 		
 func _physics_process(delta: float) -> void:
 	if is_alive:
@@ -78,8 +66,17 @@ func take_damage(damage:int):
 	health_change.emit()
 	camera_shake(Vector2.ZERO)
 	flash_modulate(Color.RED)
+	if Health <= 0 and is_alive:
+		die()
 	
 func die():
+	match face:
+		facing.RIGHT,facing.LEFT :
+			player_sprite.play("Death_right")
+		facing.UP:
+			player_sprite.play("Death_up")
+		_:
+			player_sprite.play("Death")
 	is_alive = false
 
 func camera_shake(startpos):
@@ -99,7 +96,6 @@ func flash_modulate(color:Color):
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	is_alive = true
-	dead = false
 	Health = MaxHP
 	health_change.emit()
 	death_signal.emit()
