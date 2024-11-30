@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bbm407nhinbqg"]
+
+[ext_resource type="FontFile" uid="uid://b03a1nse18kpv" path="res://Art/Fonts/StylishCalligraphyDemo-XPZZ.ttf" id="1_aeu1x"]
+
+[resource]
+font = ExtResource("1_aeu1x")
+font_size = 64
+font_color = Color(1, 0.941176, 0.447059, 1)
