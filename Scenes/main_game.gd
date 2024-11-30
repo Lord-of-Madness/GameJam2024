@@ -122,7 +122,7 @@ func spawn():
 		var tiledata:TileData = GrassMap.get_cell_tile_data(GrassMap.local_to_map(newPos))
 		
 		if(tiledata):
-			print(GrassMap.local_to_map(newPos)-GrassMap.local_to_map(PlPos))
+			#print(GrassMap.local_to_map(newPos)-GrassMap.local_to_map(PlPos))
 			var enemy:Enemy = CadaverScene.instantiate()
 			enemy.position = newPos- newPos.direction_to(PlPos)
 			add_child(enemy)
