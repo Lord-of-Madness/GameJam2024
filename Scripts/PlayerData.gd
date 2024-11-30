@@ -41,6 +41,8 @@ func reset():
 	max_hp_bonus = 0.0
 	movement_speed_bonus = 0.0
 	enemy_max_hp_bonus = 0.0
+	is_night = false
+	in_mechanic = false
 
 # Increases enemy max HP bonus.
 func apply_enemy_hp_upgrade():
