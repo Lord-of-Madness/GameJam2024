@@ -5,9 +5,6 @@ var Darkness:CanvasLayer
 @onready var time:Timer = $Timer
 @export var daylenght = 10
 @export var nigthlenght = 10
-@onready var nighttheme = $NightStreamPlayer
-@onready var daytheme = $DayStreamPlayer
-@export var shutupIamDebugging = false
 
 @onready var grassShader:Shader = preload("res://Scenes/Grass.gdshader")
 @onready var bloodgrassShader:Shader = preload("res://Shaders/BloodGrass.gdshader")
@@ -27,20 +24,11 @@ func _ready() -> void:
 	time.wait_time = daylenght
 	time.timeout.connect(swapCycle)
 	time.start()
-	if not shutupIamDebugging:
-		daytheme.play()
 
 func revive_player():
 	%BaseCharacter.position = $SpawnPoint.position
 
 func night_begins():
-	if not shutupIamDebugging:
-		var tween = create_tween()
-		tween.tween_property(daytheme,"volume_db",-20,1)
-		tween.tween_callback(func(): 
-			daytheme.stop()
-			nighttheme.play())
-		tween.tween_property(nighttheme,"volume_db",0,1)
 	var twenn = create_tween()
 	twenn.tween_property(Progress,"offset_top",7,1.5)
 	twenn.parallel()
@@ -52,15 +40,7 @@ func night_begins():
 	
 	
 	
-func day_begins():
-	if not shutupIamDebugging:
-		var tween = create_tween()
-		tween.tween_property(nighttheme,"volume_db",-20,1)
-		tween.tween_callback(func(): 
-			nighttheme.stop()
-			daytheme.play())
-		tween.tween_property(daytheme,"volume_db",0,1)
-	
+func day_begins():	
 	var twenn = create_tween()
 	twenn.tween_property(Progress,"offset_top",-37,1.5)
 	twenn.parallel()
@@ -72,6 +52,7 @@ func day_begins():
 	
 func swapCycle():
 	get_node("CanvasLayer/Control/CycleAnnouncement").change_text(!day)
+	MusicManager.swap_music(day)
 	if day:
 		day = false
 		night_begins()

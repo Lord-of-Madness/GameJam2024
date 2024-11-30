@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4pev327s8gxj"]
+
+[ext_resource type="Script" path="res://Scenes/music_manager.gd" id="1_do5kn"]
+[ext_resource type="AudioStream" uid="uid://sorb7g8ybcy6" path="res://Art/Music/Night-theme.mp3" id="1_uj56k"]
+[ext_resource type="AudioStream" uid="uid://da7x66qerfu3a" path="res://Art/Music/Day-theme.mp3" id="2_q66l1"]
+
+[node name="MusicManager" type="Node"]
+script = ExtResource("1_do5kn")
+
+[node name="NightStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_uj56k")
+
+[node name="DayStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_q66l1")
