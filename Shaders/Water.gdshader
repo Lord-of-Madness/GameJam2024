@@ -1,3 +1,5 @@
+// Copied from https://godotshaders.com/shader/cosine-water-2/
+
 shader_type canvas_item;
 
 #define iResolution 1.0/SCREEN_PIXEL_SIZE

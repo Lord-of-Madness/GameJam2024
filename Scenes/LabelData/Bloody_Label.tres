@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bv2est1hx2aj2"]
+
+[ext_resource type="FontFile" uid="uid://8u7iw55wr86a" path="res://Art/Fonts/BloodyScaryRegular-K7q8y.ttf" id="1_rox21"]
+
+[resource]
+font = ExtResource("1_rox21")
+font_size = 64
+font_color = Color(0.745098, 0, 0, 1)
