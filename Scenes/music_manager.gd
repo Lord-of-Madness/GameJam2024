@@ -15,22 +15,16 @@ var other_sounds = []
 var is_day: bool = true
 
 func _ready() -> void:
-	if not shutupIamDebugging:
+	if not shutupIamDebugging and not daytheme.is_playing():
 		daytheme.play()
 	sound.volume_db = 10
 
 func _process(delta: float) -> void:
 	if shutupIamDebugging:
-		if is_day:
-			if daytheme.is_playing():
-				daytheme.stop()
-			else:
-				daytheme.play()
-		else:
-			if nighttheme.is_playing():
-				nighttheme.stop()
-			else:
-				nighttheme.play()
+		if daytheme.is_playing():
+			daytheme.stop()
+		elif nighttheme.is_playing():
+			nighttheme.stop()
 
 func swap_music(day: bool):
 	is_day = day
@@ -53,3 +47,22 @@ func swap_music(day: bool):
 			nighttheme.stop()
 			daytheme.play())
 		tween.tween_property(daytheme,"volume_db",0,1)
+
+func reset_music():
+	if nighttheme.is_playing():
+		var tween = create_tween()
+		tween.tween_callback(func(): 
+			nighttheme.stop()
+			daytheme.play())
+		tween.tween_property(daytheme,"volume_db",0,1)
+		return
+	if not daytheme.is_playing():
+		daytheme.play()
+		
+func mute():
+	if shutupIamDebugging:
+		shutupIamDebugging = false
+		reset_music()
+	else:
+		shutupIamDebugging = true
+		
