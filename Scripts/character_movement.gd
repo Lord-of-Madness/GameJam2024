@@ -2,9 +2,9 @@ extends CharacterBody2D
 class_name Player
 enum facing {UP,DOWN,LEFT,RIGHT,NONE}
 
-var guns = ["Shoot","Bazooka"]
-var gun_dmg = {"Shoot":1.0,"Bazooka":5.0}
-@export_range(0,1) var current_gun:int = 0
+var guns = ["Shoot","Colt","AK-47","Bazooka"]
+var gun_dmg = {"Shoot":1.0,"Colt":5.0,"AK-47":10.0,"Bazooka":30.0}
+@export_range(0,3) var current_gun:int = 0
 
 @export var move_speed := 100.0
 

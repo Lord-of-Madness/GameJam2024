@@ -31,6 +31,7 @@ func _process(delta: float) -> void:
 	if mining_minigame_node != null and (is_player_moving or PlayerData.is_night):
 		mining_minigame_node.queue_free()
 		mining_minigame_node = null
+		PlayerData.in_mechanic = false
 		on_player_interact_end()
 
 func update_ore_interaction_animation(delta: float):
