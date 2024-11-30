@@ -574,22 +574,28 @@ texture = ExtResource("6_tb6i3")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_418kb"]
 texture = ExtResource("7_xp3s7")
 0:0/0 = 0
+0:0/0/y_sort_origin = 2
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, 0, 6, 0, 6, 0, 6, 0, 6, 6, 6, 6, -6, 6)
 1:0/0 = 0
+1:0/0/y_sort_origin = 2
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, 0, 6, 0, 6, 0, 6, 0, 6, 6, 6, 6, -6, 6)
 2:0/0 = 0
+2:0/0/y_sort_origin = 2
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, 0, 6, 0, 6, 0, 6, 0, 6, 6, 6, 6, -6, 6)
 3:0/0 = 0
+3:0/0/y_sort_origin = 2
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, 0, 6, 0, 6, 0, 6, 0, 6, 6, 6, 6, -6, 6)
-0:1/0 = 0
-3:1/0 = 0
 0:2/0 = 0
+0:2/0/y_sort_origin = 3
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, 2, 6, 2, 6, 2, 6, 2, 6, 6, 6, 6, -6, 6)
 1:2/0 = 0
+1:2/0/y_sort_origin = 3
 1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, 2, 6, 2, 6, 2, 6, 2, 6, 6, 6, 6, -6, 6)
 2:2/0 = 0
+2:2/0/y_sort_origin = 3
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, 2, 6, 2, 6, 2, 6, 2, 6, 6, 6, 6, -6, 6)
 3:2/0 = 0
+3:2/0/y_sort_origin = 3
 3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, 2, 6, 2, 6, 2, 6, 2, 6, 6, 6, 6, -6, 6)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_icmv8"]
@@ -814,6 +820,7 @@ tile_set = SubResource("TileSet_3k8td")
 tile_map_data = PackedByteArray("AAD2/wUAEAAEAAEAAAD4/wQAEAAFAAEAAAD1/wMAEAAEAAAAAAD0/wUAEAAFAAAAAAD0/wQABwAEAAUAAAA=")
 tile_set = SubResource("TileSet_3k8td")
 
-[node name="ObjectsLayer" type="TileMapLayer" parent="TileMaps"]
+[node name="ObjectsLayer" type="TileMapLayer" parent="."]
+y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAAAAAACQAEAAAAAAD//wAACQAEAAAAAAD//wEACQAEAAAAAAAAAAEACQAEAAAAAAAAAP//CQAEAAAAAAD/////CQAEAAAAAADz/wUADQAAAAAAAAD0/wMADQAAAAAAAAD3/wMADQAAAAAAAAD4/wUADQAAAAAAAAD2//7/DwAAAAAAAAD3//7/DwAAAAEAAAD4//7/DwAAAAIAAAD5//7/DwABAAAAAAADAAgAAgAAAAAAAAD//wYAAgABAAAAAAD8/wkAAgABAAEAAAABAAgAAgABAAEAAAABAAUAAgAAAAEAAAD9/wcAAgAAAAEAAADy////AwAAAAEAAAAEAP3/AwABAAEAAAD7/wMAAwABAAAAAAD5//v/AwAAAAAAAAD1/wgAAwAAAAAAAAADAAEAAwAAAAEAAADw/wIAAwABAAEAAAD3/wEAAwAAAAAAAAD9//3/AwABAAAAAADw/wgABAAAAAAAAAAGAAMABAAAAAAAAAAGAPz/BAAAAAAAAAAAAPr/BAAAAAAAAADy//v/BAAAAAAAAAAHAAcABAABAAAAAAD7/wEABAACAAAAAAAEAAoABAADAAAAAAD7/wwABAAEAAAAAAD6/wUABAAFAAAAAAD0/wAABAAAAAEAAAD4//j/BAABAAEAAAAAAAwAAwAAAAAAAAD1/woABQAAAAAAAAAGAAEABQABAAAAAAD5/wAABQADAAAAAAD3//v/BQAAAAEAAAABAPz/BQACAAEAAADy/wAABQADAAIAAAD///3/BgAAAAAAAAAAAP3/BgAAAAAAAADz/wcABgADAAAAAAD0/wcABgADAAAAAAD7//7/BgACAAAAAAD6//7/BgABAAIAAAD4/wYABgAAAAIAAAD//wIABgABAAIAAADz//3/BwABAAMAAAACAAMABwABAAUAAAD+//v/BwABAAUAAADz/woABwAAAAUAAAD4/wkABwAAAAMAAAAEAAAABwAAAAMAAAADAAcABwABAAcAAAD7/wgABwAAAAgAAAD//wgABwACAAcAAAD7//v/BwAHAAAAAAAEAAQABwAJAAAAAADw/wYABwAHAAAAAADx//3/BwAJAAAAAAD9////BwAFAAUAAAD1//v/BwAFAAUAAAD+/wMABwAFAAUAAAD0/wEABwAFAAUAAAD2/wgABwAFAAUAAAAFAP//BwAEAAUAAAACAP7/BwAEAAUAAAD3//r/BwAEAAUAAAD5/wEABwAEAAUAAAD4/woABwAEAAYAAAD7/wQABwAEAAYAAAAFAAUABwAEAAYAAAD9/wEABwAFAAYAAADv/wAABwAFAAYAAADu/wQABwAFAAYAAAADAP//BwAFAAYAAAA=")
 tile_set = SubResource("TileSet_3k8td")

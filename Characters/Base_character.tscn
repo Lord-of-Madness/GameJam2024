@@ -439,10 +439,12 @@ size = Vector2(11, 5)
 radius = 50.0
 
 [node name="BaseCharacter" type="CharacterBody2D"]
+y_sort_enabled = true
 position = Vector2(30, 30)
 script = ExtResource("1_7lcwf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_3ysjt")
 animation = &"Death_right"
 

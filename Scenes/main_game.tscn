@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://rwuknlr3kl4u"]
+[gd_scene load_steps=6 format=3 uid="uid://rwuknlr3kl4u"]
 
 [ext_resource type="PackedScene" uid="uid://e5x1aso3uw0c" path="res://Scenes/Map.tscn" id="1_a3im0"]
 [ext_resource type="PackedScene" uid="uid://dc0yu32iay8ld" path="res://Scenes/enemy.tscn" id="2_yenkv"]
+[ext_resource type="PackedScene" uid="uid://bwbscfbgtifl4" path="res://Characters/Base_character.tscn" id="3_nd561"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvggy"]
 bg_color = Color(1, 0, 0, 1)
@@ -10,9 +11,9 @@ bg_color = Color(1, 0, 0, 1)
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_dvggy")
 
 [node name="Main game" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Map" parent="." instance=ExtResource("1_a3im0")]
-z_index = -1
 
 [node name="Enemy" parent="." instance=ExtResource("2_yenkv")]
 position = Vector2(369, 30)
@@ -49,3 +50,6 @@ show_percentage = false
 
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2(-86.979, 28.4822)
+
+[node name="BaseCharacter" parent="." instance=ExtResource("3_nd561")]
+position = Vector2(75, 53)
