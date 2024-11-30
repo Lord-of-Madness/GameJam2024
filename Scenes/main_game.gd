@@ -45,6 +45,7 @@ func _ready() -> void:
 	time.wait_time = daylenght
 	time.timeout.connect(swapCycle)
 	time.start()
+	day_begins()
 
 func revive_player():
 	get_tree().paused = true
@@ -70,7 +71,7 @@ func night_begins():
 func day_begins():
 	EvilMap.visible = false
 	PlayerData.is_night = false
-	%BaseCharacter.collision_mask = %BaseCharacter.collision_mask^0b00001000
+	%BaseCharacter.collision_mask = %BaseCharacter.collision_mask|0b00001000^0b00001000
 	daybegins.emit()
 	var twenn = create_tween()
 	twenn.tween_property(Progress,"offset_top",-37,1.5)
