@@ -52,6 +52,7 @@ func _ready() -> void:
 func revive_player():
 	get_tree().paused = true
 	$CanvasLayer/DeathScreen.show()
+	$CanvasLayer/DeathScreen.showStats()
 	%BaseCharacter.position = $SpawnPoint.position
 
 func night_begins():

@@ -144,5 +144,51 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_r0f7d")
 theme_override_styles/normal = SubResource("StyleBoxFlat_odj68")
 text = "BACK TO MENU"
 
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -112.0
+offset_right = 48.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="KilledEnemies" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 10
+text = "Killed enemies: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ores" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 10
+text = "Ores mined: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Turnips" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 10
+text = "Turnips gathered: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Eggs" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 10
+text = "Eggs picked-up: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="VBoxContainer/PlayAgain" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="VBoxContainer/BackToMenu" to="." method="_on_back_to_menu_pressed"]
