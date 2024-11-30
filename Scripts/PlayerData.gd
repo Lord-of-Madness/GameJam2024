@@ -8,7 +8,7 @@ const HP_INC := 2.0
 const MOVEMENT_SPEED_INC := 1.0
 
 # Increases of enemy max HP per day-night cycle.
-const ENEMY_HP_INC := 1.0
+const ENEMY_HP_INC := 0.5
 
 # Amount of eggs player has picked up during day.
 var _egg_count := 0
