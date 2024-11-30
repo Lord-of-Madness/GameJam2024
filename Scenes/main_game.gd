@@ -16,6 +16,7 @@ var day = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Progress = get_node("CanvasLayer/Control/ProgressBar")
+	Progress.base_character = %BaseCharacter
 	Darkness = get_node("Dark")
 	%BaseCharacter.position = $SpawnPoint.position
 	%BaseCharacter.death_signal.connect(revive_player)
