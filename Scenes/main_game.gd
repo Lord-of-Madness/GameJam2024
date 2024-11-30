@@ -15,6 +15,7 @@ var Darkness:CanvasLayer
 var day = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	PlayerData.egg_counter_label = get_node("CanvasLayer/Control/EggCounter/Container/EggCountLabel")
 	Progress = get_node("CanvasLayer/Control/ProgressBar")
 	Progress.base_character = %BaseCharacter
 	Darkness = get_node("Dark")
