@@ -34,6 +34,7 @@ position = Vector2(0, 2)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_n26oi")
+action_name = "mine"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/InteractionArea"]
 position = Vector2(0, -2)
@@ -56,6 +57,7 @@ position = Vector2(0, 2)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_n26oi")
+action_name = "mine"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/InteractionArea"]
 position = Vector2(0, -2)
@@ -78,6 +80,7 @@ position = Vector2(0, 2)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_n26oi")
+action_name = "mine"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D3/InteractionArea"]
 position = Vector2(0, -2)
@@ -100,6 +103,7 @@ position = Vector2(0, 2)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_n26oi")
+action_name = "mine"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D4/InteractionArea"]
 position = Vector2(0, -2)
