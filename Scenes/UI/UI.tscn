@@ -7,7 +7,7 @@
 [ext_resource type="LabelSettings" uid="uid://bv2est1hx2aj2" path="res://Scenes/LabelData/Bloody_Label.tres" id="5_l6654"]
 [ext_resource type="PackedScene" uid="uid://2hha18fwb78" path="res://Scenes/UI/egg_counter.tscn" id="6_senu2"]
 [ext_resource type="PackedScene" uid="uid://d31s53acs7fq8" path="res://Scenes/UI/turnip_counter.tscn" id="7_olrfe"]
-[ext_resource type="PackedScene" uid="uid://b22n0s18ovdk" path="res://Scenes/UI/ore_counter.tscn" id="8_r3k50"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/ore_counter.tscn" id="8_r3k50"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvggy"]
 bg_color = Color(1, 0, 0, 1)

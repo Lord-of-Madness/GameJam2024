@@ -36,13 +36,6 @@ func night_begins():
 	PlayerData.is_night = true
 	
 	nightbegins.emit()
-	if not shutupIamDebugging:
-		var tween = create_tween()
-		tween.tween_property(daytheme,"volume_db",-20,1)
-		tween.tween_callback(func(): 
-			daytheme.stop()
-			nighttheme.play())
-		tween.tween_property(nighttheme,"volume_db",0,1)
 	var twenn = create_tween()
 	twenn.tween_property(Progress,"offset_top",7,1.5)
 	twenn.parallel()
@@ -58,15 +51,6 @@ func day_begins():
 	PlayerData.is_night = false
 	
 	daybegins.emit()
-	if not shutupIamDebugging:
-		var tween = create_tween()
-		tween.tween_property(nighttheme,"volume_db",-20,1)
-		tween.tween_callback(func(): 
-			nighttheme.stop()
-			daytheme.play())
-		tween.tween_property(daytheme,"volume_db",0,1)
-	
-func day_begins():	
 	var twenn = create_tween()
 	twenn.tween_property(Progress,"offset_top",-37,1.5)
 	twenn.parallel()

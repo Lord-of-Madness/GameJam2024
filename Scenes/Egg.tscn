@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4hgikqal8rr5"]
+[gd_scene load_steps=6 format=3 uid="uid://7oop3oeejfs8"]
 
 [ext_resource type="Script" path="res://Scenes/egg.gd" id="1_jdb2l"]
-[ext_resource type="Texture2D" uid="uid://dldssfo4vm4rc" path="res://Art/Hana Caraka - Topdown Tileset [sample]/Props/Props-All.png" id="1_vkyny"]
+[ext_resource type="Texture2D" uid="uid://colakv710xclk" path="res://Art/Hana Caraka - Topdown Tileset [sample]/Props/Props-All.png" id="1_vkyny"]
 [ext_resource type="Script" path="res://Scripts/interaction_area.gd" id="3_hnar4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8cxor"]
