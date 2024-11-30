@@ -4,6 +4,9 @@ var Progress:ProgressBar
 @onready var time:Timer = $Timer
 @export var daylenght = 10
 @export var nigthlenght = 10
+@onready var nighttheme = $NightStreamPlayer
+@onready var daytheme = $DayStreamPlayer
+@export var shutupIamDebugging = false
 
 var day = true
 # Called when the node enters the scene tree for the first time.
@@ -16,6 +19,8 @@ func _ready() -> void:
 	time.wait_time = daylenght
 	time.timeout.connect(swapCycle)
 	time.start()
+	if not shutupIamDebugging:
+		daytheme.play()
 	
 
 func revive_player():
@@ -26,7 +31,13 @@ func _process(delta: float) -> void:
 	pass
 
 func night_begins():
-	
+	if not shutupIamDebugging:
+		var tween = create_tween()
+		tween.tween_property(daytheme,"volume_db",-20,1)
+		tween.tween_callback(func(): 
+			daytheme.stop()
+			nighttheme.play())
+		tween.tween_property(nighttheme,"volume_db",0,1)
 	var twenn = create_tween()
 	twenn.tween_property(Progress,"offset_top",7,1.5)
 	twenn.parallel()
@@ -36,6 +47,14 @@ func night_begins():
 	
 	
 func day_begins():
+	if not shutupIamDebugging:
+		var tween = create_tween()
+		tween.tween_property(nighttheme,"volume_db",-20,1)
+		tween.tween_callback(func(): 
+			nighttheme.stop()
+			daytheme.play())
+		tween.tween_property(daytheme,"volume_db",0,1)
+	
 	var twenn = create_tween()
 	twenn.tween_property(Progress,"offset_top",-37,1.5)
 	twenn.parallel()

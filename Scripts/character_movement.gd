@@ -38,7 +38,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			arrowbase.rotation = get_global_mouse_position().angle_to_point(position)
 		if(event.is_action_pressed("Aim")):
 			arrowbase.visible = true
-		if(event.is_action_released("Aim")):
+		elif(event.is_action_released("Aim")):
 			arrowbase.visible = false
 	else:
 		if event is InputEventJoypadMotion:
