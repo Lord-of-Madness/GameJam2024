@@ -11,7 +11,8 @@ var Progress:ProgressBar
 var day = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Progress = get_node("CanvasLayer/Control/ProgressBar")
+	Progress = $CanvasLayer.get_node("Control/ProgressBar")
+	Progress.base_character = %BaseCharacter
 	%BaseCharacter.position = $SpawnPoint.position
 	%BaseCharacter.death_signal.connect(revive_player)
 	Progress.offset_top = -37
@@ -21,14 +22,9 @@ func _ready() -> void:
 	time.start()
 	if not shutupIamDebugging:
 		daytheme.play()
-	
 
 func revive_player():
 	%BaseCharacter.position = $SpawnPoint.position
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func night_begins():
 	if not shutupIamDebugging:
