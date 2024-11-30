@@ -9,12 +9,12 @@ func _process(delta: float) -> void:
 	if !is_player_in_area:
 		return
 		
-	if Input.is_action_just_pressed("interact") and mining_minigame_node == null:
+	if Input.is_action_just_pressed("interact") and mining_minigame_node == null and !PlayerData.is_night:
 		mining_minigame_node = MINING_MECHANIC_SCENE.instantiate()
 		add_child(mining_minigame_node)
 		
 	var is_player_moving := Input.is_action_pressed("up") or Input.is_action_pressed("left") or Input.is_action_pressed("down") or Input.is_action_pressed("right")
-	if is_player_moving and mining_minigame_node != null:
+	if mining_minigame_node != null and (is_player_moving or PlayerData.is_night):
 		mining_minigame_node.queue_free()
 		mining_minigame_node = null
 

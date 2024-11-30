@@ -10,6 +10,7 @@ var middle_x: float
 func _ready() -> void:
 	max_x = $Background.size.x - $Background/HitBox.size.x
 	middle_x = $Background.size.x / 2.0
+	PlayerData.in_mechanic = true
 
 func _process(delta: float) -> void:
 	$Background/HitBox.position.x += SPEED * delta * direction
@@ -19,5 +20,6 @@ func _process(delta: float) -> void:
 		
 	var is_target_in_hitbox: bool = $Background/HitBox.position.x <= middle_x and middle_x <= $Background/HitBox.position.x + $Background/HitBox.size.x
 	if Input.is_action_just_pressed("interact") and is_target_in_hitbox:
+		PlayerData.in_mechanic = false
 		PlayerData.increment_ore_count()
 		queue_free()

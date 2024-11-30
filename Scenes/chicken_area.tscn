@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7dgd2bpeqmdx"]
+[gd_scene load_steps=3 format=3 uid="uid://dxgi03e2xappr"]
 
 [ext_resource type="PackedScene" uid="uid://cqya1qgay0lur" path="res://Scenes/Chicken.tscn" id="1_6iy0v"]
 
@@ -14,6 +14,7 @@ position = Vector2(0.5, 1.5)
 shape = SubResource("RectangleShape2D_jsj1l")
 
 [node name="Eggs" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Chicken" parent="." instance=ExtResource("1_6iy0v")]
 position = Vector2(-38, -14)
