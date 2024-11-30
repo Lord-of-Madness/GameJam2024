@@ -28,6 +28,7 @@ var rng = RandomNumberGenerator.new()
 func _ready() -> void:
 	Health = MaxHP
 	arrowbase.visible = false
+	$ArrowBase/AnimatedSprite2D.animation = guns[current_gun]
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton or event is InputEventKey:
@@ -51,7 +52,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				last_joy_aim = vec
 			arrowbase.rotation =last_joy_aim.angle()
 	if event.is_action("Shoot"):
-		$ArrowBase/AnimatedSprite2D.play(guns[current_gun])
+		shoot()
 		
 	if abs(arrowbase.rotation)>=PI/2:
 		$ArrowBase/AnimatedSprite2D.flip_v = true
@@ -126,6 +127,10 @@ func flash_modulate(color:Color):
 	var tween = create_tween()
 	tween.tween_property(self,"modulate",color,0.3)
 	tween.tween_property(self,"modulate",Color.WHITE,0.3)
+
+func shoot():
+	$ArrowBase/AnimatedSprite2D.play()#guns[current_gun] #Should be already set for aiming
+	
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
