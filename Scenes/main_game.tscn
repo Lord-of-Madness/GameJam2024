@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://rwuknlr3kl4u"]
+[gd_scene load_steps=18 format=3 uid="uid://rwuknlr3kl4u"]
 
 [ext_resource type="Script" path="res://Scenes/main_game.gd" id="1_4f8sh"]
 [ext_resource type="PackedScene" uid="uid://e5x1aso3uw0c" path="res://Scenes/Map.tscn" id="1_a3im0"]
@@ -9,9 +9,10 @@
 [ext_resource type="Shader" path="res://Scenes/Glitch.gdshader" id="5_wt5iu"]
 [ext_resource type="LabelSettings" uid="uid://bbm407nhinbqg" path="res://Scenes/LabelData/Pretty_Label.tres" id="6_wvree"]
 [ext_resource type="LabelSettings" uid="uid://bv2est1hx2aj2" path="res://Scenes/LabelData/Bloody_Label.tres" id="8_x2o6i"]
+[ext_resource type="PackedScene" uid="uid://dllvdr44qyxyh" path="res://Scenes/Dark.tscn" id="9_60ru0"]
 [ext_resource type="PackedScene" uid="uid://bwbscfbgtifl4" path="res://Characters/Base_character.tscn" id="9_kdaui"]
-[ext_resource type="AudioStream" uid="uid://bkokx2tgeumq8" path="res://Art/Music/Night-theme.mp3" id="10_4m1tr"]
-[ext_resource type="AudioStream" uid="uid://d15gueecn504r" path="res://Art/Music/Day-theme.mp3" id="11_gexmh"]
+[ext_resource type="AudioStream" uid="uid://sorb7g8ybcy6" path="res://Art/Music/Night-theme.mp3" id="10_4m1tr"]
+[ext_resource type="AudioStream" uid="uid://da7x66qerfu3a" path="res://Art/Music/Day-theme.mp3" id="11_gexmh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvggy"]
 bg_color = Color(1, 0, 0, 1)
@@ -124,13 +125,14 @@ label_settings = ExtResource("8_x2o6i")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Dark" parent="." instance=ExtResource("9_60ru0")]
+
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2(-86.979, 28.4822)
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="BaseCharacter" parent="." instance=ExtResource("9_kdaui")]
-unique_name_in_owner = true
 position = Vector2(-122, 94)
 
 [node name="NightStreamPlayer" type="AudioStreamPlayer" parent="."]
