@@ -1,9 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://bnet0ia2tmbxm"]
 
 [ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_1ivny"]
+[ext_resource type="Texture2D" uid="uid://016a6jsty1i2" path="res://Art/menu_background1.png" id="2_57rdm"]
+[ext_resource type="FontFile" uid="uid://41unicm4l3x" path="res://Art/Fonts/GrapeSoda.ttf" id="3_03mqi"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pdj8m"]
-texture = ExtResource("1_ya4ks")
+texture = ExtResource("2_57rdm")
 modulate_color = Color(0.288518, 0.288518, 0.288518, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yio37"]
@@ -133,7 +135,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 5
-theme_override_fonts/font = ExtResource("2_i71uw")
+theme_override_fonts/font = ExtResource("3_03mqi")
 theme_override_font_sizes/font_size = 50
 text = "Cozy? Suure"
 horizontal_alignment = 1
