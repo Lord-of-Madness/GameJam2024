@@ -1,6 +1,6 @@
 extends RigidBody2D
 class_name Bullet
-@export_range(0, 100, 1,"or_greater") var speed:float = 60
+@export_range(0, 100, 1,"or_greater") var speed:float = 120
 
 var damage
 

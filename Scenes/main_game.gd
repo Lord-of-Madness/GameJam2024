@@ -12,6 +12,9 @@ var Darkness:CanvasLayer
 @onready var grassShader:Shader = preload("res://Scenes/Grass.gdshader")
 @onready var bloodgrassShader:Shader = preload("res://Shaders/BloodGrass.gdshader")
 
+signal daybegins
+signal nightbegins
+
 var day = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,6 +37,7 @@ func revive_player():
 	%BaseCharacter.position = $SpawnPoint.position
 
 func night_begins():
+	nightbegins.emit()
 	if not shutupIamDebugging:
 		var tween = create_tween()
 		tween.tween_property(daytheme,"volume_db",-20,1)
@@ -53,6 +57,7 @@ func night_begins():
 	
 	
 func day_begins():
+	daybegins.emit()
 	if not shutupIamDebugging:
 		var tween = create_tween()
 		tween.tween_property(nighttheme,"volume_db",-20,1)
