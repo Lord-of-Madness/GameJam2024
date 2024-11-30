@@ -3,6 +3,7 @@ class_name Enemy
 
 
 @export_group("GameProperties")
+@export_range(0,100,5,"or_greater") var Health:int = 10
 @export_subgroup("Combat Properties")
 ##Attacks per Second
 @export var AttackSpeed : float= 1.0
@@ -54,9 +55,15 @@ func get_direction():
 	else:
 		return Vector2.DOWN
 
-func taken_hit():
-	queue_free()
-
+func taken_hit(dmg:int):
+	flash_modulate(Color.RED)
+	Health-=dmg
+	if Health<=0:
+		queue_free()
+func flash_modulate(color:Color):
+	var tween = create_tween()
+	tween.tween_property(self,"modulate",color,0.3)
+	tween.tween_property(self,"modulate",Color.WHITE,0.3)
 func attack():
 	var tween = create_tween()
 	tween.tween_property(self,"position",position + %BaseCharacter.position.direction_to(position)*10,0.2)

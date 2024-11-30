@@ -3,7 +3,8 @@ class_name Player
 enum facing {UP,DOWN,LEFT,RIGHT,NONE}
 
 var guns = ["Shoot","Bazooka"]
-@export_range(0,1) var current_gun = 0
+var gun_dmg = {"Shoot":1,"Bazooka":5}
+@export_range(0,1) var current_gun:int = 0
 
 
 @export var move_speed : float = 100
@@ -142,13 +143,13 @@ func camera_shake(startpos):
 func flash_modulate(color:Color):
 	var tween = create_tween()
 	tween.tween_property(self,"modulate",color,0.3)
-	tween.tween_property(self,"modulate",Color.WHITE,0.3)	
+	tween.tween_property(self,"modulate",Color.WHITE,0.3)
 
 func shoot(rot:float):
 	$ArrowBase/AnimatedSprite2D.play()#guns[current_gun] #Should be already set for aiming
 	var bullet:RigidBody2D = bulletScene.instantiate()
 	get_parent().add_child(bullet)
-	bullet.launch(position,rot)
+	bullet.launch(position,rot,gun_dmg[guns[current_gun]])
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
