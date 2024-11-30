@@ -22,6 +22,7 @@ var Active = false
 func _ready() -> void:
 	animPlayer = get_node("Sprite2D/AnimationPlayer")
 	animPlayer.play("Idle")
+	BaseCharacter.death_signal.connect(func():Active = false)
 	
 
 

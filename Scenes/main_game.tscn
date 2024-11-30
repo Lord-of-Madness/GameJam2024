@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://rwuknlr3kl4u"]
+[gd_scene load_steps=7 format=3 uid="uid://rwuknlr3kl4u"]
 
 [ext_resource type="PackedScene" uid="uid://e5x1aso3uw0c" path="res://Scenes/Map.tscn" id="1_a3im0"]
 [ext_resource type="Script" path="res://Scenes/main_game.gd" id="1_nbuhc"]
 [ext_resource type="PackedScene" uid="uid://dc0yu32iay8ld" path="res://Scenes/enemy.tscn" id="2_yenkv"]
 [ext_resource type="Script" path="res://Scenes/Health_bar.gd" id="4_jfh7b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvggy"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_ilxjc"]
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_dvggy")
 
 [node name="Main game" type="Node2D"]
 script = ExtResource("1_nbuhc")
@@ -31,12 +37,19 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control"]
-modulate = Color(1, 0, 0, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.206
 anchor_bottom = 0.025
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 6.0
+offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_ilxjc")
 show_percentage = false
 script = ExtResource("4_jfh7b")
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(-86.979, 28.4822)
