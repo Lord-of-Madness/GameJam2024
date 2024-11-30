@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/main_game.gd" id="1_4f8sh"]
 [ext_resource type="PackedScene" uid="uid://e5x1aso3uw0c" path="res://Scenes/Map.tscn" id="1_a3im0"]
 [ext_resource type="PackedScene" uid="uid://dc0yu32iay8ld" path="res://Scenes/enemy.tscn" id="2_yenkv"]
+[ext_resource type="PackedScene" uid="uid://cqya1qgay0lur" path="res://Scenes/Chicken.tscn" id="3_cl2rf"]
 [ext_resource type="Script" path="res://Scenes/Health_bar.gd" id="4_dmxu2"]
 [ext_resource type="Script" path="res://Scenes/cycle_announcement.gd" id="5_8yxll"]
 [ext_resource type="Shader" path="res://Scenes/Glitch.gdshader" id="5_wt5iu"]
@@ -11,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://bwbscfbgtifl4" path="res://Characters/Base_character.tscn" id="9_kdaui"]
 [ext_resource type="AudioStream" uid="uid://psmjlcpbtwnf" path="res://Art/Music/Night-theme.mp3" id="10_4m1tr"]
 [ext_resource type="AudioStream" uid="uid://c5ckwrifro2bx" path="res://Art/Music/Day-theme.mp3" id="11_gexmh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsj1l"]
+size = Vector2(87, 41)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvggy"]
 bg_color = Color(1, 0, 0, 1)
@@ -33,6 +37,25 @@ shutupIamDebugging = true
 
 [node name="Map" parent="." instance=ExtResource("1_a3im0")]
 position = Vector2(109, 44)
+
+[node name="ChickenArea" type="Area2D" parent="Map"]
+position = Vector2(-160, 72)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/ChickenArea"]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_jsj1l")
+
+[node name="Chicken" parent="Map/ChickenArea" instance=ExtResource("3_cl2rf")]
+position = Vector2(-38, -14)
+
+[node name="Chicken2" parent="Map/ChickenArea" instance=ExtResource("3_cl2rf")]
+position = Vector2(38, -13)
+
+[node name="Chicken3" parent="Map/ChickenArea" instance=ExtResource("3_cl2rf")]
+position = Vector2(-38, 17)
+
+[node name="Chicken4" parent="Map/ChickenArea" instance=ExtResource("3_cl2rf")]
+position = Vector2(39, 17)
 
 [node name="Enemy" parent="." instance=ExtResource("2_yenkv")]
 position = Vector2(369, 30)
