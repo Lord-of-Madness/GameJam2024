@@ -9,6 +9,7 @@ var turnip_counter_label: Label
 var ore_counter_label: Label
 var is_night := false
 var in_mechanic := false
+var player:Player
 
 func increment_egg_count():
 	_egg_count += 1

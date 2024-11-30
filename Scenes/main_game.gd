@@ -32,6 +32,8 @@ func _ready() -> void:
 	PlayerData.egg_counter_label = get_node("CanvasLayer/Control/EggCounter/Container/EggCountLabel")
 	PlayerData.turnip_counter_label = get_node("CanvasLayer/Control/TurnipCounter/Container/TurnipCountLabel")
 	PlayerData.ore_counter_label = get_node("CanvasLayer/Control/OreCounter/Container/OreCountLabel")
+	PlayerData.player = %BaseCharacter
+	InteractionManager.player = %BaseCharacter
 	Progress = get_node("CanvasLayer/Control/ProgressBar")
 	Progress.base_character = %BaseCharacter
 	Darkness = get_node("Dark")

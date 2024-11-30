@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var player = get_tree().get_first_node_in_group("Player")
+var player:Player
 @onready var label = $Label
 
 const base_text_mouse = "[E] to "
