@@ -1,14 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://c28yfqakwggci"]
+[gd_scene load_steps=12 format=3 uid="uid://c28yfqakwggci"]
 
 [ext_resource type="Script" path="res://Scenes/main_game.gd" id="1_4f8sh"]
 [ext_resource type="PackedScene" uid="uid://e5x1aso3uw0c" path="res://Scenes/Map.tscn" id="1_a3im0"]
 [ext_resource type="PackedScene" uid="uid://dc0yu32iay8ld" path="res://Scenes/enemy.tscn" id="2_yenkv"]
 [ext_resource type="PackedScene" uid="uid://dq6udp3vcaey" path="res://Scenes/UI/UI.tscn" id="7_sy8uy"]
+[ext_resource type="PackedScene" uid="uid://cya3tqbmsd3we" path="res://Scenes/death_screen.tscn" id="8_hyo2y"]
 [ext_resource type="PackedScene" uid="uid://bwbscfbgtifl4" path="res://Characters/Base_character.tscn" id="9_kdaui"]
 [ext_resource type="PackedScene" uid="uid://dhuak8jd5cu38" path="res://Scenes/pause_menu.tscn" id="9_rgu5t"]
 [ext_resource type="PackedScene" uid="uid://dllvdr44qyxyh" path="res://Scenes/Dark.tscn" id="9_ryj1b"]
 [ext_resource type="PackedScene" uid="uid://dxgi03e2xappr" path="res://Scenes/chicken_area.tscn" id="10_pp1n8"]
-[ext_resource type="PackedScene" uid="uid://cwkubc2ml45ho" path="res://Scenes/EvilShop.tscn" id="10_urn4g"]
 [ext_resource type="PackedScene" path="res://Scenes/Ores.tscn" id="11_47hfd"]
 [ext_resource type="PackedScene" uid="uid://dbhjsvqgn4mg2" path="res://Scenes/Crop.tscn" id="14_1rs3x"]
 
@@ -45,6 +45,9 @@ current_gun = 1
 visible = false
 mouse_filter = 1
 
+[node name="DeathScreen" parent="CanvasLayer" instance=ExtResource("8_hyo2y")]
+visible = false
+
 [node name="Crops" type="Node2D" parent="."]
 y_sort_enabled = true
 position = Vector2(-41, 8)
@@ -72,6 +75,3 @@ position = Vector2(-50, 117)
 
 [node name="Ores" parent="." instance=ExtResource("11_47hfd")]
 position = Vector2(-28, 24)
-
-[node name="Crop" parent="." instance=ExtResource("10_urn4g")]
-position = Vector2(-859, -305)
