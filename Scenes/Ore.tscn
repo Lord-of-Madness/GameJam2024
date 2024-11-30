@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmr2x5653n82l"]
+
+[ext_resource type="Texture2D" uid="uid://cl5u234poyj38" path="res://Art/Hana Caraka Mining - Free/ores.png" id="1_wwsfk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xddii"]
+size = Vector2(10, 3)
+
+[node name="Ore" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+texture = ExtResource("1_wwsfk")
+region_enabled = true
+region_rect = Rect2(0, 32, 16, 16)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_xddii")
