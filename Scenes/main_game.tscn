@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c28yfqakwggci"]
+[gd_scene load_steps=11 format=3 uid="uid://c28yfqakwggci"]
 
 [ext_resource type="Script" path="res://Scenes/main_game.gd" id="1_4f8sh"]
 [ext_resource type="PackedScene" uid="uid://e5x1aso3uw0c" path="res://Scenes/Map.tscn" id="1_a3im0"]
@@ -6,10 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dq6udp3vcaey" path="res://Scenes/UI/UI.tscn" id="4_gsdy7"]
 [ext_resource type="PackedScene" uid="uid://dllvdr44qyxyh" path="res://Scenes/Dark.tscn" id="9_60ru0"]
 [ext_resource type="PackedScene" uid="uid://bwbscfbgtifl4" path="res://Characters/Base_character.tscn" id="9_kdaui"]
-[ext_resource type="PackedScene" uid="uid://dllvdr44qyxyh" path="res://Scenes/Dark.tscn" id="9_ryj1b"]
-[ext_resource type="AudioStream" uid="uid://sorb7g8ybcy6" path="res://Art/Music/Night-theme.mp3" id="10_4m1tr"]
-[ext_resource type="PackedScene" path="res://Scenes/chicken_area.tscn" id="10_pp1n8"]
-[ext_resource type="AudioStream" uid="uid://da7x66qerfu3a" path="res://Art/Music/Day-theme.mp3" id="11_gexmh"]
+[ext_resource type="AudioStream" uid="uid://psmjlcpbtwnf" path="res://Art/Music/Night-theme.mp3" id="10_4m1tr"]
+[ext_resource type="PackedScene" uid="uid://b7dgd2bpeqmdx" path="res://Scenes/chicken_area.tscn" id="10_pp1n8"]
+[ext_resource type="AudioStream" uid="uid://c5ckwrifro2bx" path="res://Art/Music/Day-theme.mp3" id="11_gexmh"]
 [ext_resource type="PackedScene" uid="uid://dbhjsvqgn4mg2" path="res://Scenes/Crop.tscn" id="14_1rs3x"]
 
 [node name="Main game" type="Node2D"]
@@ -47,10 +46,6 @@ stream = ExtResource("10_4m1tr")
 
 [node name="DayStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_gexmh")
-
-[node name="CanvasLayer" parent="." instance=ExtResource("7_sy8uy")]
-
-[node name="Dark" parent="." instance=ExtResource("9_ryj1b")]
 
 [node name="Crops" type="Node2D" parent="."]
 y_sort_enabled = true

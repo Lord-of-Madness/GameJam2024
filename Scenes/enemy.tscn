@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dc0yu32iay8ld"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_qqwst"]
-[ext_resource type="Texture2D" uid="uid://bmgp4heidydc2" path="res://Art/Basic Undead Animations/Bound Cadaver/BoundCadaver.png" id="2_c8abk"]
+[ext_resource type="Texture2D" uid="uid://36nu0822lmjp" path="res://Art/Basic Undead Animations/Bound Cadaver/BoundCadaver.png" id="2_c8abk"]
 [ext_resource type="PackedScene" uid="uid://cslk2v4lq3wwj" path="res://Scenes/AttackAnim.tscn" id="3_wg0sm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i1lgf"]
@@ -48,6 +48,7 @@ _data = {
 
 [node name="Enemy" type="CharacterBody2D"]
 y_sort_enabled = true
+collision_layer = 3
 script = ExtResource("1_qqwst")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
