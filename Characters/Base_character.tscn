@@ -1,17 +1,19 @@
-[gd_scene load_steps=94 format=3 uid="uid://bwbscfbgtifl4"]
+[gd_scene load_steps=118 format=3 uid="uid://bwbscfbgtifl4"]
 
 [ext_resource type="Script" path="res://Scripts/character_movement.gd" id="1_7lcwf"]
-[ext_resource type="Texture2D" uid="uid://3qc3tnhmxqpc" path="res://Art/Hana Caraka - Base Character [sample]/idle.png" id="1_insey"]
-[ext_resource type="Texture2D" uid="uid://bgst70k4q54ce" path="res://Art/Hana Caraka - Base Character [sample]/death.png" id="2_1fmrf"]
+[ext_resource type="Texture2D" uid="uid://cuv5uol8elak2" path="res://Art/Hana Caraka - Base Character [sample]/idle.png" id="1_insey"]
+[ext_resource type="Texture2D" uid="uid://dpubh0ty6cewp" path="res://Art/Hana Caraka - Base Character [sample]/death.png" id="2_1fmrf"]
 [ext_resource type="Script" path="res://Characters/ConversionRing.gd" id="3_1pu7u"]
-[ext_resource type="Texture2D" uid="uid://cpkq1svxe2h1y" path="res://Art/Hana Caraka - Base Character [sample]/walk.png" id="3_63v58"]
-[ext_resource type="Texture2D" uid="uid://v4abblacribx" path="res://Art/Hana Caraka - Base Character [sample]/interaction.png" id="4_bgf2t"]
-[ext_resource type="Texture2D" uid="uid://c4yo3goipl5lk" path="res://Art/simple_symbols_2.png" id="6_2uogp"]
-[ext_resource type="Texture2D" uid="uid://nlko0mhnwyvu" path="res://Art/Guns - Sprite sheets/Glock - P80 [64x48]/[SHOOT WITH CASING AND MUZZLE FLASH] Glock - P80.png" id="7_2d8c5"]
-[ext_resource type="Texture2D" uid="uid://t6ianmgjeyc0" path="res://Art/Guns - Sprite sheets/Bazooka - M20 [192x32]/[SHOOT WITH MUZZLE FLASH] Bazooka - M20.png" id="7_s23h1"]
-[ext_resource type="AudioStream" uid="uid://bpodsr5lty26" path="res://Art/Sounds/gunshot.wav" id="10_06xba"]
-[ext_resource type="AudioStream" uid="uid://b4nucnrahdbqn" path="res://Art/Sounds/water-step.mp3" id="11_1c0m2"]
-[ext_resource type="AudioStream" uid="uid://dmt8m1c6l5ytt" path="res://Art/Sounds/sand_step-87182.wav" id="12_qnjpk"]
+[ext_resource type="Texture2D" uid="uid://ddhse5ipp4xcx" path="res://Art/Hana Caraka - Base Character [sample]/walk.png" id="3_63v58"]
+[ext_resource type="Texture2D" uid="uid://lx4i35on1bp4" path="res://Art/Hana Caraka - Base Character [sample]/interaction.png" id="4_bgf2t"]
+[ext_resource type="Texture2D" uid="uid://hbhboooj7ujp" path="res://Art/simple_symbols_2.png" id="6_2uogp"]
+[ext_resource type="Texture2D" uid="uid://y5tphtn26mid" path="res://Art/Guns - Sprite sheets/Glock - P80 [64x48]/[SHOOT WITH CASING AND MUZZLE FLASH] Glock - P80.png" id="7_2d8c5"]
+[ext_resource type="Texture2D" uid="uid://dedtmapmocd4p" path="res://Art/Guns - Sprite sheets/Bazooka - M20 [192x32]/[SHOOT WITH MUZZLE FLASH] Bazooka - M20.png" id="7_s23h1"]
+[ext_resource type="Texture2D" uid="uid://dn1ivk80pxcjv" path="res://Art/Guns - Sprite sheets/AK 47 [96x48]/[SHOOT WITH CASING AND MUZZLE FLASH] AK 47.png" id="8_r15se"]
+[ext_resource type="AudioStream" uid="uid://cnt3fwhe5fto5" path="res://Art/Sounds/gunshot.wav" id="10_06xba"]
+[ext_resource type="Texture2D" uid="uid://nawxfwbtfg7m" path="res://Art/Guns - Sprite sheets/Revolver - Colt 45 [64x32]/[SHOOT WITH MUZZLE FLASH] Revolver - Colt 45.png" id="10_7vtwq"]
+[ext_resource type="AudioStream" uid="uid://cmbi4xiaey55b" path="res://Art/Sounds/water-step.mp3" id="11_1c0m2"]
+[ext_resource type="AudioStream" uid="uid://bgh51843tc3vh" path="res://Art/Sounds/sand_step-87182.wav" id="12_qnjpk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1sl8i"]
 atlas = ExtResource("2_1fmrf")
@@ -474,6 +476,54 @@ size = Vector2(7, 2)
 [sub_resource type="CircleShape2D" id="CircleShape2D_m7q2e"]
 radius = 50.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lj6o"]
+atlas = ExtResource("8_r15se")
+region = Rect2(0, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5tpv"]
+atlas = ExtResource("8_r15se")
+region = Rect2(96, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60tcg"]
+atlas = ExtResource("8_r15se")
+region = Rect2(192, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8trq"]
+atlas = ExtResource("8_r15se")
+region = Rect2(288, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tiwq"]
+atlas = ExtResource("8_r15se")
+region = Rect2(384, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twro5"]
+atlas = ExtResource("8_r15se")
+region = Rect2(480, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0gbn"]
+atlas = ExtResource("8_r15se")
+region = Rect2(576, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py4lm"]
+atlas = ExtResource("8_r15se")
+region = Rect2(672, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0qsq"]
+atlas = ExtResource("8_r15se")
+region = Rect2(768, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8oyf"]
+atlas = ExtResource("8_r15se")
+region = Rect2(864, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjeup"]
+atlas = ExtResource("8_r15se")
+region = Rect2(960, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hhf3"]
+atlas = ExtResource("8_r15se")
+region = Rect2(1056, 0, 96, 48)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_gw2dg"]
 atlas = ExtResource("7_s23h1")
 region = Rect2(0, 0, 192, 32)
@@ -505,6 +555,46 @@ region = Rect2(1152, 0, 192, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_o2i51"]
 atlas = ExtResource("7_s23h1")
 region = Rect2(1344, 0, 192, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4je1"]
+atlas = ExtResource("10_7vtwq")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2put0"]
+atlas = ExtResource("10_7vtwq")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0eyq"]
+atlas = ExtResource("10_7vtwq")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntdur"]
+atlas = ExtResource("10_7vtwq")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ijmp"]
+atlas = ExtResource("10_7vtwq")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqb2a"]
+atlas = ExtResource("10_7vtwq")
+region = Rect2(320, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxb2j"]
+atlas = ExtResource("10_7vtwq")
+region = Rect2(384, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4n3x"]
+atlas = ExtResource("10_7vtwq")
+region = Rect2(448, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a17j3"]
+atlas = ExtResource("10_7vtwq")
+region = Rect2(512, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3ml4"]
+atlas = ExtResource("10_7vtwq")
+region = Rect2(576, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5pw1l"]
 atlas = ExtResource("7_2d8c5")
@@ -558,6 +648,47 @@ region = Rect2(704, 0, 64, 48)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_6lj6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5tpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60tcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8trq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tiwq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twro5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0gbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_py4lm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0qsq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8oyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjeup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hhf3")
+}],
+"loop": false,
+"name": &"AK-47",
+"speed": 33.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_gw2dg")
 }, {
 "duration": 1.0,
@@ -584,6 +715,41 @@ animations = [{
 "loop": false,
 "name": &"Bazooka",
 "speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4je1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2put0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0eyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntdur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ijmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqb2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxb2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4n3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a17j3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3ml4")
+}],
+"loop": true,
+"name": &"Colt",
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -672,7 +838,7 @@ region_rect = Rect2(0, 0, 16, 16)
 position = Vector2(-11, 0)
 scale = Vector2(0.323542, 0.323542)
 sprite_frames = SubResource("SpriteFrames_hxwkl")
-animation = &"Bazooka"
+animation = &"Colt"
 flip_h = true
 
 [node name="Gunshot" type="AudioStreamPlayer2D" parent="."]
