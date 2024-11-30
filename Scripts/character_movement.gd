@@ -30,10 +30,7 @@ func _ready() -> void:
 	Health = MaxHP
 	arrowbase.visible = false
 	$ArrowBase/AnimatedSprite2D.animation = guns[current_gun]
-	
-func _on_interact():
-	print("do something")
-	
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton or event is InputEventKey:

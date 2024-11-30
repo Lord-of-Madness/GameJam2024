@@ -6,7 +6,7 @@
 script = ExtResource("1_bwow8")
 
 [node name="Label" type="Label" parent="."]
-z_index = 20
+z_index = 1000
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5

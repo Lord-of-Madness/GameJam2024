@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dq6udp3vcaey" path="res://Scenes/UI/UI.tscn" id="7_sy8uy"]
 [ext_resource type="PackedScene" uid="uid://bwbscfbgtifl4" path="res://Characters/Base_character.tscn" id="9_kdaui"]
 [ext_resource type="PackedScene" uid="uid://dllvdr44qyxyh" path="res://Scenes/Dark.tscn" id="9_ryj1b"]
-[ext_resource type="AudioStream" uid="uid://bkokx2tgeumq8" path="res://Art/Music/Night-theme.mp3" id="10_4m1tr"]
-[ext_resource type="PackedScene" uid="uid://b7dgd2bpeqmdx" path="res://Scenes/chicken_area.tscn" id="10_pp1n8"]
-[ext_resource type="AudioStream" uid="uid://d15gueecn504r" path="res://Art/Music/Day-theme.mp3" id="11_gexmh"]
+[ext_resource type="AudioStream" uid="uid://sorb7g8ybcy6" path="res://Art/Music/Night-theme.mp3" id="10_4m1tr"]
+[ext_resource type="PackedScene" path="res://Scenes/chicken_area.tscn" id="10_pp1n8"]
+[ext_resource type="AudioStream" uid="uid://da7x66qerfu3a" path="res://Art/Music/Day-theme.mp3" id="11_gexmh"]
 [ext_resource type="PackedScene" uid="uid://dbhjsvqgn4mg2" path="res://Scenes/Crop.tscn" id="14_1rs3x"]
 
 [node name="Main game" type="Node2D"]
@@ -33,7 +33,7 @@ position = Vector2(-86.979, 28.4822)
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="BaseCharacter" parent="." instance=ExtResource("9_kdaui")]
+[node name="BaseCharacter" parent="." groups=["Player"] instance=ExtResource("9_kdaui")]
 unique_name_in_owner = true
 
 [node name="NightStreamPlayer" type="AudioStreamPlayer" parent="."]
