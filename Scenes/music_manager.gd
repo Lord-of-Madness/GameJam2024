@@ -55,4 +55,14 @@ func reset_music():
 			nighttheme.stop()
 			daytheme.play())
 		tween.tween_property(daytheme,"volume_db",0,1)
+		return
+	if not daytheme.is_playing():
+		daytheme.play()
+		
+func mute():
+	if shutupIamDebugging:
+		shutupIamDebugging = false
+		reset_music()
+	else:
+		shutupIamDebugging = true
 		
