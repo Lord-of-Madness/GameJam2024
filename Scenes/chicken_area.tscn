@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7dgd2bpeqmdx"]
+
+[ext_resource type="PackedScene" uid="uid://cqya1qgay0lur" path="res://Scenes/Chicken.tscn" id="1_6iy0v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsj1l"]
+size = Vector2(87, 41)
+
+[node name="ChickenArea" type="Area2D"]
+y_sort_enabled = true
+position = Vector2(-51, 116)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_jsj1l")
+
+[node name="Eggs" type="Node2D" parent="."]
+
+[node name="Chicken" parent="." instance=ExtResource("1_6iy0v")]
+position = Vector2(-38, -14)
+
+[node name="Chicken2" parent="." instance=ExtResource("1_6iy0v")]
+position = Vector2(38, -13)
+
+[node name="Chicken3" parent="." instance=ExtResource("1_6iy0v")]
+position = Vector2(-38, 17)
+
+[node name="Chicken4" parent="." instance=ExtResource("1_6iy0v")]
+position = Vector2(39, 17)

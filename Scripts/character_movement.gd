@@ -2,6 +2,10 @@ extends CharacterBody2D
 
 enum facing {UP,DOWN,LEFT,RIGHT,NONE}
 
+var guns = ["Shoot","Bazooka"]
+@export_range(0,1) var current_gun = 0
+
+
 @export var move_speed : float = 100
 
 @onready var player_sprite:AnimatedSprite2D = $AnimatedSprite2D
@@ -25,6 +29,7 @@ var rng = RandomNumberGenerator.new()
 func _ready() -> void:
 	Health = MaxHP
 	arrowbase.visible = false
+	$ArrowBase/AnimatedSprite2D.animation = guns[current_gun]
 	
 func _on_interact():
 	print("do something")
@@ -51,6 +56,13 @@ func _unhandled_input(event: InputEvent) -> void:
 			if vec != Vector2.ZERO:
 				last_joy_aim = vec
 			arrowbase.rotation =last_joy_aim.angle()
+	if event.is_action("Shoot"):
+		shoot()
+		
+	if abs(arrowbase.rotation)>=PI/2:
+		$ArrowBase/AnimatedSprite2D.flip_v = true
+	else:
+		$ArrowBase/AnimatedSprite2D.flip_v = false
 		
 func _physics_process(delta: float) -> void:
 	if is_alive:
@@ -125,6 +137,10 @@ func flash_modulate(color:Color):
 	var tween = create_tween()
 	tween.tween_property(self,"modulate",color,0.3)
 	tween.tween_property(self,"modulate",Color.WHITE,0.3)	
+
+func shoot():
+	$ArrowBase/AnimatedSprite2D.play()#guns[current_gun] #Should be already set for aiming
+	
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:

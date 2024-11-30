@@ -109,13 +109,13 @@ void fragment() {
 		if(COLOR.a==1.0 && COLOR.r == 133.0/255.0 || COLOR.r == 100.0/255.0){
 			COLOR = mix(COLOR, overlay_color, mix_amount);
 			if (COLOR.r==144.0/255.0){
-				COLOR = vec4(133.0/255.0,190.0/255.0,140.0/255.0,1.0);
+				COLOR = vec4(190.0/255.0,133.0/255.0,140.0/255.0,1.0);
 			}
 			else if (COLOR.r==132.0/255.0){
-				COLOR = vec4(100.0/255.0,166.0/255.0,147.0/255.0,1.0);
+				COLOR = vec4(166.0/255.0,100.0/255.0,147.0/255.0,1.0);
 			}
 			else if (COLOR.r==116.0/255.0){
-				COLOR = vec4(96.0/255.0,130.0/255.0,143.0/255.0,1.0);
+				COLOR = vec4(130.0/255.0,96.0/255.0,143.0/255.0,1.0);
 			}
 			//COLOR = texture(overlay_tex, noise_uv);
 			//COLOR.a = (texture(overlay_tex, noise_uv).a) * alpha_value;

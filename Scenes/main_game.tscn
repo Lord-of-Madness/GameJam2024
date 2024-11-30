@@ -1,16 +1,15 @@
+[gd_scene load_steps=10 format=3 uid="uid://rwuknlr3kl4u"]
 [gd_scene load_steps=19 format=3 uid="uid://rwuknlr3kl4u"]
 
 [ext_resource type="Script" path="res://Scenes/main_game.gd" id="1_4f8sh"]
 [ext_resource type="PackedScene" uid="uid://e5x1aso3uw0c" path="res://Scenes/Map.tscn" id="1_a3im0"]
 [ext_resource type="PackedScene" uid="uid://dc0yu32iay8ld" path="res://Scenes/enemy.tscn" id="2_yenkv"]
-[ext_resource type="PackedScene" uid="uid://cqya1qgay0lur" path="res://Scenes/Chicken.tscn" id="3_cl2rf"]
-[ext_resource type="Script" path="res://Scenes/Health_bar.gd" id="4_dmxu2"]
-[ext_resource type="Script" path="res://Scenes/cycle_announcement.gd" id="5_8yxll"]
-[ext_resource type="Shader" path="res://Scenes/Glitch.gdshader" id="5_wt5iu"]
-[ext_resource type="LabelSettings" uid="uid://bbm407nhinbqg" path="res://Scenes/LabelData/Pretty_Label.tres" id="6_wvree"]
-[ext_resource type="LabelSettings" uid="uid://bv2est1hx2aj2" path="res://Scenes/LabelData/Bloody_Label.tres" id="8_x2o6i"]
-[ext_resource type="PackedScene" uid="uid://dllvdr44qyxyh" path="res://Scenes/Dark.tscn" id="9_60ru0"]
+[ext_resource type="PackedScene" uid="uid://dq6udp3vcaey" path="res://Scenes/UI/UI.tscn" id="7_sy8uy"]
+[ext_resource type="PackedScene" uid="uid://b7dgd2bpeqmdx" path="res://Scenes/chicken_area.tscn" id="8_ccvws"]
 [ext_resource type="PackedScene" uid="uid://bwbscfbgtifl4" path="res://Characters/Base_character.tscn" id="9_kdaui"]
+[ext_resource type="PackedScene" path="res://Scenes/Dark.tscn" id="9_ryj1b"]
+[ext_resource type="AudioStream" uid="uid://bkokx2tgeumq8" path="res://Art/Music/Night-theme.mp3" id="10_4m1tr"]
+[ext_resource type="AudioStream" uid="uid://d15gueecn504r" path="res://Art/Music/Day-theme.mp3" id="11_gexmh"]
 [ext_resource type="AudioStream" uid="uid://sorb7g8ybcy6" path="res://Art/Music/Night-theme.mp3" id="10_4m1tr"]
 [ext_resource type="AudioStream" uid="uid://da7x66qerfu3a" path="res://Art/Music/Day-theme.mp3" id="11_gexmh"]
 [ext_resource type="PackedScene" uid="uid://dbhjsvqgn4mg2" path="res://Scenes/Crop.tscn" id="14_1rs3x"]
@@ -49,90 +48,12 @@ position = Vector2(348, 119)
 [node name="Enemy3" parent="." instance=ExtResource("2_yenkv")]
 position = Vector2(292, 192)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.206
-anchor_bottom = 0.025
-offset_left = 6.0
-offset_top = 7.0
-offset_right = 6.0
-offset_bottom = 7.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_ilxjc")
-show_percentage = false
-script = ExtResource("4_dmxu2")
-
-[node name="CycleAnnouncement" type="Control" parent="CanvasLayer/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("5_8yxll")
-
-[node name="Label2" type="Label" parent="CanvasLayer/Control/CycleAnnouncement"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -352.5
-offset_top = -154.5
-offset_right = 352.5
-offset_bottom = 154.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "With the rising sun
-Everything Changes
-Day begins!"
-label_settings = ExtResource("6_wvree")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/Control/CycleAnnouncement"]
-material = SubResource("ShaderMaterial_gnyru")
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -239.5
-offset_top = -154.5
-offset_right = 239.5
-offset_bottom = 154.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "With the setting sun
-EVERYTHING CHANGES
-Night begins!"
-label_settings = ExtResource("8_x2o6i")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Dark" parent="." instance=ExtResource("9_60ru0")]
-
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2(-86.979, 28.4822)
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="BaseCharacter" parent="." instance=ExtResource("9_kdaui")]
 [node name="BaseCharacter" parent="." groups=["Player"] instance=ExtResource("9_kdaui")]
 unique_name_in_owner = true
 position = Vector2(-122, 94)
@@ -143,14 +64,11 @@ stream = ExtResource("10_4m1tr")
 [node name="DayStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_gexmh")
 
-[node name="ChickenArea" type="Area2D" parent="."]
-y_sort_enabled = true
-position = Vector2(-51, 116)
+[node name="CanvasLayer" parent="." instance=ExtResource("7_sy8uy")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChickenArea"]
-position = Vector2(0.5, 1.5)
-shape = SubResource("RectangleShape2D_jsj1l")
+[node name="ChickenArea" parent="." instance=ExtResource("8_ccvws")]
 
+[node name="Dark" parent="." instance=ExtResource("9_ryj1b")]
 [node name="Chicken" parent="ChickenArea" instance=ExtResource("3_cl2rf")]
 position = Vector2(-38, -14)
 
