@@ -75,7 +75,6 @@ func apply_enemy_hp_upgrade():
 # Increases damage bonus and resets ore piece count.
 func apply_damage_upgrade():
 	bullet_damage_bonus += DAMAGE_INC * _ore_count
-	_max_ore_count += _ore_count
 	reset_ore_count()
 	player.try_upgrade_gun()
 	

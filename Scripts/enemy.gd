@@ -23,6 +23,7 @@ func day_setter(val):
 	day = val
 var canAttack:bool  = true
 var Cooldown:float = 0
+var dead := false
 
 @onready var AttackNode:Attack = get_node("Attack")
 
@@ -73,6 +74,9 @@ func get_direction():
 		return Vector2.DOWN
 
 func taken_hit(dmg:int, direction: Vector2):
+	if dead:
+		return
+
 	$CPUParticles2D.emitting = true
 	$AudioStreamPlayer2D.play()
 	if not day:
@@ -87,9 +91,13 @@ func taken_hit(dmg:int, direction: Vector2):
 	
 	if Health<=0:
 		Active = false
-		PlayerData._enemy_kill_count += 1
 		animPlayer.play("Death")
-		animPlayer.animation_finished.connect(func(name):queue_free())
+		animPlayer.animation_finished.connect(func(name):
+			PlayerData._enemy_kill_count += 1
+			print(PlayerData._enemy_kill_count)
+			queue_free()
+		)
+		dead = true
 
 func flash_shader(val:float):
 	$Sprite2D.material.set_shader_parameter("flashState",val)
