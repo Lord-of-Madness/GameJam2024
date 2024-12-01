@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://du13t6h0mom5u"]
+
+[ext_resource type="PackedScene" uid="uid://dc0yu32iay8ld" path="res://Scenes/enemy.tscn" id="1_kd7b8"]
+[ext_resource type="Texture2D" uid="uid://batwbjyh75r6a" path="res://Art/Basic Undead Animations/Carcass Feeder/CarcassFeeder.png" id="2_qn5q2"]
+[ext_resource type="Shader" path="res://Scenes/Enemies/enemy3.gdshader" id="2_yfgy0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ryfxg"]
+shader = ExtResource("2_yfgy0")
+
+[node name="Enemy" instance=ExtResource("1_kd7b8")]
+SPEED = 90.0
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_qn5q2")
+
+[node name="DaySprite" parent="." index="3"]
+material = SubResource("ShaderMaterial_ryfxg")
+region_rect = Rect2(0, 0, 32, 48)
