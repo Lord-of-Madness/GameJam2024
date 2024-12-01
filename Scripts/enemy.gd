@@ -72,7 +72,7 @@ func get_direction():
 	else:
 		return Vector2.DOWN
 
-func taken_hit(dmg:int):
+func taken_hit(dmg:int, direction: Vector2):
 	$CPUParticles2D.emitting = true
 	$AudioStreamPlayer2D.play()
 	if not day:
@@ -82,6 +82,9 @@ func taken_hit(dmg:int):
 	tween.tween_method(flash_shader,0.0,1.0,0.2)
 	tween.tween_method(flash_shader,1.0,0.0,0.2)
 	Health-=dmg
+
+	BloodSplatEnemyHit.create(position, direction)
+	
 	if Health<=0:
 		Active = false
 		PlayerData._enemy_kill_count += 1

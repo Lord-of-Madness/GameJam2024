@@ -24,5 +24,5 @@ func _on_body_entered(body: Node) -> void:
 	if body is Player or body is Bullet:
 		return
 	if body is Enemy:
-		body.taken_hit(damage)
+		body.taken_hit(damage, Vector2.from_angle(rotation))
 	queue_free()

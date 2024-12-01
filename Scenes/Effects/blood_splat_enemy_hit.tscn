@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bav0q7dx3miuj"]
+
+[ext_resource type="Script" path="res://Scenes/Effects/blood_splat_enemy_hit.gd" id="1_6kr8a"]
+[ext_resource type="Texture2D" uid="uid://jh25cp66ydc0" path="res://Art/Textures/Effects/BloodSpats/hit_blood1.png" id="2_oe1b4"]
+[ext_resource type="Texture2D" uid="uid://dd2kifk4bjham" path="res://Art/Textures/Effects/BloodSpats/hit_blood2.png" id="3_k5cup"]
+
+[node name="BloodSplatEnemyHit" type="Node2D"]
+z_index = -1
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_6kr8a")
+
+[node name="Sprite1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-48, 3)
+rotation = 3.66519
+texture = ExtResource("2_oe1b4")
+
+[node name="Sprite2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-50, 3)
+rotation = 3.66519
+texture = ExtResource("3_k5cup")
+
+[node name="Sprite3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-49, -2)
+rotation = 2.61799
+texture = ExtResource("2_oe1b4")
+flip_v = true
+
+[node name="Sprite4" type="Sprite2D" parent="."]
+position = Vector2(-47, 2)
+rotation = 5.67232
+texture = ExtResource("3_k5cup")
+flip_h = true
