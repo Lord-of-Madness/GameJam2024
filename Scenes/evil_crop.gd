@@ -21,4 +21,5 @@ func _on_interact():
 		$Sprite2D.frame = 2
 	
 	PlayerData.second_life = true
+	PlayerData.obtained_life = true
 	queue_free()

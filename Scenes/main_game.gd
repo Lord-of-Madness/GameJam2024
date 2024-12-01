@@ -140,6 +140,12 @@ func swapCycle():
 		day = true
 		day_begins()
 
+func _process(delta: float) -> void:
+	if PlayerData.obtained_life:
+		$CanvasLayer/SecondLifeText.show()
+		$CanvasLayer/SecondLifeText.get_node("AnimationPlayer").play("fade")
+		PlayerData.obtained_life = false
+
 func spawn():
 	if day: return
 	var rect:Rect2 = get_viewport_rect()
@@ -200,6 +206,9 @@ func _on_nightbegins() -> void:
 func _on_daybegins() -> void:
 	if !first_day:
 		PlayerData.elapsed_nights += 1
+	
+	if $CanvasLayer/SecondLifeText.is_visible() and not PlayerData.obtained_life:
+		$CanvasLayer/SecondLifeText.hide()
 		
 	PlayerData.day_night_counter.switch_day_night()
 	PlayerData.day_night_counter.increment()

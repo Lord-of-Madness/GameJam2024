@@ -41,6 +41,7 @@ var is_dead: bool = false
 
 var second_life: bool = false
 var used_life: bool = false
+var obtained_life: bool = false
 
 # Current bonus to player's bullet damage.
 var bullet_damage_bonus := 0.0
