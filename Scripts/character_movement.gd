@@ -3,6 +3,12 @@ class_name Player
 enum facing {UP,DOWN,LEFT,RIGHT,NONE}
 
 var guns = ["Colt","Shoot","AK-47","Bazooka"]
+var gun_sounds = {
+	"Colt":preload("res://Art/Sounds/colt.mp3"),
+	"Shoot":preload("res://Art/Sounds/gunshot.wav"),
+	"AK-47":preload("res://Art/Sounds/clean-machine-gun-burst-98224.mp3"),
+	"Bazooka":preload("res://Art/Sounds/medium-explosion-40472.mp3")
+	}
 var base_gun_damage := 5.0
 var gun_damage_thresholds = [0.0, 1.0, 3.0, 6.0]
 @export_range(0,3) var current_gun:int = 0
@@ -119,6 +125,7 @@ func try_upgrade_gun():
 		gun_index += 1
 		
 	current_gun = gun_index - 1
+	$Gunshot.stream = gun_sounds[guns[current_gun]]
 		
 func input_handling():
 	if Input.get_action_strength("right"):
