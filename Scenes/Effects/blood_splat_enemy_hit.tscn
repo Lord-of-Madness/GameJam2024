@@ -1,35 +1,53 @@
-[gd_scene load_steps=4 format=3 uid="uid://bav0q7dx3miuj"]
+[gd_scene load_steps=7 format=3 uid="uid://bav0q7dx3miuj"]
 
 [ext_resource type="Script" path="res://Scenes/Effects/blood_splat_enemy_hit.gd" id="1_6kr8a"]
-[ext_resource type="Texture2D" uid="uid://jh25cp66ydc0" path="res://Art/Textures/Effects/BloodSpats/hit_blood1.png" id="2_oe1b4"]
-[ext_resource type="Texture2D" uid="uid://dd2kifk4bjham" path="res://Art/Textures/Effects/BloodSpats/hit_blood2.png" id="3_k5cup"]
+[ext_resource type="Texture2D" uid="uid://jh25cp66ydc0" path="res://Art/Textures/Effects/BloodAndFlowers/hit_blood1.png" id="2_oe1b4"]
+[ext_resource type="Texture2D" uid="uid://cnryxm7b0khhi" path="res://Art/Textures/Effects/BloodAndFlowers/BlueFlowerBed.fw.png" id="3_7bib2"]
+[ext_resource type="Texture2D" uid="uid://dd2kifk4bjham" path="res://Art/Textures/Effects/BloodAndFlowers/hit_blood2.png" id="3_k5cup"]
+[ext_resource type="Texture2D" uid="uid://njr28yhw4ll2" path="res://Art/Textures/Effects/BloodAndFlowers/OrangeFlowerBed.fw.png" id="5_pmhsv"]
+[ext_resource type="Texture2D" uid="uid://ihwsbtny5amo" path="res://Art/Textures/Effects/BloodAndFlowers/PinkFlowerBed.fw.png" id="6_ck3fk"]
 
 [node name="BloodSplatEnemyHit" type="Node2D"]
 z_index = -1
 scale = Vector2(0.2, 0.2)
 script = ExtResource("1_6kr8a")
 
-[node name="Sprite1" type="Sprite2D" parent="."]
-visible = false
+[node name="Blood1" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(-48, 3)
 rotation = 3.66519
 texture = ExtResource("2_oe1b4")
 
-[node name="Sprite2" type="Sprite2D" parent="."]
-visible = false
+[node name="Flowers1" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-20, 1.35601e-06)
+rotation = 3.66519
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_7bib2")
+
+[node name="Blood2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(-50, 3)
 rotation = 3.66519
 texture = ExtResource("3_k5cup")
 
-[node name="Sprite3" type="Sprite2D" parent="."]
-visible = false
+[node name="Flowers2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-28.6789, 5.26278)
+rotation = -2.618
+scale = Vector2(0.323864, 0.316149)
+texture = ExtResource("5_pmhsv")
+
+[node name="Blood3" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(-49, -2)
 rotation = 2.61799
 texture = ExtResource("2_oe1b4")
 flip_v = true
 
-[node name="Sprite4" type="Sprite2D" parent="."]
-position = Vector2(-47, 2)
-rotation = 5.67232
-texture = ExtResource("3_k5cup")
-flip_h = true
+[node name="Flowers3" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-30, 4.76837e-07)
+rotation = -2.618
+scale = Vector2(0.323864, 0.316149)
+texture = ExtResource("6_ck3fk")
