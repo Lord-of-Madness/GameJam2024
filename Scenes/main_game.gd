@@ -33,6 +33,11 @@ var AvailableTiles:Array[Vector2i]
 @onready var EvilMap:TileMapLayer = $Map/TileMaps/EvilLayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if first_day:
+		$Tutorial.show()
+	else:
+		$Tutorial.hide()
+		
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	PlayerData.reset()
 	GrassMap.material.shader = grassShader
@@ -61,7 +66,7 @@ func _ready() -> void:
 	time.start()
 	day = true
 	day_begins()
-
+	
 func revive_player():
 	get_tree().paused = true
 	PlayerData.is_dead = true
@@ -173,5 +178,9 @@ func _on_daybegins() -> void:
 		
 	PlayerData.day_night_counter.switch_day_night()
 	PlayerData.day_night_counter.increment()
-
+	
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT_IN)
+	tween.tween_property($Tutorial, "modulate", Color(1.0,1.0,1.0,0.0), 8.0)
+	
 	first_day = false
