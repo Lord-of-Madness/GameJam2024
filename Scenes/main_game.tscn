@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://b8cu6nb3ytnl7" path="res://Scenes/Ores.tscn" id="11_47hfd"]
 [ext_resource type="PackedScene" path="res://Scenes/EvilCrop.tscn" id="13_cx1qo"]
 [ext_resource type="PackedScene" uid="uid://dbhjsvqgn4mg2" path="res://Scenes/Crop.tscn" id="14_1rs3x"]
-[ext_resource type="Texture2D" uid="uid://ne1u3kgjtw7a" path="res://Art/Textures/sun.png" id="14_kk8um"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gjbfa"]
 texture = ExtResource("9_y274i")
