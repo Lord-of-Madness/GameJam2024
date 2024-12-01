@@ -65,6 +65,12 @@ func reset():
 	elapsed_nights = 0
 	second_life = false
 	used_life = false
+	
+	_enemy_kill_count = 0
+	_max_turnip_count = 0
+	_max_eggs_count = 0
+	_max_ore_count = 0
+	
 	if day_night_counter != null:
 		day_night_counter.reset()
 

@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnktx3401iyrj"]
+[gd_scene load_steps=10 format=3 uid="uid://cnktx3401iyrj"]
 
 [ext_resource type="Script" path="res://Scripts/controls_menu.gd" id="1_ommph"]
-[ext_resource type="Texture2D" uid="uid://016a6jsty1i2" path="res://Art/menu_background1.png" id="2_qemk8"]
+[ext_resource type="Texture2D" uid="uid://hdjcv0ko5dy5" path="res://Art/menu_background1.png" id="2_qemk8"]
 [ext_resource type="Theme" uid="uid://n55nu4mrrfvt" path="res://Art/Themes/MenuTheme.tres" id="3_k78ga"]
-[ext_resource type="FontFile" uid="uid://41unicm4l3x" path="res://Art/Fonts/GrapeSoda.ttf" id="4_fp2jl"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i7qqk"]
 texture = ExtResource("2_qemk8")
@@ -20,9 +19,8 @@ shadow_offset = Vector2(0, 3.41)
 
 [sub_resource type="LabelSettings" id="LabelSettings_1ko1o"]
 line_spacing = 8.0
-font = ExtResource("4_fp2jl")
-font_size = 24
-font_color = Color(0, 0, 0, 1)
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uoyqj"]
 bg_color = Color(0.720467, 0.720468, 0.720467, 1)
@@ -93,7 +91,7 @@ text = "Mouse&keyboard / Controller support
 Movement: WSAD / LeftAnalog
 Aim: Hold RMB + mouse / RightAnalog
 Shoot: LMB / RB1
-Interact: E or SPACE / X(PS), A(XBOX)"
+Interact: E / X(PS), A(XBOX)"
 label_settings = SubResource("LabelSettings_1ko1o")
 horizontal_alignment = 1
 vertical_alignment = 1
