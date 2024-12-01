@@ -84,6 +84,7 @@ func apply_movement_speed_upgrade():
 func increment_egg_count():
 	_egg_count += 1
 	on_egg_count_changed()
+	MusicManager.obtain_resource.play()
 	
 func reset_egg_count():
 	_egg_count = 0
@@ -91,11 +92,11 @@ func reset_egg_count():
 	
 func on_egg_count_changed():
 	egg_counter_label.text = str(_egg_count)
-	MusicManager.obtain_resource.play()
 	
 func increment_ore_count():
 	_ore_count += 1
 	on_ore_count_changed()
+	MusicManager.obtain_resource.play()
 	
 func reset_ore_count():
 	_ore_count = 0
@@ -103,15 +104,14 @@ func reset_ore_count():
 	
 func on_ore_count_changed():
 	ore_counter_label.text = str(_ore_count)
-	MusicManager.obtain_resource.play()
 	
 func increment_turnip_count():
 	_turnip_count += 1
 	on_turnip_count_changed()
+	MusicManager.obtain_resource.play()
 
 func on_turnip_count_changed():
 	turnip_counter_label.text = str(_turnip_count)
-	MusicManager.obtain_resource.play()
 
 func reset_turnip_count():
 	_turnip_count = 0

@@ -7,6 +7,7 @@ extends Node
 @onready var mining = $Mining
 @onready var interact = $Interact
 @onready var obtain_resource = $ObtainResource
+@onready var fail_mining = $FailMining
 
 @export var shutupIamDebugging = false
 

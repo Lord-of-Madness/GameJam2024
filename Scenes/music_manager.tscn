@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvape01snusjs"]
+[gd_scene load_steps=10 format=3 uid="uid://bvape01snusjs"]
 
 [ext_resource type="Script" path="res://Scenes/music_manager.gd" id="1_do5kn"]
 [ext_resource type="AudioStream" uid="uid://bkokx2tgeumq8" path="res://Art/Music/Night-theme.mp3" id="1_uj56k"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://dxh0rtmeot65k" path="res://Art/Sounds/Mining.wav" id="6_maotc"]
 [ext_resource type="AudioStream" uid="uid://bdqbqx4kvcslv" path="res://Art/Sounds/Interact.wav" id="7_f3jv6"]
 [ext_resource type="AudioStream" uid="uid://dnidyjuxmpke2" path="res://Art/Sounds/ObtainResource.wav" id="8_jbs5w"]
+[ext_resource type="AudioStream" uid="uid://64o62n2ot1x3" path="res://Art/Sounds/fail_mining.wav" id="9_mrutc"]
 
 [node name="MusicManager" type="Node"]
 script = ExtResource("1_do5kn")
@@ -35,4 +36,8 @@ volume_db = -15.0
 
 [node name="ObtainResource" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_jbs5w")
+volume_db = -10.0
+
+[node name="FailMining" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_mrutc")
 volume_db = -10.0

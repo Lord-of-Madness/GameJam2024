@@ -145,3 +145,6 @@ func _on_nightbegins() -> void:
 	PlayerData.apply_HP_upgrade()
 	PlayerData.apply_movement_speed_upgrade()
 	PlayerData.apply_enemy_hp_upgrade()
+	
+	PlayerData.player.Health = PlayerData.player.MaxHP
+	PlayerData.player.health_change.emit()

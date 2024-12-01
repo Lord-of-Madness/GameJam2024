@@ -159,14 +159,12 @@ func die():
 			player_sprite.play("Death")
 	is_alive = false
 
-func camera_shake(startpos):
-	var dur = 0.3
+func camera_shake(startpos, duration=0.3, strength=2.0):
 	var tween = create_tween()
 	var cam = get_viewport().get_camera_2d()
 	for i in range(0,9):
-		tween.tween_property(cam,"position",startpos+Vector2(rng.randfn()*2,rng.randfn()*2),dur/10)
-	tween.tween_property(cam,"position",startpos,dur/10)
-	
+		tween.tween_property(cam, "position", startpos + Vector2(rng.randfn() * strength, rng.randfn() * strength), duration / 10)
+	tween.tween_property(cam,"position",startpos,duration/10)
 	
 func flash_modulate(color:Color):
 	var tween = create_tween()
