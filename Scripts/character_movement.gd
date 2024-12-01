@@ -213,7 +213,7 @@ func flash_modulate(color:Color):
 	tween.tween_property(self,"modulate",Color.WHITE,0.3)
 
 func shoot(rot:float):
-	$ArrowBase/AnimatedSprite2D.play()#Guns[current_gun].name)#guns[current_gun] #Should be already set for aiming
+	$ArrowBase/AnimatedSprite2D.play(Guns[current_gun].name)#guns[current_gun] #Should be already set for aiming
 	var damage: float = base_gun_damage + PlayerData.bullet_damage_bonus
 	var bullet:RigidBody2D = bulletScene.instantiate()
 	get_parent().add_child(bullet)
