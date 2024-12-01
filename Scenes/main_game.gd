@@ -71,6 +71,12 @@ func _ready() -> void:
 	day_begins()
 	
 func revive_player():
+	if PlayerData.second_life:
+		%BaseCharacter.position = $SpawnPoint.position
+		PlayerData.second_life = false
+		PlayerData.used_life = true
+		return		
+		
 	get_tree().paused = true
 	PlayerData.is_dead = true
 	$CanvasLayer/DeathScreen.show()
@@ -80,6 +86,10 @@ func revive_player():
 
 func night_begins():
 	EvilMap.visible = true
+	if not PlayerData.second_life and not PlayerData.used_life:
+		$EvilCrop.show()
+		$EvilCrop.set_process(true)
+	
 	PlayerData.is_night = true
 	%BaseCharacter.collision_mask = %BaseCharacter.collision_mask|0b00001000
 	nightbegins.emit()
@@ -97,8 +107,12 @@ func night_begins():
 
 func day_begins():
 	EvilMap.visible = false
+	if not PlayerData.second_life and not PlayerData.used_life:
+		$EvilCrop.hide()
+		$EvilCrop.set_process(false)
+		
 	PlayerData.is_night = false
-	%BaseCharacter.collision_mask = %BaseCharacter.collision_mask|0b00001000^0b00001000
+	%BaseCharacter.collision_mask = (%BaseCharacter.collision_mask|0b00001000)^0b00001000
 	daybegins.emit()
 	var twenn = create_tween()
 	twenn.tween_property(Progress,"offset_top",-37,1.5)
