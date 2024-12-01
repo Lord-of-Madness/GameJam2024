@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cp2whokoebkrp"]
+
+[ext_resource type="Texture2D" uid="uid://bih1v775yihq7" path="res://Art/Textures/egg.png" id="1_2aqf7"]
+[ext_resource type="Script" path="res://Scenes/Effects/reward_effect.gd" id="1_dsg07"]
+[ext_resource type="Texture2D" uid="uid://bmjqg87se7gte" path="res://Art/Textures/ore.png" id="2_gqdr6"]
+[ext_resource type="Texture2D" uid="uid://2ek6j18bsl2x" path="res://Art/Hana Caraka Crops - Free/Crops/Spring/Turnip.png" id="3_noqxk"]
+
+[node name="RewardEffect" type="Node2D"]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_dsg07")
+
+[node name="Egg" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -3)
+scale = Vector2(0.028, 0.028)
+texture = ExtResource("1_2aqf7")
+
+[node name="Ore" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_gqdr6")
+
+[node name="Turnip" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2, -2)
+scale = Vector2(2, 2)
+texture = ExtResource("3_noqxk")
+region_enabled = true
+region_rect = Rect2(16, 16, 16, 16)

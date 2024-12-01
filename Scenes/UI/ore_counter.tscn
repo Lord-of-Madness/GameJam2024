@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b22n0s18ovdk"]
 
-[ext_resource type="Texture2D" uid="uid://bmjqg87se7gte" path="res://Art/ore.png" id="1_5cdiu"]
+[ext_resource type="Texture2D" uid="uid://bmjqg87se7gte" path="res://Art/Textures/ore.png" id="1_5cdiu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1cjfj"]
 font_size = 24

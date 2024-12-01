@@ -19,5 +19,6 @@ func _on_interact():
 		$Sprite2D.frame += 1
 	else:
 		PlayerData.increment_turnip_count()
+		RewardEffect.new_turnip()
 		$Sprite2D.frame = 2
 		

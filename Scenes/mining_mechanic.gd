@@ -25,6 +25,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
 		if $Background/HitBox.get_rect().intersects($Background/Target.get_rect(), true):
 			PlayerData.increment_ore_count()
+			RewardEffect.new_ore()
 		else:
 			on_fail()
 		PlayerData.in_mechanic = false

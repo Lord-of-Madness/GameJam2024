@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://dc0yu32iay8ld"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_qqwst"]
-[ext_resource type="Texture2D" uid="uid://36nu0822lmjp" path="res://Art/Basic Undead Animations/Bound Cadaver/BoundCadaver.png" id="2_c8abk"]
+[ext_resource type="Texture2D" uid="uid://bmgp4heidydc2" path="res://Art/Basic Undead Animations/Bound Cadaver/BoundCadaver.png" id="2_c8abk"]
 [ext_resource type="PackedScene" uid="uid://cslk2v4lq3wwj" path="res://Scenes/AttackAnim.tscn" id="3_wg0sm"]
-[ext_resource type="Texture2D" uid="uid://cy4jo38lv04nd" path="res://Art/Hana Caraka - Topdown Tileset [sample]/Props/Tree.png" id="4_k3inu"]
+[ext_resource type="Texture2D" uid="uid://b74mefpsj7yr8" path="res://Art/Hana Caraka - Topdown Tileset [sample]/Props/Tree.png" id="4_k3inu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i1lgf"]
 radius = 6.0
