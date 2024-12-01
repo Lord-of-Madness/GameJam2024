@@ -11,6 +11,7 @@ var Darkness:CanvasLayer
 #@export var maxEnemies:int = -1
 #var CurrentEnemyNumber = 0
 ##Number of enemies spawned per second
+@export var rarities:Array[float] = [1.0,0.0,0.0]
 @export var EnemiesPerSecond:int = 5
 @onready var grassShader:Shader = preload("res://Scenes/Grass.gdshader")
 @onready var bloodgrassShader:Shader = preload("res://Shaders/BloodGrass.gdshader")
@@ -144,7 +145,8 @@ func spawn():
 		var tiledata:TileData = GrassMap.get_cell_tile_data(tilepos)
 		
 		if(tiledata and GrassMap.get_cell_atlas_coords(tilepos)==Vector2i(1,1)):
-			var enemy:Enemy = EnemyScenes[rng.randi_range(0,EnemyScenes.size()-1)].instantiate()
+			
+			var enemy:Enemy = EnemyScenes[rng.rand_weighted(PackedFloat32Array(rarities))].instantiate()
 			enemy.position = newPos
 			add_child(enemy)
 			enemy.activate()
