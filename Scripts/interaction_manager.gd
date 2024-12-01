@@ -37,6 +37,8 @@ func _process(delta):
 		label.global_position.y -= 20
 		label.global_position.x -= label.size.x / 2
 		label.show()
+		if active_areas[0].get_parent().name == "EvilCrop" and not PlayerData.is_night:
+			label.hide()
 	else:
 		label.hide()
 	
