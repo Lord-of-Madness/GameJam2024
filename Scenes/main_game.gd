@@ -41,6 +41,9 @@ func _ready() -> void:
 	add_child(spawnTimer)
 	spawnTimer.timeout.connect(spawn)
 	spawnTimer.start()
+
+	for node in Effects.get_children():
+		node.queue_free()
 	
 	PlayerData.egg_counter_label = get_node("CanvasLayer/Control/EggCounter/Container/EggCountLabel")
 	PlayerData.turnip_counter_label = get_node("CanvasLayer/Control/TurnipCounter/Container/TurnipCountLabel")
