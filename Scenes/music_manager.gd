@@ -14,7 +14,6 @@ extends Node
 var other_sounds = []
 
 var is_day: bool = true
-var tween: Tween
 
 func _ready() -> void:
 	if not shutupIamDebugging and not daytheme.is_playing():
@@ -31,7 +30,7 @@ func _process(delta: float) -> void:
 func swap_music(day: bool, low_hp := false):
 	is_day = day
 	if shutupIamDebugging: return
-	tween = create_tween()
+	var tween = create_tween()
 	
 	if low_hp:
 		tween.tween_property(nighttheme, "pitch_scale", 1.2, 1.0)

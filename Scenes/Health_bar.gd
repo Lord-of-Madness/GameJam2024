@@ -17,8 +17,6 @@ func change_hp():
 	
 	if value / base_character.MaxHP <= BLOOD_OVERLAY_THRESHOLD:
 		$"../BloodOverlay".show()
-		var tween = MusicManager.get_tree().create_tween()
-		
 		MusicManager.swap_music(false, true)
 	else:
 		$"../BloodOverlay".hide()
