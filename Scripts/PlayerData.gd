@@ -63,6 +63,7 @@ func reset():
 	is_night = false
 	in_mechanic = false
 	elapsed_nights = 0
+	second_life = false
 	used_life = false
 	if day_night_counter != null:
 		day_night_counter.reset()
