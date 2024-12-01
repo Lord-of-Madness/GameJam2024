@@ -1,9 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsier1k6bdhr0"]
+[gd_scene load_steps=10 format=3 uid="uid://dsier1k6bdhr0"]
 
 [ext_resource type="Script" path="res://Scenes/UI/day_night_counter.gd" id="1_dr8b3"]
-[ext_resource type="Texture2D" uid="uid://coavrrqrxke57" path="res://Art/Textures/moon.png" id="2_i42dr"]
-[ext_resource type="Texture2D" uid="uid://ne1u3kgjtw7a" path="res://Art/Textures/sun.png" id="3_ag1fb"]
-[ext_resource type="Texture2D" uid="uid://byr2msdw6s62r" path="res://Art/Textures/round_border.png" id="4_xpm2a"]
+[ext_resource type="Texture2D" uid="uid://uwreaurt0ls7" path="res://Art/Textures/moon.png" id="2_i42dr"]
+[ext_resource type="Shader" path="res://Shaders/day_night_counter.gdshader" id="2_j7gtu"]
+[ext_resource type="Texture2D" uid="uid://cbr1mm52cr1ba" path="res://Art/Textures/sun.png" id="3_ag1fb"]
+[ext_resource type="Texture2D" uid="uid://bpcce5b0lcj5n" path="res://Art/Textures/round_border.png" id="4_xpm2a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_65o0h"]
+shader = ExtResource("2_j7gtu")
+shader_parameter/spread = 0.5
+shader_parameter/cutoff = 0.7
+shader_parameter/size = 1.0
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.3
+shader_parameter/core_intensity = 2.0
+shader_parameter/hdr = true
+shader_parameter/seed = 5.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_ta0eo"]
 font_size = 100
@@ -32,7 +46,8 @@ offset_top = 218.0
 offset_right = 348.0
 offset_bottom = 258.0
 
-[node name="Sun" type="TextureRect" parent="RotationCenter"]
+[node name="SunHalo" type="TextureRect" parent="RotationCenter"]
+material = SubResource("ShaderMaterial_65o0h")
 layout_mode = 0
 offset_left = -859.0
 offset_top = -877.0
@@ -41,15 +56,32 @@ offset_bottom = -365.0
 scale = Vector2(2, 2)
 texture = ExtResource("3_ag1fb")
 
+[node name="Sun" type="TextureRect" parent="RotationCenter"]
+offset_left = -842.0
+offset_top = -877.0
+offset_right = -330.0
+offset_bottom = -365.0
+scale = Vector2(2, 2)
+texture = ExtResource("3_ag1fb")
+
 [node name="Label" type="Label" parent="RotationCenter/Sun"]
 layout_mode = 0
-offset_left = 101.5
+offset_left = 93.0
 offset_top = 168.5
-offset_right = 393.5
+offset_right = 385.0
 offset_bottom = 517.5
 text = "99"
 label_settings = SubResource("LabelSettings_ta0eo")
 horizontal_alignment = 1
+
+[node name="SunHalo2" type="ColorRect" parent="RotationCenter"]
+material = SubResource("ShaderMaterial_65o0h")
+layout_mode = 0
+offset_left = -163.0
+offset_top = -153.0
+offset_right = 349.0
+offset_bottom = 359.0
+scale = Vector2(2, 2)
 
 [node name="Sun2" type="TextureRect" parent="RotationCenter"]
 layout_mode = 0

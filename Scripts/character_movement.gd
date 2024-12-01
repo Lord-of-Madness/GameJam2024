@@ -5,7 +5,7 @@ enum facing {UP,DOWN,LEFT,RIGHT,NONE}
 var Guns:Array[Gun] = [
 	Gun.new().setup("Colt","res://Art/Sounds/colt.mp3",0.0),
 	Gun.new().setup("Shoot","res://Art/Sounds/gunshot.wav",1.0),
-	Gun.new().setup("Shoot","res://Art/Sounds/clean-machine-gun-burst-98224.mp3",3.0),
+	Gun.new().setup("Ak-47","res://Art/Sounds/clean-machine-gun-burst-98224.mp3",3.0),
 	Gun.new().setup("Bazooka","res://Art/Sounds/medium-explosion-40472.mp3",6.0),
 	Gun.new().setup("LazGun","res://Art/Sounds/laser-weld-103309.mp3",1.0)
 	]
@@ -113,7 +113,7 @@ func _physics_process(delta: float) -> void:
 		if collider is Enemy:
 			$ArrowBase/RayCast2D/Line2D.modulate= Color.RED
 			$Gunshot.play()
-			collider.taken_hit(damage)
+			collider.taken_hit(damage,Vector2.from_angle($ArrowBase/RayCast2D.rotation))
 		
 	if is_alive:
 		# Get input direction
@@ -213,7 +213,7 @@ func flash_modulate(color:Color):
 	tween.tween_property(self,"modulate",Color.WHITE,0.3)
 
 func shoot(rot:float):
-	$ArrowBase/AnimatedSprite2D.play()#Guns[current_gun].name)#guns[current_gun] #Should be already set for aiming
+	$ArrowBase/AnimatedSprite2D.play(Guns[current_gun].name)#guns[current_gun] #Should be already set for aiming
 	var damage: float = base_gun_damage + PlayerData.bullet_damage_bonus
 	var bullet:RigidBody2D = bulletScene.instantiate()
 	get_parent().add_child(bullet)
