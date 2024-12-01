@@ -962,6 +962,8 @@ initial_velocity_min = 10.0
 initial_velocity_max = 120.68
 scale_amount_curve = SubResource("Curve_u3i58")
 color_ramp = SubResource("Gradient_aj5wx")
+hue_variation_min = -0.43
+hue_variation_max = 0.58
 
 [node name="Gunshot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_06xba")

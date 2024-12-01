@@ -12,6 +12,8 @@ var Guns:Array[Gun] = [
 var base_gun_damage := 5.0
 @export_range(0,3) var current_gun:int = 0
 
+var laser_gun:bool = false 
+
 @export var move_speed := 100.0
 
 @onready var player_sprite:AnimatedSprite2D = $AnimatedSprite2D
@@ -157,8 +159,11 @@ func try_upgrade_gun():
 			break
 		
 		gun_index += 1
-		
-	current_gun = 4#gun_index - 1
+	
+	if laser_gun:
+		current_gun = 4
+	else:
+		current_gun = gun_index - 1
 	$Gunshot.stream = Guns[current_gun].sound
 		
 func input_handling():

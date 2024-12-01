@@ -134,11 +134,13 @@ func spawn():
 				rx = rng.randf_range(l-10,r+10)
 				ry = rng.randf_range(b-10,b)
 				newPos = Vector2(rx,ry)
-		var tiledata:TileData = GrassMap.get_cell_tile_data(GrassMap.local_to_map(newPos))
+		var tilepos:Vector2i = GrassMap.local_to_map(GrassMap.to_local(newPos))
+		var tiledata:TileData = GrassMap.get_cell_tile_data(tilepos)
 		
-		if(tiledata):
+		if(tiledata and GrassMap.get_cell_atlas_coords(tilepos)==Vector2i(1,1)):
+			print(tilepos)
 			var enemy:Enemy = EnemyScenes[rng.randi_range(0,2)].instantiate()
-			enemy.position = newPos- newPos.direction_to(PlPos)
+			enemy.position = newPos
 			add_child(enemy)
 			enemy.activate()
 

@@ -10,3 +10,5 @@ func _ready() -> void:
 
 func _on_interact():
 	if not PlayerData.is_night:return
+	else:
+		PlayerData.player.laser_gun = true
