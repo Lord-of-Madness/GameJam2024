@@ -2,15 +2,13 @@ extends CharacterBody2D
 class_name Player
 enum facing {UP,DOWN,LEFT,RIGHT,NONE}
 
-var guns = ["Colt","Shoot","AK-47","Bazooka"]
-var gun_sounds = {
-	"Colt":preload("res://Art/Sounds/colt.mp3"),
-	"Shoot":preload("res://Art/Sounds/gunshot.wav"),
-	"AK-47":preload("res://Art/Sounds/clean-machine-gun-burst-98224.mp3"),
-	"Bazooka":preload("res://Art/Sounds/medium-explosion-40472.mp3")
-	}
+var Guns:Array[Gun] = [
+	Gun.new().setup("Colt","res://Art/Sounds/colt.mp3",0.0),
+	Gun.new().setup("Shoot","res://Art/Sounds/gunshot.wav",1.0),
+	Gun.new().setup("Shoot","res://Art/Sounds/clean-machine-gun-burst-98224.mp3",3.0),
+	Gun.new().setup("Bazooka","res://Art/Sounds/medium-explosion-40472.mp3",6.0)
+	]
 var base_gun_damage := 5.0
-var gun_damage_thresholds = [0.0, 1.0, 3.0, 6.0]
 @export_range(0,3) var current_gun:int = 0
 
 @export var move_speed := 100.0
@@ -42,7 +40,7 @@ func _ready() -> void:
 	Health = MaxHP
 	arrowbase.visible = false
 	try_upgrade_gun()
-	$ArrowBase/AnimatedSprite2D.animation = guns[current_gun]
+	$ArrowBase/AnimatedSprite2D.animation = Guns[current_gun].name
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton or event is InputEventKey:
@@ -117,15 +115,15 @@ func _physics_process(delta: float) -> void:
 		
 func try_upgrade_gun():
 	var gun_index := 0
-	for damage_threshold in gun_damage_thresholds:
+	for gun in Guns:
 		
-		if damage_threshold > PlayerData.bullet_damage_bonus:
+		if gun.damage_bonus > PlayerData.bullet_damage_bonus:
 			break
 		
 		gun_index += 1
 		
 	current_gun = gun_index - 1
-	$Gunshot.stream = gun_sounds[guns[current_gun]]
+	$Gunshot.stream = Guns[current_gun].sound
 		
 func input_handling():
 	if Input.get_action_strength("right"):
@@ -174,7 +172,7 @@ func flash_modulate(color:Color):
 	tween.tween_property(self,"modulate",Color.WHITE,0.3)
 
 func shoot(rot:float):
-	$ArrowBase/AnimatedSprite2D.play(guns[current_gun])#guns[current_gun] #Should be already set for aiming
+	$ArrowBase/AnimatedSprite2D.play()#Guns[current_gun].name)#guns[current_gun] #Should be already set for aiming
 	var bullet:RigidBody2D = bulletScene.instantiate()
 	get_parent().add_child(bullet)
 	var damage: float = base_gun_damage + PlayerData.bullet_damage_bonus
