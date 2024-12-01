@@ -79,4 +79,5 @@ position = Vector2(-50, 117)
 [node name="Ores" parent="." instance=ExtResource("11_47hfd")]
 position = Vector2(-28, 24)
 
+[connection signal="daybegins" from="." to="." method="_on_daybegins"]
 [connection signal="nightbegins" from="." to="." method="_on_nightbegins"]

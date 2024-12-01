@@ -37,6 +37,8 @@ func _ready() -> void:
 	PlayerData.egg_counter_label = get_node("CanvasLayer/Control/EggCounter/Container/EggCountLabel")
 	PlayerData.turnip_counter_label = get_node("CanvasLayer/Control/TurnipCounter/Container/TurnipCountLabel")
 	PlayerData.ore_counter_label = get_node("CanvasLayer/Control/OreCounter/Container/OreCountLabel")
+	PlayerData.day_night_counter = get_node("CanvasLayer/Control/DayNightCounter")
+	
 	PlayerData.player = %BaseCharacter
 	InteractionManager.player = %BaseCharacter
 	Progress = get_node("CanvasLayer/Control/ProgressBar")
@@ -148,3 +150,10 @@ func _on_nightbegins() -> void:
 	
 	PlayerData.player.Health = PlayerData.player.MaxHP
 	PlayerData.player.health_change.emit()
+	
+	PlayerData.day_night_counter.switch_day_night()
+
+
+func _on_daybegins() -> void:
+	PlayerData.day_night_counter.switch_day_night()
+	PlayerData.day_night_counter.increment()
