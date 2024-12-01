@@ -88,6 +88,7 @@ func night_begins():
 	
 	# Night fades in
 	$Dark.get_node("AnimationPlayer").play("fade")
+	
 	get_node("Map/TileMaps/GrassLayer").material.shader = bloodgrassShader
 	
 
@@ -101,7 +102,14 @@ func day_begins():
 	twenn.parallel()
 	twenn.tween_property(Progress,"offset_bottom",-37,1.5)
 	GrassMap.material.shader = grassShader
-	
+	twenn.tween_method(
+		func(val):$Dark/Control/ColorRect2.material.set_shader_parameter("color",Color(1.0,0.9,0.65,val))
+		,0.0,0.23,0.5
+		)
+	twenn.tween_method(
+		func(val):$Dark/Control/ColorRect2.material.set_shader_parameter("color",Color(1.0,0.9,0.65,val))
+		,0.23,0.0,1.3
+		)
 	# Night fades away
 	$Dark.get_node("AnimationPlayer").play_backwards("fade")
 	
