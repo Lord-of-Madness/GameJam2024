@@ -862,10 +862,12 @@ stream = ExtResource("10_06xba")
 
 [node name="WalkingWet" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_1c0m2")
+pitch_scale = 3.0
 parameters/looping = true
 
 [node name="WalkingDry" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_qnjpk")
+pitch_scale = 2.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="ConversionRing" to="ConversionRing" method="_on_body_entered"]
