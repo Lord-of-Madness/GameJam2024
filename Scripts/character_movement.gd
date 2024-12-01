@@ -2,8 +2,9 @@ extends CharacterBody2D
 class_name Player
 enum facing {UP,DOWN,LEFT,RIGHT,NONE}
 
-var guns = ["Shoot","Colt","AK-47","Bazooka"]
-var gun_dmg = {"Shoot":1.0,"Colt":5.0,"AK-47":10.0,"Bazooka":30.0}
+var guns = ["Colt","Shoot","AK-47","Bazooka"]
+var base_gun_damage := 4.0
+var gun_damage_thresholds = [0.0, 1.0, 3.0, 6.0]
 @export_range(0,3) var current_gun:int = 0
 
 @export var move_speed := 100.0
@@ -34,8 +35,8 @@ var is_doing_mechanic := false
 func _ready() -> void:
 	Health = MaxHP
 	arrowbase.visible = false
+	try_upgrade_gun()
 	$ArrowBase/AnimatedSprite2D.animation = guns[current_gun]
-
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton or event is InputEventKey:
@@ -107,6 +108,22 @@ func _physics_process(delta: float) -> void:
 					if col.get_collider().is_in_group("Crops"):
 						print("collided")
 		
+func try_upgrade_gun():
+	var gun_index := 0
+	for damage_threshold in gun_damage_thresholds:
+		
+		if damage_threshold > PlayerData.bullet_damage_bonus:
+			break
+		
+		gun_index += 1
+		
+	current_gun = gun_index - 1
+	
+	print()
+	print(PlayerData.bullet_damage_bonus)
+	print(gun_index - 1)
+	print()
+		
 func input_handling():
 	if Input.get_action_strength("right"):
 		player_sprite.play("Walk")
@@ -156,10 +173,10 @@ func flash_modulate(color:Color):
 	tween.tween_property(self,"modulate",Color.WHITE,0.3)
 
 func shoot(rot:float):
-	$ArrowBase/AnimatedSprite2D.play()#guns[current_gun] #Should be already set for aiming
+	$ArrowBase/AnimatedSprite2D.play(guns[current_gun])#guns[current_gun] #Should be already set for aiming
 	var bullet:RigidBody2D = bulletScene.instantiate()
 	get_parent().add_child(bullet)
-	var damage: float = gun_dmg[guns[current_gun]] + PlayerData.bullet_damage_bonus
+	var damage: float = base_gun_damage + PlayerData.bullet_damage_bonus
 	bullet.launch(position, rot, damage)
 	$Gunshot.play()
 

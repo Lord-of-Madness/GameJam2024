@@ -52,6 +52,7 @@ func apply_enemy_hp_upgrade():
 func apply_damage_upgrade():
 	bullet_damage_bonus += DAMAGE_INC * _ore_count
 	reset_ore_count()
+	player.try_upgrade_gun()
 	
 # Increases HP bonus and resets egg count.
 func apply_HP_upgrade():
