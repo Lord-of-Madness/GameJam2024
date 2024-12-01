@@ -12,7 +12,15 @@ class_name Enemy
 @export var AttackRange : int= 1
 ##Damage dealt
 @export var damage : int= 1
-var day = true
+var day = true : set = day_setter
+func day_setter(val):
+	if val:
+		$DaySprite.visible = true
+		$Sprite2D.visible = false
+	else:
+		$DaySprite.visible = false
+		$Sprite2D.visible = true
+	day = val
 var canAttack:bool  = true
 var Cooldown:float = 0
 
@@ -66,6 +74,7 @@ func get_direction():
 		return Vector2.DOWN
 
 func taken_hit(dmg:int):
+	$CPUParticles2D.emitting = true
 	if not day:
 		Active = true
 	flash_modulate(Color.RED)
@@ -94,19 +103,13 @@ func attack():
 	Cooldown = 1/AttackSpeed
 	
 func day_begins():
-	$DaySprite.visible = true
-	$Sprite2D.visible = false
 	Active = false
 	day = true
 func night_begins():
 	day = false
-	$DaySprite.visible = false
-	$Sprite2D.visible = true
 	if(position.distance_to(BaseCharacter.position)<=BaseCharacter.get_node("ConversionRing/CollisionShape2D").shape.radius):
 		Active = true
 
 func activate():
 	Active = true
 	day = false
-	$DaySprite.visible = false
-	$Sprite2D.visible = true
