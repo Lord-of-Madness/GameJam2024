@@ -68,7 +68,10 @@ func apply_damage_upgrade():
 	
 # Increases HP bonus and resets egg count.
 func apply_HP_upgrade():
-	max_hp_bonus += HP_INC * _egg_count
+	var max_hp_increase := HP_INC * _egg_count
+	player.MaxHP += max_hp_increase
+	player.health_change.emit()
+	max_hp_bonus += max_hp_increase
 	_max_eggs_count += _egg_count
 	reset_egg_count()
 	
