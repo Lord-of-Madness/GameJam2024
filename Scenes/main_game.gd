@@ -66,6 +66,7 @@ func revive_player():
 	get_tree().paused = true
 	PlayerData.is_dead = true
 	$CanvasLayer/DeathScreen.show()
+	$CanvasLayer/DeathScreen.play_time_string = $CanvasLayer.get_node("Control/Time/Label").text
 	$CanvasLayer/DeathScreen.showStats()
 	%BaseCharacter.position = $SpawnPoint.position
 

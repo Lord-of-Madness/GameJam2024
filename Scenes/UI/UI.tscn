@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dq6udp3vcaey"]
+[gd_scene load_steps=14 format=3 uid="uid://dq6udp3vcaey"]
 
 [ext_resource type="Script" path="res://Scenes/Health_bar.gd" id="1_pqt8e"]
 [ext_resource type="Script" path="res://Scenes/cycle_announcement.gd" id="2_y38bf"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d31s53acs7fq8" path="res://Scenes/UI/turnip_counter.tscn" id="7_olrfe"]
 [ext_resource type="PackedScene" uid="uid://b22n0s18ovdk" path="res://Scenes/UI/ore_counter.tscn" id="8_r3k50"]
 [ext_resource type="PackedScene" uid="uid://dsier1k6bdhr0" path="res://Scenes/UI/day_night_counter.tscn" id="9_pjdrm"]
+[ext_resource type="PackedScene" uid="uid://cbnifobw0xfx7" path="res://Scenes/UI/TimeCounter.tscn" id="10_f65iy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvggy"]
 bg_color = Color(1, 0, 0, 1)
@@ -148,3 +149,10 @@ offset_bottom = -14.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.1, 0.1)
+
+[node name="Time" parent="Control" instance=ExtResource("10_f65iy")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
