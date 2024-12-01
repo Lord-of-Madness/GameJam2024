@@ -113,7 +113,7 @@ func _physics_process(delta: float) -> void:
 		if collider is Enemy:
 			$ArrowBase/RayCast2D/Line2D.modulate= Color.RED
 			$Gunshot.play()
-			collider.taken_hit(damage)
+			collider.taken_hit(damage,Vector2.from_angle($ArrowBase/RayCast2D.rotation))
 		
 	if is_alive:
 		# Get input direction
