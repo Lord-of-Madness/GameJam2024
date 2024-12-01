@@ -1,6 +1,6 @@
 extends ProgressBar
 
-const BLOOD_OVERLAY_THRESHOLD := 0.25
+const BLOOD_OVERLAY_THRESHOLD := 0.33
 
 var base_character: Node2D
 var first_frame := true
@@ -17,5 +17,8 @@ func change_hp():
 	
 	if value / base_character.MaxHP <= BLOOD_OVERLAY_THRESHOLD:
 		$"../BloodOverlay".show()
+		var tween = MusicManager.get_tree().create_tween()
+		
+		MusicManager.swap_music(false, true)
 	else:
 		$"../BloodOverlay".hide()
