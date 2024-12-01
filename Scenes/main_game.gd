@@ -98,6 +98,7 @@ func night_begins():
 	
 	# Night fades in
 	$Dark.get_node("AnimationPlayer").play("fade")
+	
 	get_node("Map/TileMaps/GrassLayer").material.shader = bloodgrassShader
 	
 
@@ -108,14 +109,21 @@ func day_begins():
 		$EvilCrop.set_process(false)
 		
 	PlayerData.is_night = false
-	%BaseCharacter.collision_mask = %BaseCharacter.collision_mask|0b00001000^0b00001000
+	%BaseCharacter.collision_mask = (%BaseCharacter.collision_mask|0b00001000)^0b00001000
 	daybegins.emit()
 	var twenn = create_tween()
 	twenn.tween_property(Progress,"offset_top",-37,1.5)
 	twenn.parallel()
 	twenn.tween_property(Progress,"offset_bottom",-37,1.5)
 	GrassMap.material.shader = grassShader
-	
+	twenn.tween_method(
+		func(val):$Dark/Control/ColorRect2.material.set_shader_parameter("color",Color(1.0,0.9,0.65,val))
+		,0.0,0.23,0.5
+		)
+	twenn.tween_method(
+		func(val):$Dark/Control/ColorRect2.material.set_shader_parameter("color",Color(1.0,0.9,0.65,val))
+		,0.23,0.0,1.3
+		)
 	# Night fades away
 	$Dark.get_node("AnimationPlayer").play_backwards("fade")
 	
