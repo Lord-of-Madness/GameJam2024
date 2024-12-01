@@ -3,9 +3,16 @@ extends Node2D
 var Progress:ProgressBar
 var Darkness:CanvasLayer
 @onready var time:Timer = $Timer
+@export_group("Day Night Cycle")
 @export var daylenght = 10
 @export var nigthlenght = 10
-
+@export_group("Difficulty")
+##Max enemies at once on board -1 for no limit
+#@export var maxEnemies:int = -1
+#var CurrentEnemyNumber = 0
+##Number of enemies spawned per second
+@export var rarities:Array[float] = [1.0,0.0,0.0]
+@export var EnemiesPerSecond:int = 5
 @onready var grassShader:Shader = preload("res://Scenes/Grass.gdshader")
 @onready var bloodgrassShader:Shader = preload("res://Shaders/BloodGrass.gdshader")
 @onready var EnemyScenes:Array[PackedScene] = [
@@ -104,10 +111,10 @@ func swapCycle():
 
 func spawn():
 	if day: return
-	var toSpawn = 5
 	var rect:Rect2 = get_viewport_rect()
 	var PlPos = %BaseCharacter.position
-	for i in range(toSpawn):
+	
+	for i in range(EnemiesPerSecond):
 		
 		var newPos:Vector2
 		var sector = randi_range(0,3)
@@ -138,11 +145,12 @@ func spawn():
 		var tiledata:TileData = GrassMap.get_cell_tile_data(tilepos)
 		
 		if(tiledata and GrassMap.get_cell_atlas_coords(tilepos)==Vector2i(1,1)):
-			print(tilepos)
-			var enemy:Enemy = EnemyScenes[rng.randi_range(0,2)].instantiate()
+			
+			var enemy:Enemy = EnemyScenes[rng.rand_weighted(PackedFloat32Array(rarities))].instantiate()
 			enemy.position = newPos
 			add_child(enemy)
 			enemy.activate()
+			#CurrentEnemyNumber+=1
 
 func _on_nightbegins() -> void:
 	PlayerData.apply_damage_upgrade()

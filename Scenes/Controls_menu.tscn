@@ -1,0 +1,121 @@
+[gd_scene load_steps=11 format=3 uid="uid://cnktx3401iyrj"]
+
+[ext_resource type="Script" path="res://Scripts/controls_menu.gd" id="1_ommph"]
+[ext_resource type="Texture2D" uid="uid://016a6jsty1i2" path="res://Art/menu_background1.png" id="2_qemk8"]
+[ext_resource type="Theme" uid="uid://n55nu4mrrfvt" path="res://Art/Themes/MenuTheme.tres" id="3_k78ga"]
+[ext_resource type="FontFile" uid="uid://41unicm4l3x" path="res://Art/Fonts/GrapeSoda.ttf" id="4_fp2jl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i7qqk"]
+texture = ExtResource("2_qemk8")
+modulate_color = Color(0.290196, 0.290196, 0.290196, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pnt5g"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ko1o"]
+line_spacing = 8.0
+font = ExtResource("4_fp2jl")
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uoyqj"]
+bg_color = Color(0.720467, 0.720468, 0.720467, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4cnhb"]
+bg_color = Color(0.450648, 0.450648, 0.450648, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c71y6"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="ControlsMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ommph")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_i7qqk")
+
+[node name="Controls" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -54.0
+offset_right = 222.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("3_k78ga")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pnt5g")
+text = "Mouse&keyboard / Controller support
+Movement: WSAD / LeftAnalog
+Aim: Hold RMB + mouse / RightAnalog
+Shoot: LMB / RB1
+Interact: E or SPACE / X(PS), A(XBOX)"
+label_settings = SubResource("LabelSettings_1ko1o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.5
+offset_top = 79.0
+offset_right = 10.5
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme = ExtResource("3_k78ga")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uoyqj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4cnhb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_c71y6")
+text = "EXIT"
+
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
