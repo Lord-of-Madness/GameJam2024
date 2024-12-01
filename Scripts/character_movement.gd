@@ -6,7 +6,8 @@ var Guns:Array[Gun] = [
 	Gun.new().setup("Colt","res://Art/Sounds/colt.mp3",0.0),
 	Gun.new().setup("Shoot","res://Art/Sounds/gunshot.wav",1.0),
 	Gun.new().setup("Shoot","res://Art/Sounds/clean-machine-gun-burst-98224.mp3",3.0),
-	Gun.new().setup("Bazooka","res://Art/Sounds/medium-explosion-40472.mp3",6.0)
+	Gun.new().setup("Bazooka","res://Art/Sounds/medium-explosion-40472.mp3",6.0),
+	Gun.new().setup("LazGun","res://Art/Sounds/laser-weld-103309.mp3",1.0)
 	]
 var base_gun_damage := 5.0
 @export_range(0,3) var current_gun:int = 0
@@ -25,6 +26,8 @@ var collision:KinematicCollision2D
 
 var mouse_mode = true
 
+var lasing:bool = false
+
 var last_joy_aim:Vector2
 
 @onready var arrowbase:Node2D = $ArrowBase
@@ -37,10 +40,13 @@ var rng = RandomNumberGenerator.new()
 var is_doing_mechanic := false
 
 func _ready() -> void:
+	Guns[4].las_gun = true
 	Health = MaxHP
 	arrowbase.visible = false
 	try_upgrade_gun()
 	$ArrowBase/AnimatedSprite2D.animation = Guns[current_gun].name
+	$ArrowBase/RayCast2D.collide_with_bodies = true
+	$ArrowBase/RayCast2D.collide_with_areas = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton or event is InputEventKey:
@@ -66,7 +72,10 @@ func _unhandled_input(event: InputEvent) -> void:
 				last_joy_aim = vec
 			arrowbase.rotation =last_joy_aim.angle()
 	if not get_parent().day and event.is_action("Shoot") and (Input.is_action_pressed("Aim") or not mouse_mode):
-		shoot(arrowbase.rotation)
+		if Guns[current_gun].las_gun:
+			lasing = true
+		else:
+			shoot(arrowbase.rotation)
 		
 	if abs(arrowbase.rotation)>=PI/2:
 		$ArrowBase/AnimatedSprite2D.flip_v = true
@@ -76,6 +85,18 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	if get_parent().day:
 		arrowbase.visible = false
+		lasing = false
+		$Gunshot.stop()
+	elif lasing:
+		var damage: float = base_gun_damage + PlayerData.bullet_damage_bonus
+		var collider = $ArrowBase/RayCast2D.get_collider()
+		#$ArrowBase/RayCast2D/Line2D.points[1]= $ArrowBase/RayCast2D.get_collision_point()
+		$ArrowBase/RayCast2D/Line2D.modulate= Color.WHITE
+		if collider is Enemy:
+			$ArrowBase/RayCast2D/Line2D.modulate= Color.RED
+			$Gunshot.play()
+			collider.taken_hit(damage)
+		
 	if is_alive:
 		# Get input direction
 		var horizontal = Input.get_axis("left","right")
@@ -107,22 +128,21 @@ func _physics_process(delta: float) -> void:
 				if not $WalkingWet.playing:
 					$WalkingWet.play()
 			# Move and Slide function uses velocity of character body to move character on map
-			if move_and_slide():
-				for index in get_slide_collision_count():
-					var col = get_slide_collision(index)
-					if col.get_collider().is_in_group("Crops"):
-						print("collided")
+			#if 
+			move_and_slide()#:
+				#for index in get_slide_collision_count():
+					#var col = get_slide_collision(index)
+					#if col.get_collider().is_in_group("Crops"):print("collided")
 		
 func try_upgrade_gun():
 	var gun_index := 0
 	for gun in Guns:
-		
 		if gun.damage_bonus > PlayerData.bullet_damage_bonus:
 			break
 		
 		gun_index += 1
 		
-	current_gun = gun_index - 1
+	current_gun = 4#gun_index - 1
 	$Gunshot.stream = Guns[current_gun].sound
 		
 func input_handling():
@@ -173,9 +193,9 @@ func flash_modulate(color:Color):
 
 func shoot(rot:float):
 	$ArrowBase/AnimatedSprite2D.play()#Guns[current_gun].name)#guns[current_gun] #Should be already set for aiming
+	var damage: float = base_gun_damage + PlayerData.bullet_damage_bonus
 	var bullet:RigidBody2D = bulletScene.instantiate()
 	get_parent().add_child(bullet)
-	var damage: float = base_gun_damage + PlayerData.bullet_damage_bonus
 	bullet.launch(position, rot, damage)
 	$Gunshot.play()
 
