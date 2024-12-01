@@ -1,5 +1,7 @@
 extends Control
 
+var play_time_string: String
+
 func _ready() -> void:
 	visibility_changed.connect(func():
 		if visible:
@@ -8,6 +10,7 @@ func _ready() -> void:
 
 func showStats() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$VBoxContainer2/PlayTime.text = "Play time: " + play_time_string
 	$VBoxContainer2/SurvivedNights.text = "Survived nights: " + str(PlayerData.elapsed_nights)
 	$VBoxContainer2/KilledEnemies.text = "Enemies killed: " + str(PlayerData._enemy_kill_count)
 	$VBoxContainer2/Ores.text = "Ores mined: " + str(PlayerData._max_ore_count)
