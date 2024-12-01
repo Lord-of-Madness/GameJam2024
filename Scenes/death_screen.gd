@@ -6,7 +6,8 @@ func _ready() -> void:
 	visibility_changed.connect(func():
 		if visible:
 			$VBoxContainer/PlayAgain.grab_focus()
-			)
+			MusicManager.get_node("YouDied").play(1.15)
+	)
 
 func showStats() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
