@@ -191,7 +191,6 @@ func take_damage(damage:int):
 		die()
 	
 func die():
-	MusicManager.get_node("YouDied").play()
 	match face:
 		facing.RIGHT,facing.LEFT :
 			player_sprite.play("Death_right")
