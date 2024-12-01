@@ -40,7 +40,7 @@ mouse_filter = 2
 [node name="BloodOverlay" parent="Control" instance=ExtResource("1_6q21q")]
 visible = false
 z_index = -1
-scale = Vector2(0.375, 0.335)
+scale = Vector2(0.25, 0.25)
 
 [node name="ProgressBar" type="ProgressBar" parent="Control"]
 layout_mode = 1

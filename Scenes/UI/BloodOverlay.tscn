@@ -7,7 +7,8 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_yrlnt")
