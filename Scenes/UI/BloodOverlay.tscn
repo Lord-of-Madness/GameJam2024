@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg55owi34l2ys"]
+
+[ext_resource type="Texture2D" uid="uid://c8r7cdcio836a" path="res://Art/Textures/BloodOverlay.png" id="1_yrlnt"]
+
+[node name="BloodOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_yrlnt")

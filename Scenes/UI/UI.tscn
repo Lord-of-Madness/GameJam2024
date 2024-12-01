@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://dq6udp3vcaey"]
+[gd_scene load_steps=15 format=3 uid="uid://dq6udp3vcaey"]
 
+[ext_resource type="PackedScene" uid="uid://bg55owi34l2ys" path="res://Scenes/UI/BloodOverlay.tscn" id="1_6q21q"]
 [ext_resource type="Script" path="res://Scenes/Health_bar.gd" id="1_pqt8e"]
 [ext_resource type="Script" path="res://Scenes/cycle_announcement.gd" id="2_y38bf"]
 [ext_resource type="LabelSettings" uid="uid://bbm407nhinbqg" path="res://Scenes/LabelData/Pretty_Label.tres" id="3_rtchc"]
@@ -35,6 +36,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="BloodOverlay" parent="Control" instance=ExtResource("1_6q21q")]
+visible = false
+z_index = -1
+scale = Vector2(0.375, 0.335)
 
 [node name="ProgressBar" type="ProgressBar" parent="Control"]
 layout_mode = 1

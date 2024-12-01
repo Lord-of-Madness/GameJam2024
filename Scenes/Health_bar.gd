@@ -1,5 +1,7 @@
 extends ProgressBar
 
+const BLOOD_OVERLAY_THRESHOLD := 0.25
+
 var base_character: Node2D
 var first_frame := true
 
@@ -12,3 +14,8 @@ func _process(delta: float) -> void:
 
 func change_hp():
 	value = base_character.Health
+	
+	if value / base_character.MaxHP <= BLOOD_OVERLAY_THRESHOLD:
+		$"../BloodOverlay".show()
+	else:
+		$"../BloodOverlay".hide()

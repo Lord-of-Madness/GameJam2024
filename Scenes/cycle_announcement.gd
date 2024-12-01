@@ -24,6 +24,7 @@ func change_text(day:bool):
 		text.text = day_text
 		text.label_settings = nice
 		glitch.visible = false
+		$"../BloodOverlay".hide()
 	else:
 		text.text = night_text
 		text.label_settings = bloody
