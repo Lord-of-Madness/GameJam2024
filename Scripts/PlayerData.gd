@@ -17,6 +17,15 @@ var _ore_count := 0
 # Amount of turnips player has harvested during day.
 var _turnip_count := 0
 
+# Amount of killed enemies
+var _enemy_kill_count := 0
+
+var _max_turnip_count := 0
+
+var _max_eggs_count := 0
+
+var _max_ore_count := 0
+
 var egg_counter_label: Label
 var turnip_counter_label: Label
 var ore_counter_label: Label
@@ -51,17 +60,20 @@ func apply_enemy_hp_upgrade():
 # Increases damage bonus and resets ore piece count.
 func apply_damage_upgrade():
 	bullet_damage_bonus += DAMAGE_INC * _ore_count
+	_max_ore_count += _ore_count
 	reset_ore_count()
 	player.try_upgrade_gun()
 	
 # Increases HP bonus and resets egg count.
 func apply_HP_upgrade():
 	max_hp_bonus += HP_INC * _egg_count
+	_max_eggs_count += _egg_count
 	reset_egg_count()
 	
 # Increases movement speed bonus and resets turnip count.
 func apply_movement_speed_upgrade():
 	movement_speed_bonus += MOVEMENT_SPEED_INC * _turnip_count
+	_max_turnip_count += _turnip_count
 	reset_turnip_count()
 
 func increment_egg_count():

@@ -4,6 +4,7 @@ class_name Enemy
 
 @export_group("GameProperties")
 @export_range(0,100,5,"or_greater") var Health := 15.0
+@export_range(0,100,5,"or_greater") var SPEED = 70.0
 @export_subgroup("Combat Properties")
 ##Attacks per Second
 @export var AttackSpeed : float= 1.0
@@ -18,7 +19,7 @@ var Cooldown:float = 0
 @onready var AttackNode:Attack = get_node("Attack")
 
 var animPlayer:AnimationPlayer
-const SPEED = 70.0
+
 var Active = false
 var BaseCharacter:Player
 func _ready() -> void:
@@ -66,6 +67,7 @@ func taken_hit(dmg:int):
 	flash_modulate(Color.RED)
 	Health-=dmg
 	if Health<=0:
+		PlayerData._enemy_kill_count += 1
 		queue_free()
 func flash_modulate(color:Color):
 	var tween = create_tween()

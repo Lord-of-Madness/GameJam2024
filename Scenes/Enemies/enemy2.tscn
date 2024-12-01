@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://6ao47a3iy5qf"]
+
+[ext_resource type="PackedScene" uid="uid://dc0yu32iay8ld" path="res://Scenes/enemy.tscn" id="1_w2wrq"]
+[ext_resource type="Texture2D" uid="uid://epypdnynmxpr" path="res://Art/Basic Undead Animations/Ghastly Eye/GhastlyEye.png" id="2_1c05a"]
+
+[node name="Enemy" instance=ExtResource("1_w2wrq")]
+Health = 20.0
+AttackSpeed = 0.5
+AttackRange = 2
+damage = 3
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_1c05a")
+
+[node name="DaySprite" parent="." index="3"]
+region_rect = Rect2(96, 0, 32, 48)
