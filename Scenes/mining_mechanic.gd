@@ -13,9 +13,6 @@ func _ready() -> void:
 	middle_x = $Background.size.x / 2.0
 	PlayerData.in_mechanic = true
 	
-	print(max_x)
-	print(middle_x)
-	
 	$Background/HitBox.position.x = rng.randf_range(0.0, max_x)
 	direction = 1.0 if rng.randf() <= 0.5 else -1.0
 
@@ -26,7 +23,6 @@ func _process(delta: float) -> void:
 		direction *= -1.0
 		
 	if Input.is_action_just_pressed("interact"):
-		print($Background/HitBox.position.x)
 		if $Background/HitBox.get_rect().intersects($Background/Target.get_rect(), true):
 			PlayerData.increment_ore_count()
 		else:
