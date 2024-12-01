@@ -5,7 +5,7 @@ enum facing {UP,DOWN,LEFT,RIGHT,NONE}
 var Guns:Array[Gun] = [
 	Gun.new().setup("Colt","res://Art/Sounds/colt.mp3",0.0),
 	Gun.new().setup("Shoot","res://Art/Sounds/gunshot.wav",1.0),
-	Gun.new().setup("Shoot","res://Art/Sounds/clean-machine-gun-burst-98224.mp3",3.0),
+	Gun.new().setup("Ak-47","res://Art/Sounds/clean-machine-gun-burst-98224.mp3",3.0),
 	Gun.new().setup("Bazooka","res://Art/Sounds/medium-explosion-40472.mp3",6.0),
 	Gun.new().setup("LazGun","res://Art/Sounds/laser-weld-103309.mp3",1.0)
 	]
