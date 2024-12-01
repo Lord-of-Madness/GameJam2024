@@ -1,7 +1,7 @@
 class_name MinihMechanic
 extends Node2D
 
-const SPEED := 448.0
+const SPEED := 300.0
 
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var direction := 1.0
@@ -19,8 +19,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	$Background/HitBox.position.x += SPEED * delta * direction
 	
-	if $Background/HitBox.position.x >= max_x or $Background/HitBox.position.x < 0.0:
-		direction *= -1.0
+	if $Background/HitBox.position.x > max_x:
+		direction = -1.0
+		$Background/HitBox.position.x = max_x
+	elif $Background/HitBox.position.x < 0.0:
+		direction = 1.0
+		$Background/HitBox.position.x = 0.0
 		
 	if Input.is_action_just_pressed("interact"):
 		if $Background/HitBox.get_rect().intersects($Background/Target.get_rect(), true):
