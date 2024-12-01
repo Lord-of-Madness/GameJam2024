@@ -145,7 +145,9 @@ func spawn():
 		var tiledata:TileData = GrassMap.get_cell_tile_data(tilepos)
 		
 		if(tiledata and GrassMap.get_cell_atlas_coords(tilepos)==Vector2i(1,1)):
-			
+			rarities[0] = max(0.0,1.0-rarities[1]/2)
+			rarities[1] = min(2.0,PlayerData.day_night_counter._number/10.0)
+			rarities[2] = min(2.0,PlayerData._enemy_kill_count/100.0)
 			var enemy:Enemy = EnemyScenes[rng.rand_weighted(PackedFloat32Array(rarities))].instantiate()
 			enemy.position = newPos
 			add_child(enemy)
