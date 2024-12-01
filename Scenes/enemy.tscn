@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dc0yu32iay8ld"]
+[gd_scene load_steps=10 format=3 uid="uid://dc0yu32iay8ld"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_qqwst"]
-[ext_resource type="Texture2D" uid="uid://bmgp4heidydc2" path="res://Art/Basic Undead Animations/Bound Cadaver/BoundCadaver.png" id="2_c8abk"]
+[ext_resource type="Texture2D" uid="uid://36nu0822lmjp" path="res://Art/Basic Undead Animations/Bound Cadaver/BoundCadaver.png" id="2_c8abk"]
 [ext_resource type="PackedScene" uid="uid://cslk2v4lq3wwj" path="res://Scenes/AttackAnim.tscn" id="3_wg0sm"]
-[ext_resource type="Texture2D" uid="uid://b74mefpsj7yr8" path="res://Art/Hana Caraka - Topdown Tileset [sample]/Props/Tree.png" id="4_k3inu"]
+[ext_resource type="Texture2D" uid="uid://cy4jo38lv04nd" path="res://Art/Hana Caraka - Topdown Tileset [sample]/Props/Tree.png" id="4_k3inu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i1lgf"]
 radius = 7.0
@@ -40,9 +40,35 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_0bcfm"]
+resource_name = "Death"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.266667, -7, 0.266667, 15),
+"times": PackedFloat32Array(0, 1)
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1yqnd"]
 _data = {
+"Death": SubResource("Animation_0bcfm"),
 "Idle": SubResource("Animation_xxi8w"),
 "RESET": SubResource("Animation_ao5pi")
 }

@@ -26,7 +26,17 @@ var collision:KinematicCollision2D
 
 var mouse_mode = true
 
-var lasing:bool = false
+var lasing:bool = false : set = set_las
+
+func set_las(new_state):
+	lasing = new_state
+	$ArrowBase/RayCast2D/CPUParticles2D.emitting = new_state
+	$ArrowBase/RayCast2D/TargetParticles.emitting = new_state
+	var t = create_tween()
+	if new_state:
+		t.tween_property($ArrowBase/RayCast2D/Line2D,"width",10,0.1)
+	else:
+		t.tween_property($ArrowBase/RayCast2D/Line2D,"width",0,0.1)
 
 var last_joy_aim:Vector2
 
@@ -71,11 +81,14 @@ func _unhandled_input(event: InputEvent) -> void:
 			if vec != Vector2.ZERO:
 				last_joy_aim = vec
 			arrowbase.rotation =last_joy_aim.angle()
-	if not get_parent().day and event.is_action("Shoot") and (Input.is_action_pressed("Aim") or not mouse_mode):
+	if get_parent().day: return
+	if event.is_action_pressed("Shoot") and (Input.is_action_pressed("Aim") or not mouse_mode):
 		if Guns[current_gun].las_gun:
 			lasing = true
 		else:
 			shoot(arrowbase.rotation)
+	elif event.is_action_released("Shoot") or event.is_action_released("Aim"):
+		lasing = false
 		
 	if abs(arrowbase.rotation)>=PI/2:
 		$ArrowBase/AnimatedSprite2D.flip_v = true
@@ -90,7 +103,10 @@ func _physics_process(delta: float) -> void:
 	elif lasing:
 		var damage: float = base_gun_damage + PlayerData.bullet_damage_bonus
 		var collider = $ArrowBase/RayCast2D.get_collider()
-		#$ArrowBase/RayCast2D/Line2D.points[1]= $ArrowBase/RayCast2D.get_collision_point()
+		var colPoint:Vector2 = $ArrowBase/RayCast2D.get_collision_point()
+		var colDist:float= -position.distance_to(colPoint)
+		$ArrowBase/RayCast2D/Line2D.points[1].x= colDist
+		$ArrowBase/RayCast2D/TargetParticles.position.x = colDist
 		$ArrowBase/RayCast2D/Line2D.modulate= Color.WHITE
 		if collider is Enemy:
 			$ArrowBase/RayCast2D/Line2D.modulate= Color.RED

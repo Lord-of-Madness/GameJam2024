@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=3 uid="uid://bwbscfbgtifl4"]
+[gd_scene load_steps=132 format=3 uid="uid://bwbscfbgtifl4"]
 
 [ext_resource type="Script" path="res://Scripts/character_movement.gd" id="1_7lcwf"]
 [ext_resource type="Texture2D" uid="uid://cuv5uol8elak2" path="res://Art/Hana Caraka - Base Character [sample]/idle.png" id="1_insey"]
@@ -868,6 +868,14 @@ animations = [{
 _data = [Vector2(0.165123, 0.309375), 0.0, 0.0, 0, 0]
 point_count = 1
 
+[sub_resource type="Curve" id="Curve_u3i58"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.677469, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_aj5wx"]
+offsets = PackedFloat32Array(0, 0.778547)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 0)
+
 [node name="BaseCharacter" type="CharacterBody2D"]
 collision_layer = 3
 script = ExtResource("1_7lcwf")
@@ -930,6 +938,30 @@ target_position = Vector2(-150, 0)
 points = PackedVector2Array(0, 0, -150, 0)
 width_curve = SubResource("Curve_by3cl")
 end_cap_mode = 2
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="ArrowBase/RayCast2D"]
+emitting = false
+amount = 30
+lifetime = 0.3
+emission_shape = 1
+emission_sphere_radius = 14.55
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 120.68
+scale_amount_curve = SubResource("Curve_u3i58")
+color_ramp = SubResource("Gradient_aj5wx")
+
+[node name="TargetParticles" type="CPUParticles2D" parent="ArrowBase/RayCast2D"]
+emitting = false
+amount = 30
+lifetime = 0.3
+emission_shape = 1
+emission_sphere_radius = 14.55
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 120.68
+scale_amount_curve = SubResource("Curve_u3i58")
+color_ramp = SubResource("Gradient_aj5wx")
 
 [node name="Gunshot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_06xba")
