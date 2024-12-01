@@ -87,17 +87,28 @@ text = "START GAME"
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_top = NodePath("../Button")
-focus_neighbor_bottom = NodePath("../Button3")
+focus_neighbor_bottom = NodePath("../CONTROLS")
 theme = ExtResource("3_fokky")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ak1vb")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_sqshh")
 theme_override_styles/normal = SubResource("StyleBoxFlat_xca8m")
 text = "OPTIONS"
 
-[node name="Button3" type="Button" parent="VBoxContainer"]
+[node name="CONTROLS" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_top = NodePath("../Button2")
+focus_neighbor_bottom = NodePath("../Button3")
+theme = ExtResource("3_fokky")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ak1vb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sqshh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xca8m")
+text = "CONTROLS"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../CONTROLS")
 theme = ExtResource("3_fokky")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ak1vb")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_sqshh")
@@ -127,4 +138,5 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/CONTROLS" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exit_pressed"]
