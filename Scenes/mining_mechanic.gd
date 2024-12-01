@@ -30,6 +30,7 @@ func _process(delta: float) -> void:
 		if $Background/HitBox.get_rect().intersects($Background/Target.get_rect(), true):
 			PlayerData.increment_ore_count()
 			RewardEffect.new_ore()
+			PlayerData._max_ore_count += 1
 		else:
 			on_fail()
 		PlayerData.in_mechanic = false
