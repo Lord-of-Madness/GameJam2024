@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 PlayerData="*res://Scripts/PlayerData.gd"
 InteractionManager="*res://Scenes/InteractionManager.tscn"
 MusicManager="*res://Scenes/music_manager.tscn"
+Effects="*res://Scenes/Effects/Effects.tscn"
 
 [display]
 
