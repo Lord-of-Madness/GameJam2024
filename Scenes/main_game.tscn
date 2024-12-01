@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://e5x1aso3uw0c" path="res://Scenes/Map.tscn" id="1_a3im0"]
 [ext_resource type="PackedScene" uid="uid://dc0yu32iay8ld" path="res://Scenes/enemy.tscn" id="2_yenkv"]
 [ext_resource type="PackedScene" uid="uid://dq6udp3vcaey" path="res://Scenes/UI/UI.tscn" id="7_sy8uy"]
-[ext_resource type="PackedScene" path="res://Scenes/death_screen.tscn" id="8_hyo2y"]
+[ext_resource type="PackedScene" uid="uid://dxqwbno5nk6j4" path="res://Scenes/death_screen.tscn" id="8_hyo2y"]
 [ext_resource type="PackedScene" uid="uid://bwbscfbgtifl4" path="res://Characters/Base_character.tscn" id="9_kdaui"]
 [ext_resource type="PackedScene" path="res://Scenes/pause_menu.tscn" id="9_rgu5t"]
 [ext_resource type="PackedScene" uid="uid://dllvdr44qyxyh" path="res://Scenes/Dark.tscn" id="9_ryj1b"]

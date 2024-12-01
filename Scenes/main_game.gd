@@ -19,6 +19,7 @@ signal nightbegins
 var rng = RandomNumberGenerator.new()
 
 var day = true
+var first_day := true
 
 var AvailableTiles:Array[Vector2i]
 @onready var GrassMap:TileMapLayer = $Map/TileMaps/GrassLayer
@@ -155,5 +156,10 @@ func _on_nightbegins() -> void:
 
 
 func _on_daybegins() -> void:
+	if !first_day:
+		PlayerData.elapsed_nights += 1
+		
 	PlayerData.day_night_counter.switch_day_night()
 	PlayerData.day_night_counter.increment()
+
+	first_day = false

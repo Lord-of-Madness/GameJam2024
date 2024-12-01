@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cau14r8d6f5hv"]
+[gd_scene load_steps=17 format=3 uid="uid://dxqwbno5nk6j4"]
 
 [ext_resource type="Script" path="res://Scenes/death_screen.gd" id="1_f02hd"]
 [ext_resource type="Shader" path="res://Shaders/pause_menu.gdshader" id="1_t8gt4"]
@@ -63,6 +63,31 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
+[sub_resource type="LabelSettings" id="LabelSettings_wxv5n"]
+font_size = 14
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7ni1v"]
+font_size = 14
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6qgja"]
+font_size = 14
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_e3pva"]
+font_size = 14
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_25kgj"]
+font_size = 14
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
 [node name="DeathScreen" type="Control"]
 process_mode = 3
 layout_mode = 3
@@ -90,9 +115,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -149.0
-offset_top = -65.5
+offset_top = -49.0
 offset_right = 149.0
-offset_bottom = 65.5
+offset_bottom = 82.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "YOU DIED!"
@@ -108,9 +133,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -45.0
-offset_top = 37.0
+offset_top = 51.0
 offset_right = 46.0
-offset_bottom = 106.0
+offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
@@ -147,11 +172,21 @@ offset_bottom = -39.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="SurvivedNights" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 10
+text = "Survived nights: 0"
+label_settings = SubResource("LabelSettings_wxv5n")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="KilledEnemies" type="Label" parent="VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 10
 text = "Killed enemies: 0"
+label_settings = SubResource("LabelSettings_7ni1v")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -160,6 +195,7 @@ layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 10
 text = "Ores mined: 0"
+label_settings = SubResource("LabelSettings_6qgja")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -168,6 +204,7 @@ layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 10
 text = "Turnips gathered: 0"
+label_settings = SubResource("LabelSettings_e3pva")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -176,6 +213,7 @@ layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 10
 text = "Eggs picked-up: 0"
+label_settings = SubResource("LabelSettings_25kgj")
 horizontal_alignment = 1
 vertical_alignment = 1
 
