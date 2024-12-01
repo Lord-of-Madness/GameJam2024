@@ -4,7 +4,7 @@ const MIN_IDLE_TIME := 3.0
 const MAX_IDLE_TIME := 7.0
 const MOVEMENT_SPEED := 24.0
 # Maximum number of eggs (of all chickens) in the chicken area.
-const MAX_EGGS_GLOBAL := 4
+const MAX_EGGS_GLOBAL := 2
 # Minimal amount of time during no chicken play another chicken noise after last chicken noise has been played.
 const MIN_CHICKEN_NOISE_TIMEOUT := 3.0
 

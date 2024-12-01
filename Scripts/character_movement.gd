@@ -3,7 +3,7 @@ class_name Player
 enum facing {UP,DOWN,LEFT,RIGHT,NONE}
 
 var guns = ["Colt","Shoot","AK-47","Bazooka"]
-var base_gun_damage := 4.0
+var base_gun_damage := 5.0
 var gun_damage_thresholds = [0.0, 1.0, 3.0, 6.0]
 @export_range(0,3) var current_gun:int = 0
 
