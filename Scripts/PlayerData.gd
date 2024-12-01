@@ -3,7 +3,7 @@ extends Node
 # Increase of damage per ore piece (One Piece is real).
 const DAMAGE_INC := 0.2
 # Increase of HP per turnip.
-const HP_INC := 2.0
+const HP_INC := 1.0
 # Increase of movement speed per egg.
 const MOVEMENT_SPEED_INC := 1.0
 
