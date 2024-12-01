@@ -8,9 +8,9 @@
 [ext_resource type="LabelSettings" uid="uid://bv2est1hx2aj2" path="res://Scenes/LabelData/Bloody_Label.tres" id="5_l6654"]
 [ext_resource type="PackedScene" uid="uid://2hha18fwb78" path="res://Scenes/UI/egg_counter.tscn" id="6_senu2"]
 [ext_resource type="PackedScene" uid="uid://d31s53acs7fq8" path="res://Scenes/UI/turnip_counter.tscn" id="7_olrfe"]
-[ext_resource type="PackedScene" uid="uid://b22n0s18ovdk" path="res://Scenes/UI/ore_counter.tscn" id="8_r3k50"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/ore_counter.tscn" id="8_r3k50"]
 [ext_resource type="PackedScene" uid="uid://dsier1k6bdhr0" path="res://Scenes/UI/day_night_counter.tscn" id="9_pjdrm"]
-[ext_resource type="PackedScene" uid="uid://cbnifobw0xfx7" path="res://Scenes/UI/TimeCounter.tscn" id="10_f65iy"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/TimeCounter.tscn" id="10_f65iy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvggy"]
 bg_color = Color(1, 0, 0, 1)
@@ -40,7 +40,7 @@ mouse_filter = 2
 [node name="BloodOverlay" parent="Control" instance=ExtResource("1_6q21q")]
 visible = false
 z_index = -1
-scale = Vector2(0.25, 0.25)
+layout_mode = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="Control"]
 layout_mode = 1

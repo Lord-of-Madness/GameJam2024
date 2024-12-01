@@ -1,14 +1,23 @@
 [gd_scene load_steps=2 format=3 uid="uid://bg55owi34l2ys"]
 
-[ext_resource type="Texture2D" uid="uid://c8r7cdcio836a" path="res://Art/Textures/BloodOverlay.png" id="1_yrlnt"]
+[ext_resource type="Texture2D" uid="uid://dt82vcamusyto" path="res://Art/Textures/BloodOverlay.png" id="1_yrlnt"]
 
 [node name="BloodOverlay" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 1
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_yrlnt")
+expand_mode = 2
