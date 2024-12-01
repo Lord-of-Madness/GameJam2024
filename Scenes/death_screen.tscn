@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dxqwbno5nk6j4"]
+[gd_scene load_steps=17 format=3 uid="uid://cya3tqbmsd3we"]
 
 [ext_resource type="Script" path="res://Scenes/death_screen.gd" id="1_f02hd"]
 [ext_resource type="Shader" path="res://Shaders/pause_menu.gdshader" id="1_t8gt4"]
@@ -7,7 +7,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3y6ln"]
 shader = ExtResource("1_t8gt4")
-shader_parameter/amount = 1.0
+shader_parameter/amount = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0dw8w"]
 bg_color = Color(0.721569, 0.721569, 0.721569, 1)
