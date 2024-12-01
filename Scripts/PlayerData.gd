@@ -35,6 +35,8 @@ var is_night := false
 var in_mechanic := false
 var player:Player
 
+var is_dead: bool = false
+
 # Current bonus to player's bullet damage.
 var bullet_damage_bonus := 0.0
 # Current bonus to player's max HP amount. 
