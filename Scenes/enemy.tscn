@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://dc0yu32iay8ld"]
+[gd_scene load_steps=15 format=3 uid="uid://dc0yu32iay8ld"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_qqwst"]
 [ext_resource type="Texture2D" uid="uid://36nu0822lmjp" path="res://Art/Basic Undead Animations/Bound Cadaver/BoundCadaver.png" id="2_c8abk"]
 [ext_resource type="PackedScene" uid="uid://cslk2v4lq3wwj" path="res://Scenes/AttackAnim.tscn" id="3_wg0sm"]
+[ext_resource type="AudioStream" uid="uid://e0c0kucsylj1" path="res://Art/Sounds/zombie-bite.mp3" id="4_eruiu"]
 [ext_resource type="Texture2D" uid="uid://cy4jo38lv04nd" path="res://Art/Hana Caraka - Topdown Tileset [sample]/Props/Tree.png" id="4_k3inu"]
+[ext_resource type="AudioStream" uid="uid://q8hkm4cebx2l" path="res://Art/Sounds/zombie-hit.wav" id="5_1lscx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i1lgf"]
 radius = 6.0
@@ -172,6 +174,9 @@ libraries = {
 [node name="Attack" parent="." instance=ExtResource("3_wg0sm")]
 position = Vector2(0, 6)
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Attack"]
+stream = ExtResource("4_eruiu")
+
 [node name="DaySprite" type="Sprite2D" parent="."]
 position = Vector2(9.53674e-07, -3)
 scale = Vector2(0.5, 0.5)
@@ -200,3 +205,6 @@ scale_amount_min = 0.5
 scale_amount_max = 1.5
 color = Color(0.439216, 0.517647, 0.211765, 1)
 color_ramp = SubResource("Gradient_tmytl")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_1lscx")

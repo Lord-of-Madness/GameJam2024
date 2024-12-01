@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://6ao47a3iy5qf"]
+[gd_scene load_steps=6 format=3 uid="uid://6ao47a3iy5qf"]
 
 [ext_resource type="PackedScene" uid="uid://dc0yu32iay8ld" path="res://Scenes/enemy.tscn" id="1_w2wrq"]
 [ext_resource type="Texture2D" uid="uid://epypdnynmxpr" path="res://Art/Basic Undead Animations/Ghastly Eye/GhastlyEye.png" id="2_1c05a"]
+[ext_resource type="AudioStream" uid="uid://cfj7ugam1li6h" path="res://Art/Sounds/eye-hit.wav" id="3_w33d7"]
 
 [sub_resource type="Shader" id="Shader_ly00l"]
 code = "shader_type canvas_item;
@@ -60,3 +61,6 @@ texture = ExtResource("2_1c05a")
 
 [node name="DaySprite" parent="." index="3"]
 region_rect = Rect2(96, 0, 32, 48)
+
+[node name="AudioStreamPlayer2D" parent="." index="5"]
+stream = ExtResource("3_w33d7")

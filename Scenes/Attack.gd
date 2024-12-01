@@ -8,6 +8,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func attack_anim(dir:Vector2):
+	$AudioStreamPlayer2D.play()
 	match dir:
 		Vector2.LEFT:
 			AnimPlayer.play("Right")

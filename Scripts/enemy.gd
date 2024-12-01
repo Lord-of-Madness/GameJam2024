@@ -62,11 +62,10 @@ func _physics_process(delta: float) -> void:
 
 func get_direction():
 	var dir = BaseCharacter.position.direction_to(position)
-	if dir.x>0:
-		if dir.x>abs(dir.y):
+	if abs(dir.x)>abs(dir.y):
+		if dir.x>0:
 			return Vector2.RIGHT
-	else:
-		if -1*dir.x>abs(dir.y):
+		else:
 			return Vector2.LEFT
 	if dir.y>0:
 		return Vector2.UP
@@ -75,6 +74,7 @@ func get_direction():
 
 func taken_hit(dmg:int):
 	$CPUParticles2D.emitting = true
+	$AudioStreamPlayer2D.play()
 	if not day:
 		Active = true
 	flash_modulate(Color.RED)
