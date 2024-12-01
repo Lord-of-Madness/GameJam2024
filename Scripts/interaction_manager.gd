@@ -22,8 +22,10 @@ func unregister_area(area: InteractionArea):
 
 func _process(delta):
 	if PlayerData.is_night or PlayerData.in_mechanic:
-		label.hide()
-		return
+		if active_areas.size() && can_interact:
+			if not active_areas[0].get_parent().name == "EvilCrop":
+				label.hide()
+				return
 	
 	if active_areas.size() > 0 && can_interact:
 		active_areas.sort_custom(_sort_by_distance_to_player)
