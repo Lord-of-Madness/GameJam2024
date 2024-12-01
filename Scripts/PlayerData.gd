@@ -29,6 +29,8 @@ var _max_ore_count := 0
 var egg_counter_label: Label
 var turnip_counter_label: Label
 var ore_counter_label: Label
+var day_night_counter: DayNightCounter
+
 # Determine if night is currently active.
 var is_night := false
 # Determine if player is currenty inside some mechanic (for example ore mining mechanic).
@@ -46,6 +48,9 @@ var movement_speed_bonus := 0.0
 # Current bonus to enemy max HP.
 var enemy_max_hp_bonus := 0.0
 
+# Number of elapsed nights since the last start of game scene.
+var elapsed_nights := 0
+
 # Resets all player data.
 func reset():
 	bullet_damage_bonus = 0.0
@@ -54,6 +59,9 @@ func reset():
 	enemy_max_hp_bonus = 0.0
 	is_night = false
 	in_mechanic = false
+	elapsed_nights = 0
+	if day_night_counter != null:
+		day_night_counter.reset()
 
 # Increases enemy max HP bonus.
 func apply_enemy_hp_upgrade():

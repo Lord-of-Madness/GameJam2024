@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cy4jo38lv04nd" path="res://Art/Hana Caraka - Topdown Tileset [sample]/Props/Tree.png" id="4_k3inu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i1lgf"]
-radius = 7.0
+radius = 6.0
 height = 18.0
 
 [sub_resource type="Animation" id="Animation_xxi8w"]

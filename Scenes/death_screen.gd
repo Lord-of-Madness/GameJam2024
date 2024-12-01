@@ -8,6 +8,7 @@ func _ready() -> void:
 
 func showStats() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$VBoxContainer2/SurvivedNights.text = "Survived nights: " + str(PlayerData.elapsed_nights)
 	$VBoxContainer2/KilledEnemies.text = "Enemies killed: " + str(PlayerData._enemy_kill_count)
 	$VBoxContainer2/Ores.text = "Ores mined: " + str(PlayerData._max_ore_count)
 	$VBoxContainer2/Turnips.text = "Turnips gathered: " + str(PlayerData._max_turnip_count)
