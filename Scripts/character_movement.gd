@@ -118,11 +118,6 @@ func try_upgrade_gun():
 		gun_index += 1
 		
 	current_gun = gun_index - 1
-	
-	print()
-	print(PlayerData.bullet_damage_bonus)
-	print(gun_index - 1)
-	print()
 		
 func input_handling():
 	if Input.get_action_strength("right"):
