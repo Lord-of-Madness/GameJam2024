@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c28yfqakwggci"]
+[gd_scene load_steps=15 format=3 uid="uid://c28yfqakwggci"]
 
 [ext_resource type="Script" path="res://Scenes/main_game.gd" id="1_4f8sh"]
 [ext_resource type="PackedScene" uid="uid://e5x1aso3uw0c" path="res://Scenes/Map.tscn" id="1_a3im0"]
@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" path="res://Scenes/Ores.tscn" id="11_47hfd"]
 [ext_resource type="PackedScene" uid="uid://bfjoy1uoqxljq" path="res://Scenes/EvilCrop.tscn" id="13_cx1qo"]
 [ext_resource type="PackedScene" uid="uid://dbhjsvqgn4mg2" path="res://Scenes/Crop.tscn" id="14_1rs3x"]
-[ext_resource type="Texture2D" uid="uid://bm11632s8rxkp" path="res://Art/Textures/sun.png" id="14_kk8um"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gjbfa"]
 texture = ExtResource("9_y274i")
@@ -97,13 +96,6 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_gjbfa")
 [node name="EvilCrop" parent="." instance=ExtResource("13_cx1qo")]
 visible = false
 position = Vector2(-875, -269)
-
-[node name="EvilCropAura" type="PointLight2D" parent="EvilCrop"]
-z_index = -1
-position = Vector2(0.5, 1)
-scale = Vector2(1.02632, 1)
-texture = ExtResource("14_kk8um")
-texture_scale = 0.1
 
 [connection signal="daybegins" from="." to="." method="_on_daybegins"]
 [connection signal="nightbegins" from="." to="." method="_on_nightbegins"]
