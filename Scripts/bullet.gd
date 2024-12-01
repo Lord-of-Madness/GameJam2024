@@ -9,7 +9,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func launch(pos:Vector2,rot:float,dmg:int):
-	position = pos - Vector2.from_angle(rot)*24
+	position = pos - Vector2.from_angle(rot)
 	rotation = rot
 	linear_velocity = Vector2.from_angle(rot)*-speed
 	damage = dmg

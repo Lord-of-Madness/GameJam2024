@@ -79,7 +79,8 @@ func _physics_process(delta: float) -> void:
 		
 		var angle = atan2(vertical, horizontal)
 		var actual_speed =  move_speed + PlayerData.movement_speed_bonus
-		
+		var glitchShader:ShaderMaterial = get_node("ColorRect").material
+		glitchShader.set_shader_parameter("shake_rate", min(PlayerData.movement_speed_bonus/100.0,1.0))
 		if !is_doing_mechanic:
 			# Animation and idle state speed 0
 			if ((angle >= PI*2 ) or (abs(horizontal) + abs(vertical)) == 0):
