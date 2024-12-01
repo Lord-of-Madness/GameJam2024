@@ -15,7 +15,7 @@ func pause():
 func inputs():
 	if Input.is_action_just_pressed("pause") and !get_tree().paused:
 		pause()
-	elif Input.is_action_just_pressed("pause") and get_tree().paused:
+	elif Input.is_action_just_pressed("pause") and get_tree().paused and not PlayerData.is_dead:
 		resume()
 
 func _process(delta: float) -> void:

@@ -15,6 +15,7 @@ func showStats() -> void:
 
 func restart():
 	MusicManager.reset_music()
+	PlayerData.is_dead = false
 	self.hide()
 
 func _on_play_again_pressed() -> void:

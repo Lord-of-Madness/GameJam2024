@@ -3,7 +3,7 @@ extends Node
 # Increase of damage per ore piece (One Piece is real).
 const DAMAGE_INC := 0.2
 # Increase of HP per turnip.
-const HP_INC := 2.0
+const HP_INC := 1.0
 # Increase of movement speed per egg.
 const MOVEMENT_SPEED_INC := 1.0
 
@@ -34,6 +34,8 @@ var is_night := false
 # Determine if player is currenty inside some mechanic (for example ore mining mechanic).
 var in_mechanic := false
 var player:Player
+
+var is_dead: bool = false
 
 # Current bonus to player's bullet damage.
 var bullet_damage_bonus := 0.0

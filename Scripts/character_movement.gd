@@ -3,7 +3,7 @@ class_name Player
 enum facing {UP,DOWN,LEFT,RIGHT,NONE}
 
 var guns = ["Colt","Shoot","AK-47","Bazooka"]
-var base_gun_damage := 4.0
+var base_gun_damage := 5.0
 var gun_damage_thresholds = [0.0, 1.0, 3.0, 6.0]
 @export_range(0,3) var current_gun:int = 0
 
@@ -119,11 +119,6 @@ func try_upgrade_gun():
 		gun_index += 1
 		
 	current_gun = gun_index - 1
-	
-	print()
-	print(PlayerData.bullet_damage_bonus)
-	print(gun_index - 1)
-	print()
 		
 func input_handling():
 	if Input.get_action_strength("right"):
