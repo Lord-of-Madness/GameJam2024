@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dc0yu32iay8ld"]
+[gd_scene load_steps=12 format=3 uid="uid://dc0yu32iay8ld"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_qqwst"]
 [ext_resource type="Texture2D" uid="uid://36nu0822lmjp" path="res://Art/Basic Undead Animations/Bound Cadaver/BoundCadaver.png" id="2_c8abk"]
@@ -8,6 +8,78 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i1lgf"]
 radius = 6.0
 height = 18.0
+
+[sub_resource type="Shader" id="Shader_ly00l"]
+code = "shader_type canvas_item;
+
+// Animate from 0 to 1
+uniform float progress: hint_range(0.0, 1.0) = 0.0;
+
+uniform float flashState: hint_range(0.0, 1.0) = 0.0;
+
+uniform vec4 flashColor = vec4(1,0,0,1);
+
+// How jagged each band of melting pixels are
+uniform float meltiness: hint_range(0.0, 16.0) = 1.0;
+
+float psuedo_rand(float x) {
+	return mod(x * 2048103.0 + cos(x * 1912.0), 1.0);
+}
+
+void fragment() {
+	vec2 uv = UV;
+	
+	// Move pixels near the top faster
+	uv.y -= progress / UV.y;
+	
+	// Created jagged edges for each pixel on the x-axis 
+	uv.y -= progress * meltiness * psuedo_rand(UV.x - mod(UV.x, TEXTURE_PIXEL_SIZE.x));
+	
+	vec4 pixelcolor = texture(TEXTURE, uv);
+	COLOR = mix(pixelcolor,flashColor,flashState);
+	COLOR.a*=pixelcolor.a;
+	// \"delete\" pixels out of range
+	if (uv.y <= 0.0) {
+		COLOR.a = 0.0;
+	}
+}
+
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vk46b"]
+resource_local_to_scene = true
+shader = SubResource("Shader_ly00l")
+shader_parameter/progress = 0.0
+shader_parameter/flashState = 0.0
+shader_parameter/flashColor = Vector4(1, 0, 0, 1)
+shader_parameter/meltiness = 0.6
+
+[sub_resource type="Animation" id="Animation_0bcfm"]
+resource_name = "Death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/flashState")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.466667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0, 0.0]
+}
 
 [sub_resource type="Animation" id="Animation_xxi8w"]
 resource_name = "Idle"
@@ -40,30 +112,29 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
-tracks/1/type = "bezier"
+tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath(".:material:shader_parameter/progress")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
-
-[sub_resource type="Animation" id="Animation_0bcfm"]
-resource_name = "Death"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_parameter/progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.266667, -7, 0.266667, 15),
-"times": PackedFloat32Array(0, 1)
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:material:shader_parameter/flashState")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1yqnd"]
@@ -84,6 +155,7 @@ shape = SubResource("CapsuleShape2D_i1lgf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
+material = SubResource("ShaderMaterial_vk46b")
 texture = ExtResource("2_c8abk")
 hframes = 4
 region_enabled = true

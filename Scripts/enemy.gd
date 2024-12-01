@@ -20,7 +20,11 @@ var Cooldown:float = 0
 
 var animPlayer:AnimationPlayer
 
-var Active = false
+var Active = false : set = set_active
+func set_active(val):
+	if val and Health<=0:return
+	Active = val
+		
 var BaseCharacter:Player
 func _ready() -> void:
 	Health += PlayerData.enemy_max_hp_bonus
@@ -65,10 +69,19 @@ func taken_hit(dmg:int):
 	if not day:
 		Active = true
 	flash_modulate(Color.RED)
+	var tween = create_tween()
+	tween.tween_method(flash_shader,0.0,1.0,0.2)
+	tween.tween_method(flash_shader,1.0,0.0,0.2)
 	Health-=dmg
 	if Health<=0:
+		Active = false
 		PlayerData._enemy_kill_count += 1
-		queue_free()
+		animPlayer.play("Death")
+		animPlayer.animation_finished.connect(func(name):queue_free())
+
+func flash_shader(val:float):
+	$Sprite2D.material.set_shader_parameter("flashState",val)
+
 func flash_modulate(color:Color):
 	var tween = create_tween()
 	tween.tween_property(self,"modulate",color,0.3)
