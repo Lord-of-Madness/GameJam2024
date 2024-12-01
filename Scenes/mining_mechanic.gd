@@ -23,8 +23,7 @@ func _process(delta: float) -> void:
 		direction *= -1.0
 		
 	if Input.is_action_just_pressed("interact"):
-		var is_target_in_hitbox: bool = $Background/HitBox.position.x <= middle_x and middle_x <= $Background/HitBox.position.x + $Background/HitBox.size.x
-		if is_target_in_hitbox:
+		if $Background/HitBox.get_rect().intersects($Background/Target.get_rect(), true):
 			PlayerData.increment_ore_count()
 			
 		PlayerData.in_mechanic = false
